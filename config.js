@@ -495,7 +495,11 @@ window.SITE_CONFIG = {
       },
       {
         q: "What happens after I submit the quote form?",
-        a: "You get a call or text within 24 hours to confirm details — sometimes a photo of the problem is all that's needed to firm up the price. Your information is only used to respond to your request (see the privacy policy)."
+        /* Same collection-notice constraint as contact.reassurance above:
+           this answer describes where the details go, so it has to describe
+           the real data flow. It previously said information was "only used
+           to respond to your request", which is not what happens. */
+        a: "Your details go to a local contractor who covers your area and does that type of work, so they can quote the job — the contractor pays for the enquiry, you do not. They contact you directly to confirm details, and sometimes a photo of the problem is all that's needed to firm up the price. Your job is not distributed to multiple businesses. See the privacy policy for the full position."
       },
       {
         q: "What if I'm not happy with the work?",
@@ -515,7 +519,24 @@ window.SITE_CONFIG = {
      `extraField` and override `placeholders` for its own page. */
   contact: {
     formHeadline: "Get Your Free Quote",
-    reassurance: "We'll respond within 24 hours. No spam, no obligation — your details are only used to reply to this request.",
+    /* COLLECTION NOTICE - this is not just reassurance copy, so read before
+       editing. The site relies on the Privacy Act small business exemption,
+       and the "trading in personal information" carve-out (OAIC: disclosing
+       personal information for a benefit, service or advantage) only bites
+       where the individual has NOT consented. Consent can be implied, but
+       OAIC requires it to be informed - the person has to understand what
+       happens to their details. That means this line must say, at the point
+       of collection, that the details go to a contractor and that the
+       contractor pays. The stock wording said details were "only used to
+       reply to this request", which described the wrong data flow and worked
+       against the consent the exemption depends on. Keep it accurate and keep
+       the privacy policy link. Name the actual trade when populating a build
+       ("a tiling contractor", "a bricklayer") - it reads as more specific and
+       more honest than "a local contractor".
+       See LAUNCH_PLAYBOOK.md, phase 2, for the full position. The other half
+       of it is the voicemail greeting: sites.greeting_audio_url AND
+       sites.greeting_text must carry the same notice. */
+    reassurance: "No spam and no obligation. Your details go to a local contractor so they can quote your job - the contractor pays for the enquiry, you do not. We never sell your details or add you to a marketing list. [How we handle your information](privacy.html).",
     fields: [
       { name: "name", label: "Name", type: "text", autocomplete: "name" },
       { name: "phone", label: "Phone", type: "tel", autocomplete: "tel" }
