@@ -43,20 +43,20 @@ window.SITE_CONFIG = {
      UI element while the field is empty, rather than rendering something
      broken. Fill them in only once there's a real line to answer. */
   business: {
-    name: "Springfield Home Services",
-    phone: "",         // tel: link format, e.g. "+15551234567" — leave "" until real
-    phoneDisplay: "",  // human-readable, e.g. "(555) 123-4567"
+    name: "Perth Tiling Specialists",
+    phone: "+61895161688",       // Twilio tracking number, frozen in phase 2
+    phoneDisplay: "(08) 9516 1688",
     email: "",         // leave "" until a real inbox exists
-    city: "Springfield",
-    state: "IL",
-    serviceArea: "Springfield and surrounding areas within 25 miles",
+    city: "Perth",
+    state: "WA",
+    serviceArea: "Perth and surrounding suburbs across the metropolitan area",
     hours: ""          // e.g. "Mon–Sat, 7am–7pm" — only once a renter has real hours
   },
 
   /* Used for canonical URLs, schema, and OG tags. No trailing slash.
      bake.js derives CNAME, robots.txt, and sitemap.xml from this — you
      never edit those files by hand. */
-  domain: "https://yourdomain.com",
+  domain: "https://perthtilingspecialists.com.au",
 
   /* --- Brand ----------------------------------------------------------- */
   brand: {
@@ -84,7 +84,7 @@ window.SITE_CONFIG = {
   /* --- Tracking / integrations ----------------------------------------- */
   /* GA4 measurement ID. The snippet is only injected when this doesn't
      contain "XXXX", so the placeholder below keeps tracking OFF. */
-  ga4Id: "G-XXXXXXXXXX",
+  ga4Id: "G-WVV41F95JK",
 
   /* Form leads POST straight to our own ingest endpoint, not to a third-party
      form service — see rank-and-rent-backend's docs/DASHBOARD_PLAN.md, Phase 2
@@ -95,7 +95,7 @@ window.SITE_CONFIG = {
      the privacy policy copy (see privacyContentHtml in bake.js). */
   ingestUrl: "YOUR_INGEST_URL",
   ingestSecret: "YOUR_INGEST_SECRET",
-  turnstileSiteKey: "",
+  turnstileSiteKey: "0x4AAAAAAAEHD1tLftcrbDXIx",
 
   /* --- Structured data ---------------------------------------------------
      Organization, sitewide, until a renter's real premises/hours exist —
@@ -536,7 +536,7 @@ window.SITE_CONFIG = {
        See LAUNCH_PLAYBOOK.md, phase 2, for the full position. The other half
        of it is the voicemail greeting: sites.greeting_audio_url AND
        sites.greeting_text must carry the same notice. */
-    reassurance: "No spam and no obligation. Your details go to a local contractor so they can quote your job - the contractor pays for the enquiry, you do not. We never sell your details or add you to a marketing list. [How we handle your information](privacy.html).",
+    reassurance: "No spam and no obligation. Your details go to a local tiler so they can quote your job - the contractor pays for the enquiry, you do not. We never sell your details or add you to a marketing list. [How we handle your information](privacy.html).",
     fields: [
       { name: "name", label: "Name", type: "text", autocomplete: "name" },
       { name: "phone", label: "Phone", type: "tel", autocomplete: "tel" }
