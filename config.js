@@ -241,7 +241,13 @@ window.SITE_CONFIG = {
         { type: "p", text: "The Perth metropolitan area, north and south of the river, and the eastern suburbs. If you are outside it, send the enquiry anyway and we will tell you straight away whether we can help." },
 
         { type: "h2", text: "Your details" },
-        { type: "p", text: "We only use what you send us to pass your enquiry to a tiler. The [privacy page](privacy.html) sets out what is collected, who it goes to, and how to ask for it to be removed." },
+        /* Kept in step with the privacy page's "Why we collect it", corrected
+           13 Sep 2026. This previously said "We only use what you send us to
+           pass your enquiry to a tiler", which contradicted privacy's
+           aggregate use (job types, no names or contact details). Privacy is
+           the fuller disclosure, so this line follows it. If either changes,
+           change both. */
+        { type: "p", text: "We use what you send us to pass your enquiry to a tiler, and in aggregate, without your name or contact details, to see what kinds of jobs people are asking about. The [privacy page](privacy.html) sets out what is collected, who it goes to, and how to ask for it to be removed." },
 
         { type: "h2", text: "Contact" },
         /* TODO (Brad): insert the Four Foxes sole trader ABN and confirm the
@@ -307,6 +313,8 @@ window.SITE_CONFIG = {
 
         { type: "h2", text: "Why we collect it" },
         { type: "p", text: "To do the one thing this site does: understand your job well enough to pass it to a tiler who can quote it." },
+        /* About's "Your details" section summarises this paragraph. Keep the
+           two in step. */
         { type: "p", text: "We also use enquiry information in aggregate to understand what kinds of jobs people are asking about, which shapes what we write about. That use does not involve your name or contact details." },
 
         { type: "h2", text: "Who your details go to" },
