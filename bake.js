@@ -217,6 +217,24 @@ const pathFor = file =>
 
 const canonicalFor = file => cfg.domain + pathFor(file);
 
+/* Mobile nav without JavaScript. Below the 1024px collapse point the nav is
+   hidden behind .nav-toggle, whose click handler lives in main.js, so with
+   JavaScript off the header menu could never be opened. This shows the nav
+   expanded and hides the useless toggle, and only when JavaScript is off:
+   <noscript><style> in <head> is valid HTML and applies before first paint,
+   so JavaScript users get no flash and no layout shift (a no-js class
+   removed by the deferred main.js would flash the open menu on every phone
+   load). The header also stops being sticky, or a permanently open menu
+   would pin roughly 380px of links over the page while scrolling.
+   The max-width must stay just under the min-width the desktop nav uses in
+   css/styles.css. */
+const NOSCRIPT_NAV_CSS =
+  "<noscript><style>@media (max-width: 1023.98px){" +
+  ".nav-toggle{display:none}" +
+  ".site-nav{display:block}" +
+  "#site-header{position:static}" +
+  "}</style></noscript>";
+
 function head({ title, description, file, faqs, extraSchemas }) {
   const canonical = canonicalFor(file);
   return [
@@ -237,6 +255,7 @@ function head({ title, description, file, faqs, extraSchemas }) {
     '  <meta name="twitter:card" content="summary_large_image">',
     "  <style>" + siteCss() + "</style>",
     "  <style>" + brandCss() + "</style>",
+    "  " + NOSCRIPT_NAV_CSS,
     "  " + jsonLd(bizSchema()),
     faqs && faqs.length ? "  " + jsonLd(faqSchema(faqs)) : null,
     ...(extraSchemas || []).map(s => "  " + jsonLd(s)),

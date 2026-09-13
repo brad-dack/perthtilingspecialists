@@ -358,7 +358,9 @@ html[data-style="elegant"] .logo::before { border-radius: 50%; width: 9px; heigh
 
 .nav-phone { white-space: nowrap; }
 
-/* Desktop nav from 1024px rather than the template's 800px. This build's
+/* If this breakpoint moves, move NOSCRIPT_NAV_CSS in bake.js with it: it
+   expands the mobile nav for visitors without JavaScript below this width.
+   Desktop nav from 1024px rather than the template's 800px. This build's
    nav has five links plus the call button, which needs roughly 1010px in one
    row; at 820px it wrapped to two rows and overflowed the page sideways. */
 @media (min-width: 1024px) {

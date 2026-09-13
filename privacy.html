@@ -376,7 +376,9 @@ html[data-style="elegant"] .logo::before { border-radius: 50%; width: 9px; heigh
 
 .nav-phone { white-space: nowrap; }
 
-/* Desktop nav from 1024px rather than the template's 800px. This build's
+/* If this breakpoint moves, move NOSCRIPT_NAV_CSS in bake.js with it: it
+   expands the mobile nav for visitors without JavaScript below this width.
+   Desktop nav from 1024px rather than the template's 800px. This build's
    nav has five links plus the call button, which needs roughly 1010px in one
    row; at 820px it wrapped to two rows and overflowed the page sideways. */
 @media (min-width: 1024px) {
@@ -1300,6 +1302,7 @@ html[data-style="sharp"] .cta-band { background: var(--brand); }
 }
 </style>
   <style>:root{--brand:#0b6e4f;--brand-dark:#08523b;--brand-contrast:#ffffff;--brand-soft:#e7f1ed;--brand-softer:#f2f7f5;--brand-border:#b6d4ca;--brand-glow:rgba(11,110,79,0.3);--brand-glow-soft:rgba(11,110,79,0.15);--footer-bg:#0f2425;}</style>
+  <noscript><style>@media (max-width: 1023.98px){.nav-toggle{display:none}.site-nav{display:block}#site-header{position:static}}</style></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Perth Tiling Specialists","url":"https://perthtilingspecialists.com.au/","description":"Looking for a tiler in Perth? Tell us about your floor, wall or bathroom tiling job and we will pass it to a Perth tiler who can quote it.","telephone":"+61895161688","email":"hello@perthtilingspecialists.com.au","areaServed":"Perth and surrounding suburbs across the metropolitan area"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://perthtilingspecialists.com.au/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://perthtilingspecialists.com.au/privacy"}]}</script>
   <script src="config.js" defer></script>
