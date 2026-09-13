@@ -277,7 +277,30 @@ window.SITE_CONFIG = {
 
         { type: "h2", text: "What we collect" },
         { type: "p", text: "**When you send an enquiry:** your name, the contact details you give us, the suburb or area the job is in, and whatever you tell us about the job. If you attach a photo of the work, we collect that too." },
-        { type: "p", text: "**When you call:** the phone number on this site routes calls to us. Calls are not recorded and not transcribed." },
+        /* ACCURACY NOTE, corrected 13 Sep 2026. The draft said "Calls are not
+           recorded and not transcribed", recorded as confirmed in its notes.
+           The shared backend says otherwise (rank-and-rent-backend, same
+           correction as Canberra b603e72):
+             - twilio-voice has no <Dial>: no call is answered live. It plays
+               the site greeting, then <Record maxLength="120"
+               transcribe="false">.
+             - twilio-status uploads the audio to the Supabase "voicemails"
+               bucket, and logs from_number on every call_events row,
+               including calls that ring out with no message.
+             - prune-storage (monthly, RETENTION_MONTHS = 12) deletes the audio
+               FILES after 12 months but deliberately keeps the leads and
+               call_events rows, since they are the invoicing evidence.
+           So "not transcribed" stays true. Keep this paragraph in step with
+           twilio-voice and prune-storage.
+           TODO (Brad): the greeting (sites.greeting_audio_url and
+           greeting_text for this site) should tell callers the message is
+           recorded and passed to a tiler, before the tone. Not claimed here
+           because this site's greeting could not be checked from the repo.
+           TODO (Brad): "How long we keep it" below says enquiries are deleted
+           after 12 months. For calls, only the recording is: the caller's
+           number and call time stay in call_events and leads indefinitely.
+           This sits with the existing Supabase deletion-rule TODO. */
+        { type: "p", text: "**When you call:** calls to the number on this site are not answered live. You hear a short greeting and can leave a voicemail. Your phone number and the time of the call are logged whether or not you leave a message. If you do leave one, it is recorded and stored. Voicemails are not transcribed, and recordings are deleted after 12 months." },
         { type: "p", text: "**When you visit the site:** we use Google Analytics, which collects information about visits to the site such as pages viewed, approximate location, and the type of device and browser used. This is not tied to your name and we do not use it to identify individuals." },
         { type: "p", text: "**Spam protection:** the enquiry form uses Cloudflare Turnstile to block automated submissions. It checks that the form is being filled in by a person." },
         { type: "p", text: "We do not ask for and do not want financial information, identity documents, or anything else you would not put in an email to a tradesperson." },
