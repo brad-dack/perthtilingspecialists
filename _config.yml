@@ -1,0 +1,10 @@
+# GitHub Pages publishes every file in the repo unless it is listed here.
+# These are operator notes and build tooling, not part of the site: keep
+# them off the live domain. They remain readable in the public repo.
+# Pages without front matter are still copied through untouched.
+exclude:
+  - README.md
+  - LAUNCH_PLAYBOOK.md
+  - TEMPLATE_SUMMARY.md
+  - New site prompt.txt
+  - bake.js
