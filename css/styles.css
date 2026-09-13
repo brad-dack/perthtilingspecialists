@@ -1076,7 +1076,8 @@ html[data-style="sharp"] .cta-band { background: var(--brand); }
   font-weight: 700;
   margin-bottom: 6px;
 }
-.form-field input {
+.form-field input,
+.form-field textarea {
   width: 100%;
   padding: 13px 14px;
   font: inherit;
@@ -1085,7 +1086,9 @@ html[data-style="sharp"] .cta-band { background: var(--brand); }
   background: var(--bg);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
-.form-field input:focus {
+.form-field textarea { resize: vertical; }
+.form-field input:focus,
+.form-field textarea:focus {
   border-color: var(--brand);
   box-shadow: 0 0 0 4px var(--brand-glow-soft);
   outline: none;

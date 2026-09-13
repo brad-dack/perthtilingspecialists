@@ -916,11 +916,24 @@ window.SITE_CONFIG = {
   faqPreviewCount: 0,
 
   /* --- Contact form ---------------------------------------------------------
-     TODO (Brad): the privacy draft says an enquiry collects name, contact
-     details, the suburb or area, a job description and optionally a photo,
-     and the home draft says "A photo helps if you have one". The form below
-     still collects name and phone only and has no upload. Either the fields
-     or the privacy copy has to change. No fields invented here.
+     FIELDS vs PRIVACY, fixed 13 Sep 2026. The privacy page says an enquiry
+     collects your name, the contact details you give, the suburb or area the
+     job is in, and whatever you tell us about the job. The form previously
+     took name and phone only, so suburb and a job description field are
+     added here rather than cutting the privacy copy: every draft's quote
+     section already asks for "the room, roughly the area and what you want
+     done", which had nowhere to go. The job description is optional, per the
+     home draft ("You will not know all of it, and that is fine"). Its
+     placeholder is the home draft's How it works step 1. ingest-form stores
+     every non-meta field in leads.fields, so no backend change is needed.
+     TODO (Brad): photos. The privacy page says "If you attach a photo of the
+     work, we collect that too" and the home draft says "A photo helps if you
+     have one", but the web form cannot take a file: ingest-form does not
+     handle multipart ("file uploads on a Stage B form aren't supported yet;
+     keep attachments to the email leg"). A photo can only arrive by email,
+     and whether hello@perthtilingspecialists.com.au is routed into
+     ingest-email for this site could not be checked from the repo. Confirm
+     that routing, or drop the photo sentences.
      TODO (Brad): formHeadline, step labels, submitText, successMessage and
      errorMessage are template copy, not draft copy.
      successMessage no longer promises "a call or text within 24 hours"
@@ -953,7 +966,10 @@ window.SITE_CONFIG = {
     ],
     fields: [
       { name: "name", label: "Name", type: "text", autocomplete: "name" },
-      { name: "phone", label: "Phone", type: "tel", autocomplete: "tel" }
+      { name: "phone", label: "Phone", type: "tel", autocomplete: "tel" },
+      { name: "suburb", label: "Suburb", type: "text", autocomplete: "address-level2" },
+      { name: "message", label: "Tell us about the job", type: "textarea", rows: 4, required: false,
+        placeholder: "The room, roughly how big it is, and what you want done." }
     ],
     step1Label: "What do you need help with?",
     step2Label: "Where should we send your quote?",

@@ -429,7 +429,7 @@ the template.
 | No extra centred CTA button or compact How It Works strip after service blocks | `bake.js` | Each draft ends with its own quote section |
 | `ctaBand(ctaText, heading, body)` takes optional per-page `ctaHeading`/`ctaBody`, and adds the call button | `bake.js` | Canberra parity. Unused by this config so far |
 | `contact.jobTypes` drives the job picker instead of `services[].name` | `bake.js` | `services[]` holds pages, including the cost guide, which is not a job. The four job types come from the home draft's "What we can get quoted" headings |
-| `textarea` field type | `bake.js` | Canberra parity. Not used yet, see the open form-fields TODO in `config.js` |
+| `textarea` field type, and its `.form-field textarea` styling | `bake.js`, `css/styles.css` | Used by the optional "Tell us about the job" field, added so the form collects what the privacy page says it does |
 | No em dashes in engine output (noscript line, marker label, testimonial and area FAQ separators, 404 page) | `bake.js` | Handover rule: no em dashes anywhere in output |
 
 **New in this build**
