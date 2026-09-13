@@ -747,14 +747,11 @@ window.SITE_CONFIG = {
           ["Perth renovator", "Partly", "Separates standard work from western suburbs work"],
           ["Perth renovation company", "No", "A single range, no inclusions listed"]
         ] },
-        /* TODO (Brad): the first two sentences below do not match the table
-           directly above them. The table has two "Yes" rows (Perth builder,
-           Perth supplier) and three "No" rows (HIA, the hipages marketplace
-           row, the renovation company), which also matches the figures file.
-           The copy says three state their scope and two state nothing: the
-           counts are swapped. Not corrected here, because the handover rules
-           out rewording copy. Needs your fix before launch. */
-        { type: "p", text: "Three of nine state their scope plainly. Two state nothing at all. When a figure does not say whether it includes demolition, plumbing changes, fixtures, tiling or making good, comparing it to another figure is guesswork, and the $15,667 against $36,750 gap is mostly that guesswork made visible." },
+        /* Counts match the table above and the figures file: two "Yes" rows
+           (Perth builder, Perth supplier), three "No" rows (HIA, the hipages
+           marketplace row, the renovation company). The v2 draft had the two
+           counts swapped; corrected on Brad's instruction, 13 Sep 2026. */
+        { type: "p", text: "Two of nine state their scope plainly. Three state nothing at all. When a figure does not say whether it includes demolition, plumbing changes, fixtures, tiling or making good, comparing it to another figure is guesswork, and the $15,667 against $36,750 gap is mostly that guesswork made visible." },
 
         { type: "h3", text: "Tiling on its own tells a different story" },
         { type: "p", text: "Ask the narrower question, what does it cost to tile a bathroom rather than renovate one, and the published figures stop disagreeing." },
