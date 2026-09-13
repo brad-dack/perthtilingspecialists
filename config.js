@@ -942,17 +942,23 @@ window.SITE_CONFIG = {
      and whether hello@perthtilingspecialists.com.au is routed into
      ingest-email for this site could not be checked from the repo. Confirm
      that routing, or drop the photo sentences.
-     TODO (Brad): formHeadline, step labels, submitText, successMessage and
-     errorMessage are template copy, not draft copy.
+     TODO (Brad): step labels, submitText, successMessage and errorMessage
+     are template copy, not draft copy. submitText ("Get My Free Quote") and
+     step2Label ("Where should we send your quote?") both say we quote, which
+     About says we do not.
      successMessage no longer promises "a call or text within 24 hours"
      (removed 13 Sep 2026 on Brad's instruction): it contradicted the home
      FAQ "How soon will I hear back?", nothing backs it with no tiler
      attached, and response-time promises are banned at Level 2. Do not add
      a timeframe back.
      formHeadline heads the quote section on About. Form blocks elsewhere
-     carry no heading, since each draft supplies its own h2 above the form. */
+     carry no heading, since each draft supplies its own h2 above the form.
+     It was the template's "Get Your Free Quote" until 13 Sep 2026: Title
+     Case against the drafts' sentence case, and it said we quote, which
+     About says we do not. Now the About draft's own anchor text for this
+     form, from its Contact section: "[Send an enquiry](#quote)". */
   contact: {
-    formHeadline: "Get Your Free Quote",
+    formHeadline: "Send an enquiry",
     /* COLLECTION NOTICE - this is not just reassurance copy, so read before
        editing. The site relies on the Privacy Act small business exemption,
        and the "trading in personal information" carve-out (OAIC: disclosing
