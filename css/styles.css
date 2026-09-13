@@ -133,7 +133,9 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 
 body:has(.contact-bar) { padding-bottom: 54px; }
-@media (min-width: 800px) {
+/* 1024px, not the template's 800px: the header nav collapse point, the
+   mobile contact bar and this padding move together. See .site-nav below. */
+@media (min-width: 1024px) {
   body:has(.contact-bar) { padding-bottom: 0; }
 }
 
@@ -356,7 +358,10 @@ html[data-style="elegant"] .logo::before { border-radius: 50%; width: 9px; heigh
 
 .nav-phone { white-space: nowrap; }
 
-@media (min-width: 800px) {
+/* Desktop nav from 1024px rather than the template's 800px. This build's
+   nav has five links plus the call button, which needs roughly 1010px in one
+   row; at 820px it wrapped to two rows and overflowed the page sideways. */
+@media (min-width: 1024px) {
   .nav-toggle { display: none; }
   .header-inner { flex-wrap: nowrap; }
   .site-nav {
@@ -1191,7 +1196,7 @@ html[data-style="sharp"] .cta-band { background: var(--brand); }
 }
 .contact-bar-hidden { transform: translateY(100%); }
 
-@media (min-width: 800px) {
+@media (min-width: 1024px) {
   .contact-bar { display: none; }
 }
 

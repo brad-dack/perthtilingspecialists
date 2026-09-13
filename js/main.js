@@ -101,7 +101,8 @@
   }
 
   /* Fixed bottom bar on mobile — phone/quote/email stay reachable below the
-     800px breakpoint where the header nav is collapsed. Auto-hides while
+     1024px breakpoint where the header nav is collapsed (800px in the
+     template; moved for this build's five-item nav, see css/styles.css). Auto-hides while
      the quote form itself is on screen (no point showing a call bar over
      the form the visitor is already filling in).
 
@@ -111,7 +112,10 @@
   function renderContactBar() {
     var parts = [];
     if (hasPhone()) parts.push('<a class="contact-bar-item" href="' + telHref() + '">' + UI.callLabel + "</a>");
-    parts.push('<a class="contact-bar-item contact-bar-primary" href="about.html#quote">' + UI.quoteShort + "</a>");
+    /* This page's own #quote when it has a form, else the About form.
+       Extensionless to match the baked CTAs (see pathFor in bake.js). */
+    parts.push('<a class="contact-bar-item contact-bar-primary" href="' +
+      (document.getElementById("quote") ? "#quote" : "/about#quote") + '">' + UI.quoteShort + "</a>");
     if (hasEmail()) parts.push('<a class="contact-bar-item" href="mailto:' + esc(cfg.business.email) + '">' + UI.emailLabel + "</a>");
     if (parts.length < 2) return; // just the quote link isn't worth a bar
 

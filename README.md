@@ -410,3 +410,41 @@ README under a "Divergence from the template" heading. It's the fastest way
 to re-apply your changes if this template is ever regenerated, and the
 fastest way for the next person to know your build isn't running the
 stock engine.
+
+### Perth Tiling Specialists (13 September 2026)
+
+This build does **not** run the stock engine. The phase 5 drafts need a
+five-item nav, extensionless routes, and long-form Home, About and Privacy
+pages, none of which the template renders. Most of it is ported from Canberra
+Tiling (`bake.js` as of 9fc8142). The rest is new here. Not yet backported to
+the template.
+
+**Ported from Canberra Tiling**
+
+| Change | Where | Why |
+|---|---|---|
+| `pathFor(file)` and extensionless URLs in every canonical, `og:url`, sitemap `<loc>`, JSON-LD url and internal href. `richText` turns `[label](page.html)` into `/page`. The `--check` sitemap guard maps `<loc>` back to `page.html` | `bake.js` | The approved routes are `/floor-tiling-perth`, `/about` and so on. The template's GitHub Pages builds (Brickworks, Limestone) declare `.html`. GitHub Pages serves `/about.html` at `/about` with a 200 and no redirect, so declaring the extensionless form is safe here. Config copy still links by filename, so targets stay greppable against disk |
+| Home renders from `pages.home.blocks`. The services grid, How It Works strip and About FAQ preview are gone. Home `faqs` blocks build its `FAQPage` schema | `bake.js` | The home draft is long-form copy with its own How it works, routing and FAQ sections |
+| About and Privacy render from `pages.about.blocks` / `pages.privacy.blocks` | `bake.js` | The template's hardcoded privacy text described a different form and data flow ("three things… no other fields", "We don't record calls"). The About draft has its own structure and contact block, so the auto-generated contact lines on About are dropped |
+| No extra centred CTA button or compact How It Works strip after service blocks | `bake.js` | Each draft ends with its own quote section |
+| `ctaBand(ctaText, heading, body)` takes optional per-page `ctaHeading`/`ctaBody`, and adds the call button | `bake.js` | Canberra parity. Unused by this config so far |
+| `contact.jobTypes` drives the job picker instead of `services[].name` | `bake.js` | `services[]` holds pages, including the cost guide, which is not a job. The four job types come from the home draft's "What we can get quoted" headings |
+| `textarea` field type | `bake.js` | Canberra parity. Not used yet, see the open form-fields TODO in `config.js` |
+| No em dashes in engine output (noscript line, marker label, testimonial and area FAQ separators, 404 page) | `bake.js` | Handover rule: no em dashes anywhere in output |
+
+**New in this build**
+
+| Change | Where | Why |
+|---|---|---|
+| Nav is Home, then each `services[]` page in config order, then About. Footer is a single "Pages" column mirroring the nav, plus Privacy | `bake.js` (`navLinks`, `headerHtml`, `footerHtml`) | Approved nav: Home / Floor Tiling / Bathroom Tiling / Cost Guide / About. No dropdown, no anchor links, no `/services` route, and Privacy is footer only. A separate "Our Services" footer column would have listed the cost guide as a service |
+| A `form` block renders inside `<div id="quote">`, with the collection notice (`contact.reassurance`) directly above the form | `bake.js` (`blockHtml`) | The drafts put a form with a `#quote` anchor on Home, Floor and Bathroom, and link to it from each page. The template only had `#quote` on About. The notice goes with every form because the privacy position depends on it being at the point of collection (LAUNCH_PLAYBOOK.md, phase 2) |
+| `pageHasForm` / `quoteHref()`: hero CTAs, the CTA band and `[..](#quote)` links go to the page's own `#quote` when it has a form, otherwise to `/about#quote`. About keeps the template's quote section | `bake.js` | The cost guide and Privacy have no form, so their quote links would otherwise point at an anchor that doesn't exist |
+| `validateForms()`: bake and `--check` fail if a page has more than one form block, or About has any | `bake.js` | The form carries fixed ids (`#quote`, `#quote-form`, `#qf-*`) |
+| Mobile contact bar quote link uses `#quote` when the page has one, else `/about#quote` | `js/main.js` | It was hardcoded to `about.html#quote` |
+| Header nav collapses below 1024px instead of 800px. The mobile contact bar and its body padding move with it | `css/styles.css` | Five links plus the call button need about 1010px in one row. At 820px the header wrapped to two rows and pushed the page wider than the screen |
+
+**Backport notes.** Extensionless URLs, block-rendered pages, `jobTypes` and
+the em dash cleanup are now shared by two builds, so they're good template
+candidates. The nav-from-`services[]` rule and the 1024px breakpoint are
+specific to this build's page count. A template version should take the nav
+list from config.

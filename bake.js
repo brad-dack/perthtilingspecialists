@@ -114,6 +114,14 @@ function brandCss() {
 /* Core pages that always exist; area slugs must not collide with these. */
 const CORE_PAGES = ["index.html", "about.html", "privacy.html", "404.html"];
 
+/* Pages whose content holds a quote form, so "#quote" on that page resolves
+   locally. A page without one sends quote CTAs to the About page's form
+   instead. Set per page by buildPages() before its HTML is rendered; bake
+   is synchronous, so a module-level flag is enough. */
+let pageHasForm = false;
+const blocksHaveForm = blocks => (blocks || []).some(b => b.type === "form");
+const quoteHref = () => pageHasForm ? "#quote" : pathFor("about.html") + "#quote";
+
 const areaFile = area => area.slug + ".html";
 
 /* ---------- schema builders ---------------------------------------------
@@ -197,8 +205,17 @@ const breadcrumbSchema = (name, canonical) => ({
 
 /* ---------- page templates ----------------------------------------------- */
 
-const canonicalFor = file =>
-  cfg.domain + "/" + (file === "index.html" ? "" : file);
+/* Extensionless public URLs. The routes for this build are /floor-tiling-perth,
+   /about and so on, not the .html form. GitHub Pages serves /about.html at
+   /about with a 200 (no redirect), so declaring the extensionless path in
+   every canonical, sitemap <loc>, schema url and internal href is safe here
+   and matches the approved routes. Ported from Canberra Tiling (9fc8142),
+   where Cloudflare Workers forced the same scheme. See README "Divergence
+   from the template". */
+const pathFor = file =>
+  file === "index.html" ? "/" : "/" + file.replace(/\.html$/, "");
+
+const canonicalFor = file => cfg.domain + pathFor(file);
 
 function head({ title, description, file, faqs, extraSchemas }) {
   const canonical = canonicalFor(file);
@@ -228,13 +245,15 @@ function head({ title, description, file, faqs, extraSchemas }) {
   ].filter(Boolean).join("\n");
 }
 
+/* No em dashes in rendered output anywhere on this build (handover hard
+   rule), so the engine's own separators are commas and hyphens. */
 const noscript =
   '<noscript><p class="noscript-warning">This site&#8217;s content needs JavaScript. ' +
   esc(cfg.business.name) +
   (cfg.business.phone
-    ? ' &mdash; call <a href="tel:' + cfg.business.phone + '">' +
+    ? ', call <a href="tel:' + cfg.business.phone + '">' +
       esc(cfg.business.phoneDisplay) + "</a> for a free quote."
-    : " &mdash; enable JavaScript for a free quote.") +
+    : ", enable JavaScript for a free quote.") +
   "</p></noscript>";
 
 /* ---------- the renderer --------------------------------------------------
@@ -327,8 +346,14 @@ const exists = rel => fs.existsSync(path.join(__dirname, rel));
 function richText(s) {
   let t = esc(String(s == null ? "" : s));
   t = t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  /* Config copy links to pages by filename - "[cost guide](tiling-cost-perth.html)" -
+     so the target stays greppable against what is on disk; the href emitted is
+     the extensionless route. "#quote" resolves to this page's form, or to the
+     About form on a page that has none. Anything else (tel:, mailto:,
+     absolute URLs, other anchors) passes through. */
   t = t.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, label, url) =>
-    '<a href="' + url + '">' + label + "</a>");
+    '<a href="' + (/^[a-z0-9-]+\.html$/.test(url) ? pathFor(url)
+      : url === "#quote" ? quoteHref() : url) + '">' + label + "</a>");
   return t.replace(/\n/g, "<br>");
 }
 
@@ -338,7 +363,7 @@ const callButtonHtml = extraClass => hasPhone()
   : "";
 
 const quoteButtonHtml = (text, extraClass) =>
-  '<a class="btn btn-primary ' + (extraClass || "") + '" href="about.html#quote">' +
+  '<a class="btn btn-primary ' + (extraClass || "") + '" href="' + quoteHref() + '">' +
   esc(text) + "</a>";
 
 /* Responsive variants. An image entry may carry `widths: [400, 560, 720, 960]`
@@ -391,11 +416,17 @@ function faqItems(list) {
 function fieldHtml(f, placeholders) {
   const id = "qf-" + f.name;
   const ph = (placeholders && placeholders[f.name]) || f.placeholder;
+  const reqAttr = f.required === false ? "" : " required";
+  if (f.type === "textarea") {
+    return '<div class="form-field"><label for="' + id + '">' + esc(f.label) + "</label>" +
+      '<textarea id="' + id + '" name="' + esc(f.name) + '" rows="' + (f.rows || 4) + '"' +
+      (ph ? ' placeholder="' + esc(ph) + '"' : "") + reqAttr + "></textarea></div>";
+  }
   return '<div class="form-field"><label for="' + id + '">' + esc(f.label) + "</label>" +
     '<input id="' + id + '" name="' + esc(f.name) + '" type="' + esc(f.type || "text") + '"' +
     (f.autocomplete ? ' autocomplete="' + esc(f.autocomplete) + '"' : "") +
     (ph ? ' placeholder="' + esc(ph) + '"' : "") +
-    (f.required === false ? "" : " required") + "></div>";
+    reqAttr + "></div>";
 }
 
 function quoteFormHtml(opts) {
@@ -407,7 +438,12 @@ function quoteFormHtml(opts) {
   if (opts.presetService) {
     presetInput = '<input type="hidden" name="service" value="' + esc(opts.presetService) + '">';
   } else {
-    const options = cfg.services.map(s => s.name).concat([cfg.contact.otherServiceLabel]);
+    /* Job-type picker options come from cfg.contact.jobTypes, NOT
+       cfg.services - the services array is a list of PAGES on this build and
+       includes the cost guide, which is not something a homeowner "needs
+       done". Falls back to service names for a config without jobTypes. */
+    const options = (cfg.contact.jobTypes || cfg.services.map(s => s.name))
+      .concat([cfg.contact.otherServiceLabel]);
     const radios = options.map(name =>
       '<label class="service-option">' +
         '<input type="radio" name="service" value="' + esc(name) + '" required>' +
@@ -462,14 +498,22 @@ function blockHtml(b) {
       return '<p class="block-credit">' + richText(b.text) + "</p>";
     case "marker":
       return '<div class="block-marker" role="note">' +
-        "<strong>Unfinished &mdash; not for publication.</strong> " + richText(b.text) + "</div>";
+        "<strong>Unfinished, not for publication.</strong> " + richText(b.text) + "</div>";
     case "faqs":
       return '<div class="block-faqs">' + faqItems(b.items) + "</div>";
     case "form":
-      return quoteFormHtml({
-        heading: b.heading, presetService: b.presetService,
-        extraField: b.extraField, placeholders: b.placeholders
-      });
+      /* Wrapped in #quote so the page's own "#quote" CTAs land on it. The
+         collection notice renders directly above every form, not just the
+         About one: forms sit on several pages on this build, and the privacy
+         position depends on the notice being at the point of collection (see
+         contact.reassurance in config and LAUNCH_PLAYBOOK.md phase 2). */
+      return '<div class="block-form" id="quote">' +
+        (b.heading ? "<h2>" + esc(b.heading) + "</h2>" : "") +
+        '<p class="reassurance">' + richText(cfg.contact.reassurance) + "</p>" +
+        quoteFormHtml({
+          presetService: b.presetService,
+          extraField: b.extraField, placeholders: b.placeholders
+        }) + "</div>";
     case "image":
       return '<figure class="block-image">' + imgTag(b, "", true) +
         (b.caption ? "<figcaption>" + richText(b.caption) + "</figcaption>" : "") + "</figure>";
@@ -496,21 +540,24 @@ function howItWorksSection(compact) {
     '<ol class="steps">' + steps + "</ol></div></section>";
 }
 
-function ctaBand(ctaText) {
+/* heading/body are OPTIONAL per-page overrides (each service/page entry can
+   set ctaHeading/ctaBody) - falls back to the generic sitewide copy when a
+   page doesn't specify its own. Ported from Canberra Tiling. */
+function ctaBand(ctaText, heading, body) {
   const phoneLine = hasPhone()
     ? UI.callLabel + ' <a href="' + telHref() + '">' + esc(cfg.business.phoneDisplay) +
       "</a> " + UI.orText + " request your free quote online."
     : "Request your free quote online.";
   return '<section class="cta-band"><div class="container">' +
-    "<h2>" + UI.ctaBandTitle + "</h2><p>" + phoneLine + "</p>" +
-    quoteButtonHtml(ctaText, "btn-invert") + "</div></section>";
+    "<h2>" + esc(heading || UI.ctaBandTitle) + "</h2><p>" + richText(body || "") + (body ? "" : phoneLine) + "</p>" +
+    quoteButtonHtml(ctaText, "btn-invert") + callButtonHtml("btn-invert") + "</div></section>";
 }
 
 function testimonialsSection() {
   if (!cfg.testimonials || !cfg.testimonials.length) return "";
   const items = cfg.testimonials.map(t =>
     '<figure class="testimonial"><blockquote>' + esc(t.quote) + "</blockquote>" +
-    "<figcaption>" + esc(t.name) + (t.detail ? " &mdash; " + esc(t.detail) : "") +
+    "<figcaption>" + esc(t.name) + (t.detail ? ", " + esc(t.detail) : "") +
     "</figcaption></figure>"
   ).join("");
   return '<section class="section"><div class="container"><h2>' + UI.testimonialsTitle +
@@ -531,9 +578,9 @@ function photosSection() {
 function serviceCards(services) {
   return services.map(s =>
     '<article class="card">' +
-      '<h3><a href="' + esc(s.page) + '">' + esc(s.name) + "</a></h3>" +
+      '<h3><a href="' + esc(pathFor(s.page)) + '">' + esc(s.name) + "</a></h3>" +
       "<p>" + esc(s.shortDescription) + "</p>" +
-      '<a class="card-link" href="' + esc(s.page) + '">' + UI.serviceDetails + " &rarr;</a>" +
+      '<a class="card-link" href="' + esc(pathFor(s.page)) + '">' + UI.serviceDetails + " &rarr;</a>" +
     "</article>"
   ).join("");
 }
@@ -541,7 +588,7 @@ function serviceCards(services) {
 function areasSection() {
   if (!cfg.areas || !cfg.areas.length) return "";
   const links = cfg.areas.map(a =>
-    '<li><a href="' + esc(a.slug) + '.html">' + esc(a.name) + "</a></li>").join("");
+    '<li><a href="' + esc(pathFor(areaFile(a))) + '">' + esc(a.name) + "</a></li>").join("");
   return '<section class="section" id="areas"><div class="container"><h2>' + UI.areasTitle +
     '</h2><ul class="area-links">' + links + "</ul></div></section>";
 }
@@ -557,22 +604,27 @@ function faqsSection() {
 /* #site-header is position:sticky, so filling it from JS after first paint
    pushes the whole page down — a layout shift on every page. The nav toggle's
    click handler is still wired by main.js; only the markup is baked. */
+/* Nav is Home, then every services[] page in config order, then About:
+   "Home / Floor Tiling / Bathroom Tiling / Cost Guide / About" on this build.
+   Every link is a real page, no dropdown, no anchor links, and no /services
+   route (there is no services index page). Privacy is footer only. */
+function navLinks() {
+  return [{ file: "index.html", label: "Home" }]
+    .concat(cfg.services.map(s => ({ file: s.page, label: s.name })))
+    .concat([{ file: "about.html", label: "About" }]);
+}
+
 function headerHtml(file) {
-  const links = [
-    { href: "index.html", label: "Home" },
-    { href: "index.html#services", label: "Services" },
-    { href: "about.html", label: "Contact" }
-  ];
-  const nav = links.map(l =>
-    "<li><a" + (l.href === file ? ' class="active"' : "") +
-    ' href="' + l.href + '">' + l.label + "</a></li>").join("");
+  const nav = navLinks().map(l =>
+    "<li><a" + (l.file === file ? ' class="active" aria-current="page"' : "") +
+    ' href="' + esc(pathFor(l.file)) + '">' + esc(l.label) + "</a></li>").join("");
   const navPhone = hasPhone()
     ? '<a class="btn btn-primary nav-phone" href="' + telHref() + '">' +
       UI.callLabel + " " + esc(cfg.business.phoneDisplay) + "</a>"
     : quoteButtonHtml(cfg.pages.home.ctaText, "nav-phone");
 
   return '<div class="container header-inner">' +
-      '<a class="logo" href="index.html">' + esc(cfg.business.name) + "</a>" +
+      '<a class="logo" href="' + pathFor("index.html") + '">' + esc(cfg.business.name) + "</a>" +
       '<button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="' + UI.menuLabel + '">' +
         "<span></span><span></span><span></span>" +
       "</button>" +
@@ -586,8 +638,10 @@ function headerHtml(file) {
    JS — on a small site that internal link block is a meaningful share of the
    internal linking. */
 function footerHtml() {
-  const serviceLinks = cfg.services.map(s =>
-    '<li><a href="' + esc(s.page) + '">' + esc(s.name) + "</a></li>").join("");
+  /* One "Pages" column mirroring the nav, plus Privacy. The template's
+     separate "Our Services" column would list the cost guide as a service. */
+  const pageLinks = navLinks().concat([{ file: "privacy.html", label: "Privacy Policy" }]).map(l =>
+    '<li><a href="' + esc(pathFor(l.file)) + '">' + esc(l.label) + "</a></li>").join("");
 
   const contactLines = [];
   if (hasPhone()) contactLines.push('<a href="' + telHref() + '">' + esc(cfg.business.phoneDisplay) + "</a>");
@@ -602,12 +656,7 @@ function footerHtml() {
         (contactLines.length ? "<p>" + contactLines.join("<br>") + "</p>" : "") +
         (detailLines.length ? "<p>" + detailLines.join("<br>") + "</p>" : "") +
       "</div>" +
-      '<div><p class="footer-title">' + UI.services + "</p><ul>" + serviceLinks + "</ul></div>" +
-      '<div><p class="footer-title">Pages</p><ul>' +
-        '<li><a href="index.html">Home</a></li>' +
-        '<li><a href="about.html">About &amp; Contact</a></li>' +
-        '<li><a href="privacy.html">Privacy Policy</a></li>' +
-      "</ul></div>" +
+      '<div><p class="footer-title">Pages</p><ul>' + pageLinks + "</ul></div>" +
     "</div>" +
     '<div class="container footer-bottom">' +
       "<p>&copy; " + new Date().getFullYear() + " " + esc(cfg.business.name) +
@@ -653,26 +702,27 @@ const pageHeadMain = (headline, contentHtml) => `    <section class="page-head">
     </section>
     <div id="page-content">${contentHtml}</div>`;
 
+/* Home renders from cfg.pages.home.blocks - the same block system as every
+   other page - rather than the template's services-grid/how-it-works/FAQ
+   preview scaffolding. This build's homepage is long-form, message-matched
+   copy with its own How it works, routing and FAQ sections. Ported from
+   Canberra Tiling. */
 function homeContentHtml() {
   const p = cfg.pages.home;
-  const faqPreview = (cfg.about.faqs || []).slice(0, cfg.faqPreviewCount || 3);
-  const faqSection = faqPreview.length
-    ? '<section class="section section-alt"><div class="container narrow">' +
-        "<h2>" + UI.faqPreviewTitle + "</h2>" + faqItems(faqPreview) +
-        '<p class="center"><a class="text-link" href="about.html#faqs">' + UI.faqSeeAll + " &rarr;</a></p>" +
-      "</div></section>"
-    : "";
-  return '<section class="section" id="services"><div class="container">' +
-      "<h2>" + UI.services + '</h2><div class="grid-3">' + serviceCards(cfg.services) + "</div></div></section>" +
-    areasSection() + howItWorksSection(false) + testimonialsSection() + faqSection + ctaBand(p.ctaText);
+  return '<section class="section"><div class="container narrow prose">' +
+      renderBlocks(p.blocks) +
+    "</div></section>" +
+    areasSection() + testimonialsSection() +
+    ctaBand(p.ctaText, p.ctaHeading, p.ctaBody);
 }
 
+/* No extra centred CTA button and no compact How it works strip after the
+   blocks: each draft ends with its own quote section. Ported from Canberra. */
 function serviceContentHtml(svc) {
   return '<section class="section"><div class="container narrow prose">' +
       renderBlocks(svc.blocks) +
-      '<p class="center"><a class="btn btn-primary" href="about.html#quote">' + esc(svc.ctaText) + "</a></p>" +
     "</div></section>" +
-    howItWorksSection(true) + testimonialsSection() + ctaBand(svc.ctaText);
+    testimonialsSection() + ctaBand(svc.ctaText, svc.ctaHeading, svc.ctaBody);
 }
 
 function areaContentHtml(area) {
@@ -688,29 +738,28 @@ function areaContentHtml(area) {
     '<section class="section section-alt"><div class="container">' +
       "<h2>" + UI.servicesInPrefix + " " + esc(area.name) + "</h2>" +
       '<div class="grid-3">' + serviceCards(featured) + "</div>" +
-      '<p class="center"><a class="text-link" href="index.html">' + UI.backHome + " &rarr;</a></p>" +
+      '<p class="center"><a class="text-link" href="' + pathFor("index.html") + '">' + UI.backHome + " &rarr;</a></p>" +
     "</div></section>" +
     howItWorksSection(true) +
     (area.faqs && area.faqs.length
       ? '<section class="section section-alt"><div class="container narrow">' +
-          "<h2>" + esc(area.name) + " &mdash; " + UI.faqTitle + "</h2>" + faqItems(area.faqs) +
+          "<h2>" + esc(area.name) + ": " + UI.faqTitle + "</h2>" + faqItems(area.faqs) +
         "</div></section>"
       : "") +
     ctaBand(area.ctaText || cfg.pages.home.ctaText);
 }
 
+/* about/privacy render from their own cfg.pages.X.blocks array - the same
+   block system as services - rather than the template's hardcoded English,
+   which described a different form and a different data flow than this
+   build's drafts (ported from Canberra Tiling). About keeps the template's
+   quote section below the blocks: contact is a section of About on this
+   build, not a page, and About's own "#quote" link targets it. The
+   template's auto-generated contact lines are dropped, because the About
+   draft carries its own Contact block. */
 function aboutContentHtml() {
-  const contactLines = [];
-  if (hasPhone()) contactLines.push("<strong>" + UI.callLabel + ":</strong> " +
-    '<a href="' + telHref() + '">' + esc(cfg.business.phoneDisplay) + "</a>");
-  if (hasEmail()) contactLines.push("<strong>Email:</strong> " +
-    '<a href="mailto:' + esc(cfg.business.email) + '">' + esc(cfg.business.email) + "</a>");
-  if (cfg.business.serviceArea) contactLines.push("<strong>" + UI.serviceAreaLabel + ":</strong> " + esc(cfg.business.serviceArea));
-  if (hasHours()) contactLines.push("<strong>" + UI.hoursLabel + ":</strong> " + esc(cfg.business.hours));
-
-  return '<section class="section"><div class="container narrow">' +
-      cfg.about.paragraphs.map(t => '<p class="lead">' + richText(t) + "</p>").join("") +
-      (contactLines.length ? '<p class="contact-lines">' + contactLines.join("<br>") + "</p>" : "") +
+  return '<section class="section"><div class="container narrow prose">' +
+      renderBlocks(cfg.pages.about.blocks) +
     "</div></section>" +
     photosSection() +
     '<section class="section section-alt" id="quote"><div class="container narrow">' +
@@ -727,26 +776,9 @@ function aboutContentHtml() {
 
 function privacyContentHtml() {
   const p = cfg.pages.privacy;
-  const name = esc(cfg.business.name);
   return '<section class="section"><div class="container narrow prose">' +
       "<p><em>Last updated: " + esc(p.lastUpdated) + "</em></p>" +
-      "<h2>What this website collects</h2>" +
-      "<p>When you use the quote form on this site, we collect three things: your <strong>name</strong>, your <strong>phone number</strong>, and the <strong>service you need</strong>. That's it &mdash; the form has no other fields.</p>" +
-      "<h2>How it's used</h2>" +
-      "<p>Your details are used for one purpose: to contact you about your quote request. They are not sold, shared with advertisers, or added to any marketing list.</p>" +
-      "<h2>Who processes the form</h2>" +
-      "<p>The form is delivered directly to our own systems for handling enquiries. A free security check (Cloudflare Turnstile) runs in the background to filter out automated spam submissions before your enquiry reaches us.</p>" +
-      "<h2>Analytics</h2>" +
-      "<p>This site may use Google Analytics to understand how visitors find and use it (for example, which pages are viewed). Google Analytics uses cookies and collects anonymous usage data such as your general location and device type. It does not see anything you type into the quote form.</p>" +
-      "<h2>Phone calls</h2>" +
-      "<p>If you call the number on this site, standard call records apply. We don't record calls.</p>" +
-      "<h2>Your choices</h2>" +
-      "<p>If you'd like the details you submitted to be deleted, call " +
-      '<a href="' + telHref() + '">' + esc(cfg.business.phoneDisplay) + "</a> or email " +
-      '<a href="mailto:' + esc(cfg.business.email) + '">' + esc(cfg.business.email) + "</a> and ask &mdash; they'll be removed.</p>" +
-      "<h2>Contact</h2>" +
-      "<p>Questions about this policy can be sent to " + name + " at " +
-      '<a href="mailto:' + esc(cfg.business.email) + '">' + esc(cfg.business.email) + "</a>.</p>" +
+      renderBlocks(p.blocks) +
     "</div></section>";
 }
 
@@ -772,12 +804,19 @@ ${mainInner}
 function buildPages() {
   const files = [];
 
+  /* pageHasForm is set before each page renders, so quote CTAs on that page
+     resolve to its own #quote or fall back to About's. */
+  pageHasForm = blocksHaveForm(cfg.pages.home.blocks);
   files.push(["index.html", page("home",
-    head({ title: cfg.pages.home.metaTitle, description: cfg.pages.home.metaDescription, file: "index.html" }),
+    head({
+      title: cfg.pages.home.metaTitle, description: cfg.pages.home.metaDescription, file: "index.html",
+      faqs: faqsFromBlocks(cfg.pages.home.blocks)
+    }),
     heroMain(cfg.pages.home, cfg.pages.home.image, homeContentHtml()),
     "index.html")]);
 
   for (const svc of cfg.services) {
+    pageHasForm = blocksHaveForm(svc.blocks);
     files.push([svc.page, page("service",
       head({
         title: svc.metaTitle, description: svc.metaDescription, file: svc.page,
@@ -793,6 +832,7 @@ function buildPages() {
 
   for (const area of cfg.areas || []) {
     const file = areaFile(area);
+    pageHasForm = false;
     files.push([file, page("area",
       head({
         title: area.metaTitle, description: area.metaDescription, file: file, faqs: area.faqs,
@@ -802,24 +842,39 @@ function buildPages() {
       file)]);
   }
 
+  pageHasForm = true; // About always carries the quote section
   files.push(["about.html", page("about",
     head({
       title: cfg.pages.about.metaTitle, description: cfg.pages.about.metaDescription, file: "about.html",
-      faqs: cfg.about.faqs,
+      faqs: faqsFromBlocks(cfg.pages.about.blocks).concat(cfg.about.faqs || []),
       extraSchemas: [breadcrumbSchema(cfg.pages.about.headline, canonicalFor("about.html"))]
     }),
     pageHeadMain(cfg.pages.about.headline, aboutContentHtml()),
     "about.html")]);
 
+  pageHasForm = blocksHaveForm(cfg.pages.privacy.blocks);
   files.push(["privacy.html", page("privacy",
     head({
       title: cfg.pages.privacy.metaTitle, description: cfg.pages.privacy.metaDescription, file: "privacy.html",
+      faqs: faqsFromBlocks(cfg.pages.privacy.blocks),
       extraSchemas: [breadcrumbSchema(cfg.pages.privacy.headline, canonicalFor("privacy.html"))]
     }),
     pageHeadMain(cfg.pages.privacy.headline, privacyContentHtml()),
     "privacy.html")]);
 
   return files;
+}
+
+/* The form and its wrapper carry fixed ids (#quote, #quote-form, #qf-*), so
+   a page may hold at most one. About already has the quote section, so its
+   blocks may hold none. */
+function validateForms() {
+  const count = blocks => (blocks || []).filter(b => b.type === "form").length;
+  const pages = [["pages.home", cfg.pages.home.blocks, 1], ["pages.about", cfg.pages.about.blocks, 0],
+    ["pages.privacy", cfg.pages.privacy.blocks, 1]]
+    .concat(cfg.services.map((s, i) => ["services[" + i + "]", s.blocks, 1]));
+  return pages.filter(([, blocks, max]) => count(blocks) > max).map(([label, blocks, max]) =>
+    label + " has " + count(blocks) + " form blocks (max " + max + ") - duplicate #quote/#quote-form ids");
 }
 
 /* Area slugs must not overwrite core pages or service pages. */
@@ -911,7 +966,7 @@ const notFoundContent = () => `<!DOCTYPE html>
 <body>
   <div class="card">
     <h1>Page not found</h1>
-    <p>That page doesn&#8217;t exist or has moved &mdash; but we&#8217;re still easy to reach.</p>
+    <p>That page doesn&#8217;t exist or has moved, but we&#8217;re still easy to reach.</p>
     <p><span class="brand">${esc(cfg.business.name)}</span>${cfg.business.phone ? "<br>\n       Call " +
       '<a class="tel" href="tel:' + cfg.business.phone + '">' + esc(cfg.business.phoneDisplay) + "</a>" : ""}</p>
     <a class="btn" href="/">Back to homepage</a>
@@ -935,9 +990,9 @@ const faviconContent = () => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0
 /* ---------- bake (write mode) --------------------------------------------- */
 
 function bake() {
-  const problems = [...validateTheme(), ...validateAreaSlugs()];
+  const problems = [...validateTheme(), ...validateAreaSlugs(), ...validateForms()];
   if (problems.length) {
-    console.error("Cannot bake — fix these entries in config.js first:");
+    console.error("Cannot bake - fix these entries in config.js first:");
     problems.forEach(p => console.error("  ✖ " + p));
     process.exitCode = 1;
     return;
@@ -1138,6 +1193,7 @@ function runCheck() {
 
   /* -- area slug + theme validity ------------------------------------------- */
   validateAreaSlugs().forEach(p => errors.push(p));
+  validateForms().forEach(p => errors.push(p));
   validateTheme().forEach(p => errors.push(p));
 
   /* -- 4. sitemap <-> disk -------------------------------------------------- */
@@ -1147,9 +1203,11 @@ function runCheck() {
     errors.push("sitemap.xml is missing (run node bake.js)");
   } else {
     const locs = [...sitemapRaw.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+    /* <loc> carries the extensionless public path, so map it back to the
+       file on disk before comparing. */
     const locFiles = locs.map(u => {
       const p = u.replace(/^https?:\/\/[^/]+\/?/, "");
-      return p === "" ? "index.html" : p;
+      return p === "" ? "index.html" : p + ".html";
     });
     for (const f of locFiles) {
       if (!exists(f)) errors.push("sitemap.xml lists a page that doesn't exist on disk: " + f);
