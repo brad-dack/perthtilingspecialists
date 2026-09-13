@@ -247,16 +247,27 @@ function head({ title, description, file, faqs, extraSchemas }) {
 
 /* No em dashes in rendered output anywhere on this build (handover hard
    rule), so the engine's own separators are commas and hyphens.
-   "to send an enquiry", not the template's "for a free quote": this site
-   does not quote, and no draft says the tiler's quote is free. Same wording
-   as the form's submit button. */
+   "send an enquiry", not the template's "free quote": this site does not
+   quote, and no draft says the tiler's quote is free.
+   The template opened "This site's content needs JavaScript", written when
+   main.js built the page. Since bake.js became the only renderer every page's
+   content is in the HTML, so that sentence was false. What still needs
+   JavaScript is the enquiry form (fetch submit and Turnstile), so this line
+   names the form and offers the channels that work without it: phone and
+   email, each only when set in config. */
+const noscriptChannels = [
+  cfg.business.phone && cfg.business.phoneDisplay
+    ? 'call <a href="tel:' + cfg.business.phone + '">' + esc(cfg.business.phoneDisplay) + "</a>"
+    : "",
+  cfg.business.email
+    ? 'email <a href="mailto:' + esc(cfg.business.email) + '">' + esc(cfg.business.email) + "</a>"
+    : ""
+].filter(Boolean);
 const noscript =
-  '<noscript><p class="noscript-warning">This site&#8217;s content needs JavaScript. ' +
-  esc(cfg.business.name) +
-  (cfg.business.phone
-    ? ', call <a href="tel:' + cfg.business.phone + '">' +
-      esc(cfg.business.phoneDisplay) + "</a> to send an enquiry."
-    : ", enable JavaScript to send an enquiry.") +
+  '<noscript><p class="noscript-warning">The enquiry form on this site needs JavaScript. ' +
+  (noscriptChannels.length
+    ? "To send an enquiry without it, " + noscriptChannels.join(" or ") + "."
+    : "Turn JavaScript on to send an enquiry.") +
   "</p></noscript>";
 
 /* ---------- the renderer --------------------------------------------------
