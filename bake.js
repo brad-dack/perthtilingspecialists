@@ -246,14 +246,17 @@ function head({ title, description, file, faqs, extraSchemas }) {
 }
 
 /* No em dashes in rendered output anywhere on this build (handover hard
-   rule), so the engine's own separators are commas and hyphens. */
+   rule), so the engine's own separators are commas and hyphens.
+   "to send an enquiry", not the template's "for a free quote": this site
+   does not quote, and no draft says the tiler's quote is free. Same wording
+   as the form's submit button. */
 const noscript =
   '<noscript><p class="noscript-warning">This site&#8217;s content needs JavaScript. ' +
   esc(cfg.business.name) +
   (cfg.business.phone
     ? ', call <a href="tel:' + cfg.business.phone + '">' +
-      esc(cfg.business.phoneDisplay) + "</a> for a free quote."
-    : ", enable JavaScript for a free quote.") +
+      esc(cfg.business.phoneDisplay) + "</a> to send an enquiry."
+    : ", enable JavaScript to send an enquiry.") +
   "</p></noscript>";
 
 /* ---------- the renderer --------------------------------------------------
@@ -542,12 +545,15 @@ function howItWorksSection(compact) {
 
 /* heading/body are OPTIONAL per-page overrides (each service/page entry can
    set ctaHeading/ctaBody) - falls back to the generic sitewide copy when a
-   page doesn't specify its own. Ported from Canberra Tiling. */
+   page doesn't specify its own. Ported from Canberra Tiling.
+   The generic line says "send an enquiry online", not the template's
+   "request your free quote online": this site does not quote, and no draft
+   says the tiler's quote is free. */
 function ctaBand(ctaText, heading, body) {
   const phoneLine = hasPhone()
     ? UI.callLabel + ' <a href="' + telHref() + '">' + esc(cfg.business.phoneDisplay) +
-      "</a> " + UI.orText + " request your free quote online."
-    : "Request your free quote online.";
+      "</a> " + UI.orText + " send an enquiry online."
+    : "Send an enquiry online.";
   return '<section class="cta-band"><div class="container">' +
     "<h2>" + esc(heading || UI.ctaBandTitle) + "</h2><p>" + richText(body || "") + (body ? "" : phoneLine) + "</p>" +
     quoteButtonHtml(ctaText, "btn-invert") + callButtonHtml("btn-invert") + "</div></section>";

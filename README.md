@@ -441,6 +441,7 @@ the template.
 | `pageHasForm` / `quoteHref()`: hero CTAs, the CTA band and `[..](#quote)` links go to the page's own `#quote` when it has a form, otherwise to `/about#quote`. About keeps the template's quote section | `bake.js` | The cost guide and Privacy have no form, so their quote links would otherwise point at an anchor that doesn't exist |
 | `validateForms()`: bake and `--check` fail if a page has more than one form block, or About has any | `bake.js` | The form carries fixed ids (`#quote`, `#quote-form`, `#qf-*`) |
 | Mobile contact bar quote link uses `#quote` when the page has one, else `/about#quote` | `js/main.js` | It was hardcoded to `about.html#quote` |
+| Engine UI text no longer says "free quote": the CTA band's generic line reads "Call … or send an enquiry online." and the noscript line ends "to send an enquiry." | `bake.js` (`ctaBand`, `noscript`) | The template said "request your free quote online" and "for a free quote". This site does not quote, and no draft says the tiler's quote is free. The wording matches the form's submit button |
 | Header nav collapses below 1024px instead of 800px. The mobile contact bar and its body padding move with it | `css/styles.css` | Five links plus the call button need about 1010px in one row. At 820px the header wrapped to two rows and pushed the page wider than the screen |
 
 **Backport notes.** Extensionless URLs, block-rendered pages, `jobTypes` and
