@@ -942,10 +942,14 @@ window.SITE_CONFIG = {
      and whether hello@perthtilingspecialists.com.au is routed into
      ingest-email for this site could not be checked from the repo. Confirm
      that routing, or drop the photo sentences.
-     TODO (Brad): step labels, submitText, successMessage and errorMessage
-     are template copy, not draft copy. submitText ("Get My Free Quote") and
-     step2Label ("Where should we send your quote?") both say we quote, which
-     About says we do not.
+     TODO (Brad): step1Label, successMessage and errorMessage are template
+     copy, not draft copy.
+     submitText and step2Label were the template's "Get My Free Quote" and
+     "Where should we send your quote?" until 13 Sep 2026. Both said we
+     quote, which About says we do not. submitText is now the About draft's
+     anchor text for this form ("Send an enquiry"); step2Label is the About
+     draft's own heading for this subject ("Your details"), and suits a step
+     that now asks for name, phone, suburb and the job.
      successMessage no longer promises "a call or text within 24 hours"
      (removed 13 Sep 2026 on Brad's instruction): it contradicted the home
      FAQ "How soon will I hear back?", nothing backs it with no tiler
@@ -986,9 +990,9 @@ window.SITE_CONFIG = {
         placeholder: "The room, roughly how big it is, and what you want done." }
     ],
     step1Label: "What do you need help with?",
-    step2Label: "Where should we send your quote?",
+    step2Label: "Your details",
     otherServiceLabel: "Something else",
-    submitText: "Get My Free Quote",
+    submitText: "Send an enquiry",
     successMessage: "Thanks, your request is in.",
     errorMessage: "Something went wrong sending your request. Please try again, or reach out directly:"
   },
