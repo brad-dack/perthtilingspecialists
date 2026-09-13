@@ -899,10 +899,12 @@ window.SITE_CONFIG = {
      still collects name and phone only and has no upload. Either the fields
      or the privacy copy has to change. No fields invented here.
      TODO (Brad): formHeadline, step labels, submitText, successMessage and
-     errorMessage are template copy, not draft copy. successMessage promises
-     "a call or text within 24 hours", which contradicts the home FAQ "How
-     soon will I hear back?". Its em dash is swapped for a comma (no em
-     dashes in output); the words are unchanged pending your rewrite.
+     errorMessage are template copy, not draft copy.
+     successMessage no longer promises "a call or text within 24 hours"
+     (removed 13 Sep 2026 on Brad's instruction): it contradicted the home
+     FAQ "How soon will I hear back?", nothing backs it with no tiler
+     attached, and response-time promises are banned at Level 2. Do not add
+     a timeframe back.
      formHeadline heads the quote section on About. Form blocks elsewhere
      carry no heading, since each draft supplies its own h2 above the form. */
   contact: {
@@ -934,7 +936,7 @@ window.SITE_CONFIG = {
     step2Label: "Where should we send your quote?",
     otherServiceLabel: "Something else",
     submitText: "Get My Free Quote",
-    successMessage: "Thanks, your request is in. Expect a call or text within 24 hours.",
+    successMessage: "Thanks, your request is in.",
     errorMessage: "Something went wrong sending your request. Please try again, or reach out directly:"
   },
 
