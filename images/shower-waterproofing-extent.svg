@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <title>Waterproofing extent in a shower</title>
+  <desc>Cross-section of a shower, not to scale. The waterproofing membrane runs up the shower wall to at least 1800 mm above the floor substrate, turns at the wall to floor junction, runs under the floor tiles, which fall to the floor waste, and continues over a stepdown at the shower edge. The shower floor sits at least 25 mm below the finished floor outside it.</desc>
+  <defs>
+    <pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="22" height="22" fill="#8a96a3"/>
+      <rect width="7" height="22" fill="#7d8894"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#1b2430"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="800" fill="#f3f8f6"/>
+
+  <!-- Substrate: wall and floor slab, with the gap for the waste pipe -->
+  <rect x="150" y="60" width="90" height="568" fill="url(#hatch)"/>
+  <path d="M150 628 L244 628 L602 652.5 L602 740 L150 740 Z" fill="url(#hatch)"/>
+  <path d="M638 652 L820 640 L820 580 L1140 580 L1140 740 L638 740 Z" fill="url(#hatch)"/>
+  <rect x="606" y="648" width="28" height="92" fill="#e3e8ed" stroke="#55606e" stroke-width="3"/>
+
+  <!-- Membrane -->
+  <path d="M244 150 L244 628 L604 652.5 L604 690 M636 690 L636 652.3 L820 640 L820 580 L1140 580" fill="none" stroke="#0b6e4f" stroke-width="9" stroke-linejoin="round"/>
+  <line x1="232" y1="150" x2="256" y2="150" stroke="#0b6e4f" stroke-width="5"/>
+
+  <!-- Tiles -->
+  <g fill="#f1ede6" stroke="#5b6773" stroke-width="2.5">
+    <rect x="249" y="90" width="22" height="511"/>
+    <path d="M271 601 L600 625 L600 647 L271 623 Z"/>
+    <path d="M640 625 L815 613.3 L815 635.3 L640 647 Z"/>
+    <rect x="825" y="553" width="315" height="22"/>
+  </g>
+  <g stroke="#5b6773" stroke-width="2">
+    <path d="M249 531 H271 M249 461 H271 M249 391 H271 M249 321 H271 M249 251 H271 M249 181 H271"/>
+    <path d="M380 609 V631 M490 617 V639 M730 619 V641 M930 553 V575 M1035 553 V575"/>
+  </g>
+  <rect x="600" y="623" width="40" height="8" fill="#1b2430"/>
+
+  <!-- 1800 mm: measured from the floor substrate at the wall -->
+  <g stroke="#55606e" stroke-width="2" stroke-dasharray="6 5">
+    <line x1="256" y1="150" x2="312" y2="150"/>
+    <line x1="256" y1="628" x2="312" y2="628"/>
+  </g>
+  <line x1="296" y1="156" x2="296" y2="622" stroke="#1b2430" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="322" y="380" font-size="40" font-weight="700" fill="#1b2430">At least 1800 mm</text>
+  <text x="322" y="422" font-size="30" fill="#55606e">above the floor substrate</text>
+
+  <!-- Fall to the waste -->
+  <text x="490" y="552" text-anchor="middle" font-size="36" font-weight="700" fill="#1b2430">Fall to the waste</text>
+  <line x1="335" y1="578" x2="572" y2="595" stroke="#1b2430" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="762" y1="588" x2="668" y2="594" stroke="#1b2430" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- 25 mm stepdown: shower floor below the finished floor outside -->
+  <line x1="776" y1="553" x2="823" y2="553" stroke="#55606e" stroke-width="2" stroke-dasharray="6 5"/>
+  <line x1="790" y1="558" x2="790" y2="609" stroke="#1b2430" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <line x1="902" y1="524" x2="800" y2="572" stroke="#55606e" stroke-width="2"/>
+  <text x="990" y="470" text-anchor="middle" font-size="40" font-weight="700" fill="#1b2430">At least 25 mm</text>
+  <text x="990" y="514" text-anchor="middle" font-size="40" font-weight="700" fill="#1b2430">stepdown</text>
+
+  <!-- Legend -->
+  <rect x="740" y="72" width="440" height="222" rx="16" fill="#ffffff" stroke="#e3e8ed" stroke-width="2"/>
+  <rect x="764" y="107" width="46" height="26" fill="#f1ede6" stroke="#5b6773" stroke-width="2.5"/>
+  <text x="826" y="130" font-size="28" fill="#1b2430">Tiles</text>
+  <rect x="764" y="165" width="46" height="10" fill="#0b6e4f"/>
+  <text x="826" y="180" font-size="28" fill="#1b2430">Waterproofing membrane</text>
+  <rect x="764" y="207" width="46" height="26" fill="url(#hatch)"/>
+  <text x="826" y="230" font-size="28" fill="#1b2430">Substrate</text>
+  <text x="764" y="275" font-size="24" font-style="italic" fill="#55606e">Not to scale</text>
+
+  <!-- Zones -->
+  <text x="430" y="782" text-anchor="middle" font-size="30" fill="#55606e">Shower</text>
+  <text x="620" y="782" text-anchor="middle" font-size="30" fill="#55606e">Floor waste</text>
+  <text x="980" y="782" text-anchor="middle" font-size="30" fill="#55606e">Bathroom floor</text>
+</svg>

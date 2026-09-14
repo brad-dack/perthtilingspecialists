@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <title>Cross-section of a fully bonded tile and a drummy tile</title>
+  <desc>Two floor tiles in cross-section. On the left, adhesive fills the whole space between the tile and the substrate, and the tile sounds solid when tapped. On the right, adhesive holds only the edges and there is a hollow void under the middle of the tile, which sounds hollow when tapped.</desc>
+  <defs>
+    <pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="22" height="22" fill="#6f7b88"/>
+      <rect width="7" height="22" fill="#64707c"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="#f3f8f6"/>
+
+  <!-- Left: fully bonded -->
+  <rect x="60" y="60" width="510" height="680" rx="24" fill="#ffffff" stroke="#e3e8ed" stroke-width="2"/>
+  <text x="315" y="170" text-anchor="middle" font-size="48" font-weight="700" fill="#1b2430">Fully bonded</text>
+  <text x="315" y="222" text-anchor="middle" font-size="32" fill="#55606e">Sounds solid when tapped</text>
+  <g fill="none" stroke="#0b6e4f" stroke-width="6" stroke-linecap="round">
+    <path d="M285 400 A30 30 0 0 1 345 400"/>
+    <path d="M260 400 A55 55 0 0 1 370 400"/>
+    <path d="M235 400 A80 80 0 0 1 395 400"/>
+  </g>
+  <rect x="110" y="520" width="410" height="180" fill="url(#hatch)"/>
+  <rect x="110" y="470" width="410" height="50" fill="#cfd5da"/>
+  <rect x="110" y="400" width="410" height="70" rx="4" fill="#f1ede6" stroke="#5b6773" stroke-width="3"/>
+  <text x="315" y="447" text-anchor="middle" font-size="34" font-weight="600" fill="#1b2430">Tile</text>
+  <text x="315" y="506" text-anchor="middle" font-size="30" font-weight="600" fill="#1b2430">Adhesive</text>
+  <text x="315" y="622" text-anchor="middle" font-size="34" font-weight="600" fill="#ffffff">Substrate</text>
+
+  <!-- Right: drummy -->
+  <rect x="630" y="60" width="510" height="680" rx="24" fill="#ffffff" stroke="#e3e8ed" stroke-width="2"/>
+  <text x="885" y="170" text-anchor="middle" font-size="48" font-weight="700" fill="#1b2430">Drummy</text>
+  <text x="885" y="222" text-anchor="middle" font-size="32" fill="#55606e">Sounds hollow when tapped</text>
+  <g fill="none" stroke="#b45309" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 12">
+    <path d="M855 400 A30 30 0 0 1 915 400"/>
+    <path d="M830 400 A55 55 0 0 1 940 400"/>
+    <path d="M805 400 A80 80 0 0 1 965 400"/>
+  </g>
+  <rect x="680" y="520" width="410" height="180" fill="url(#hatch)"/>
+  <path d="M680 470 L770 470 C760 490 775 505 755 520 L680 520 Z" fill="#cfd5da"/>
+  <path d="M1090 470 L1000 470 C1010 490 995 505 1015 520 L1090 520 Z" fill="#cfd5da"/>
+  <path d="M770 470 L1000 470 C1010 490 995 505 1015 520 L755 520 C775 505 760 490 770 470 Z" fill="#fff7ed" stroke="#b45309" stroke-width="3" stroke-dasharray="10 8"/>
+  <rect x="680" y="400" width="410" height="70" rx="4" fill="#f1ede6" stroke="#5b6773" stroke-width="3"/>
+  <text x="885" y="447" text-anchor="middle" font-size="34" font-weight="600" fill="#1b2430">Tile</text>
+  <text x="885" y="506" text-anchor="middle" font-size="30" font-weight="700" fill="#b45309">Hollow void</text>
+  <text x="885" y="622" text-anchor="middle" font-size="34" font-weight="600" fill="#ffffff">Substrate</text>
+</svg>
