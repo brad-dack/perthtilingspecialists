@@ -428,7 +428,12 @@ window.SITE_CONFIG = {
           "**Laying.** Adhesive, tiles, spacers, and the cuts around door frames, cabinetry and fixtures.",
           "**Grout and sealant.** Grout in the joints, flexible sealant where the floor meets walls and other materials."
         ] },
-        { type: "p", text: "Tile installation is covered by **AS 3958:2023, incorporating Amendment No. 1 (2024)**. It is the standard a tiler is working to whether or not it is mentioned in the quote. [VERIFY: claim register row 12]" },
+        /* VERIFIED 15 Sep 2026 (claim register row 12): Intertek Inform lists
+           AS 3958:2023 "Installation of ceramic and stone tiles" as Current,
+           published 1 Dec 2023, "Reissued incorporating Amendment No 1 (June
+           2024)", superseding AS 3958.1-2007 and AS 3958.2-1992. */
+        { type: "p", text: "Tile installation is covered by **AS 3958:2023, incorporating Amendment No. 1 (2024)**. It is the standard a tiler is working to whether or not it is mentioned in the quote." },
+        { type: "credit", text: "AS 3958:2023 Installation of ceramic and stone tiles, reissued incorporating Amendment No. 1 (June 2024), Standards Australia." },
 
         { type: "h2", text: "The substrate is where the money hides" },
         { type: "p", text: "Two floors that look identical can cost very different amounts to tile, and the difference is almost always underneath." },
@@ -461,7 +466,22 @@ window.SITE_CONFIG = {
         { type: "image", src: "images/drummy-tile-cross-section.svg", alt: "Cross-section diagram comparing a fully bonded floor tile with a drummy tile that has a hollow void beneath it.", width: 1200, height: 800 },
 
         { type: "h2", text: "Older Perth floors" },
-        { type: "p", text: "In homes built before the late 1980s, old floor coverings, tile beds and backing materials can contain asbestos. Under WorkSafe WA, licensed removal is required for any quantity of friable asbestos, or for more than 10 square metres of non-friable asbestos, with notification to WorkSafe at least five days before licensed work starts. [VERIFY: claim register row 10]" },
+        /* VERIFIED 15 Sep 2026 (claim register row 10). Two corrections to the
+           draft at verification:
+           - "before the late 1980s" is now "before 1990", which is HealthyWA's
+             wording ("If your home was built before 1990 then it likely
+             contains asbestos in some building products").
+           - "old floor coverings, tile beds and backing materials" is now the
+             products HealthyWA actually lists: vinyl floor tiles, linoleum
+             floor backing, and backing for wall tiles and splashbacks. Tile
+             beds are not on its list.
+           WorkSafe WA, Asbestos removal notifications: "Licensed asbestos
+           removal work involves the removal of any quantity of friable
+           asbestos, or more than 10 square metres of non-friable asbestos" and
+           "You must notify us at least 5 days before starting licensed asbestos
+           removal work." Keep the bathroom page and cost guide in step. */
+        { type: "p", text: "In homes built before 1990, old vinyl floor tiles, linoleum backing and the sheeting behind wall tiles can contain asbestos. WorkSafe WA treats removing any quantity of friable asbestos, or more than 10 square metres of non-friable asbestos, as licensed asbestos removal work, and WorkSafe has to be notified at least five days before that work starts." },
+        { type: "credit", text: "HealthyWA, Asbestos in and around the home; WorkSafe WA, Asbestos removal notifications." },
         { type: "p", text: "This matters more on floors than most people realise, because removing an old floor means cutting, grinding and breaking up exactly the materials most likely to contain it. If there is any doubt, it gets tested before anything is disturbed." },
 
         { type: "h2", text: "Before you get a quote" },
@@ -513,7 +533,13 @@ window.SITE_CONFIG = {
 
         { type: "h2", text: "Waterproofing: what has to happen before the tiles go down" },
         { type: "p", text: "This section sits first because it is the part of the job you cannot inspect later and the part that costs the most to get wrong." },
-        { type: "p", text: "Waterproofing in a domestic wet area is covered by **AS 3740:2021**, the current edition, which supersedes the 2010 version. Tile installation itself is covered by **AS 3958:2023, incorporating Amendment No. 1 (2024)**. The National Construction Code sets the requirements that apply to the work. [VERIFY: claim register rows 1, 12, 2a]" },
+        { type: "p", text: "Waterproofing in a domestic wet area is covered by **AS 3740:2021**, the current edition, which supersedes the 2010 version. Tile installation itself is covered by **AS 3958:2023, incorporating Amendment No. 1 (2024)**. The National Construction Code sets the requirements that apply to the work." },
+        /* VERIFIED 15 Sep 2026 (claim register rows 1, 12, 2a). Intertek
+           Inform: AS 3740:2021 "Waterproofing of domestic wet areas" is
+           Current, published 23 Jul 2021, supersedes AS 3740-2010 and its
+           Amendment 1, no amendments listed. AS 3958:2023 as on the floor
+           page. Row 2a is satisfied by naming no NCC edition (see TODO below). */
+        { type: "credit", text: "AS 3740:2021 Waterproofing of domestic wet areas; AS 3958:2023 Installation of ceramic and stone tiles, reissued incorporating Amendment No. 1 (June 2024). Standards Australia." },
         /* TODO (Brad): no NCC edition is named anywhere on this page, per claim
            register row 2a. WA is mid-transition and permits may be assessed
            under either edition until 30 April 2027. Do not let an edition
@@ -552,7 +578,18 @@ window.SITE_CONFIG = {
 
         { type: "h3", text: "The line most people do not know" },
         { type: "p", text: "Whether your bathroom needs a building permit depends on the scope of the work, not what it costs. Schedule 4 of the Building Regulations 2012 lists the work that is exempt." },
-        { type: "p", text: "But under **section 37(2) of the Building Act 2011, work has to meet the applicable building standards even where no building permit is required.** A small job is not an exempt job. Nobody signs off a compliant bathroom because it was cheap. [VERIFY: claim register row 5]" },
+        /* VERIFIED 15 Sep 2026 (claim register row 5), against the Building
+           Act 2011 on legislation.wa.gov.au. s37(2): "Each owner of a building
+           or an incidental structure in respect of which building work is done
+           without a building permit being in effect for the building work must
+           ensure that the building or incidental structure complies, when
+           completed, with each building standard that applies". The draft said
+           "work has to meet" the standards; reworded to name the owner, since
+           s37(2) puts the obligation on the owner. Building Regulations 2012,
+           Schedule 4 is headed "Building work that does not require building
+           permit" (r. 41(3)). */
+        { type: "p", text: "But under **section 37(2) of the Building Act 2011, where building work is done without a building permit, the owner must ensure the finished work complies with every building standard that applies to it.** A small job is not an exempt job. Nobody signs off a compliant bathroom because it was cheap." },
+        { type: "credit", text: "Building Act 2011 (WA), section 37; Building Regulations 2012 (WA), Schedule 4." },
 
         { type: "h3", text: "What to ask about waterproofing" },
         { type: "ul", items: [
@@ -582,12 +619,26 @@ window.SITE_CONFIG = {
           "**Tiling.** Floor and walls, then the detail work around the waste, the niche, the vanity and the door.",
           "**Grout and silicone.** Grout in the field, flexible sealant at the junctions and corners where movement happens."
         ] },
-        { type: "p", text: "If your job also involves moving the shower, the vanity or the floor waste, that is plumbing work before it is tiling work, and in Western Australia plumbing work has to be done by a licensed plumber. Minor tasks such as replacing a showerhead or clearing a blocked pipe are excluded and you can do those yourself. [VERIFY: claim register row 9]" },
+        { type: "p", text: "If your job also involves moving the shower, the vanity or the floor waste, that is plumbing work before it is tiling work, and in Western Australia plumbing work has to be done by a licensed plumber. A handful of basic tasks at your own home are exempt, such as replacing a shower head or clearing a blocked fixture or waste pipe with a plunger." },
+        /* VERIFIED 15 Sep 2026 (claim register row 9): Building and Energy,
+           "Plumbing work in your home", wa.gov.au, last updated 1 Jul 2026.
+           Exempt at your own home, unpaid if someone else does it: shower head,
+           tap (not a thermostatic mixing tap), cistern washer, water filter
+           cartridge, clearing a blocked fixture or waste pipe with a plunger.
+           "Other than the above tasks all water supply, sanitary and drainage
+           plumbing work must be carried out by a licensed plumber or
+           permit-holder." The draft's "clearing a blocked pipe" was broader
+           than the exemption; narrowed to the plunger wording. */
+        { type: "credit", text: "Building and Energy, Plumbing work in your home." },
         { type: "p", text: "Moving plumbing is also the single largest thing you can do to a bathroom budget. That is covered on the [bathroom tiling and regrouting costs](tiling-cost-perth.html) page." },
 
         { type: "h2", text: "Choosing tiles for a wet area" },
         { type: "p", text: "Three things matter more than the look." },
-        { type: "p", text: "**Slip resistance.** Floor tiles in a wet area should be rated for slip resistance. Ask what the rating is and whether it suits a shower floor as opposed to a dry floor. [VERIFY: kept qualitative, no classification codes, per claim register row 13]" },
+        /* Claim register row 13, resolved 15 Sep 2026 under content-sourcing
+           rule 5: reworded as a question to ask, so it states no requirement
+           and no rating that would need a source. The draft's "should be
+           rated" read as a rule. */
+        { type: "p", text: "**Slip resistance.** Ask for the floor tile's slip resistance rating, and whether it suits a wet shower floor rather than a dry one." },
         /* TODO (Brad): AS 4586 is unverified as the current edition. No
            classification code (R ratings, P ratings, HB 198) appears here on
            purpose. Do not add one unless the standard is properly verified. */
@@ -612,7 +663,13 @@ window.SITE_CONFIG = {
         { type: "p", text: "Kitchen and laundry splashbacks are the same trade and a much smaller job. They are usually priced hourly rather than by the square metre, and the labour is in the setting out and the cuts around power points rather than the area." },
 
         { type: "h2", text: "Older Perth bathrooms" },
-        { type: "p", text: "In homes built before the late 1980s, sheeting, tile beds and backing boards can contain asbestos. Under WorkSafe WA, licensed removal is required for any quantity of friable asbestos, or for more than 10 square metres of non-friable asbestos, and licensed removal work has to be notified to WorkSafe at least five days before it starts. [VERIFY: claim register row 10]" },
+        /* VERIFIED 15 Sep 2026 (claim register row 10). Same sources and the
+           same two corrections as the floor page: "before 1990" per HealthyWA,
+           and HealthyWA's own product list (backing for wall tiles and
+           splashbacks, wall panels in bathrooms, vinyl floor tiles) in place of
+           the draft's "tile beds". */
+        { type: "p", text: "In homes built before 1990, the sheeting behind wall tiles, bathroom wall panels and old vinyl floor tiles can contain asbestos. WorkSafe WA treats removing any quantity of friable asbestos, or more than 10 square metres of non-friable asbestos, as licensed asbestos removal work, and WorkSafe has to be notified at least five days before that work starts." },
+        { type: "credit", text: "HealthyWA, Asbestos in and around the home; WorkSafe WA, Asbestos removal notifications." },
         { type: "p", text: "If anything is suspected, the work stops and it gets tested before anything is cut, drilled or sanded. This is not a step to negotiate around, and no reputable tiler will." },
         { type: "p", text: "Older bathrooms also tend to produce more surprises at the removal stage: previous repairs, movement, a substrate that will not take a new floor, or a membrane that was never there in the first place." },
 
@@ -879,14 +936,16 @@ window.SITE_CONFIG = {
         /* [VERIFY] resolved for the price: $2,000 to $8,000 per room, Perth
            renovation company, Section 4 ("pair with the WorkSafe WA rule").
            The WorkSafe WA rule itself is not in the figures file. It is the
-           same wording the bathroom and floor pages carry under claim register
-           row 10, which is still an open [VERIFY] on those pages. */
-        { type: "p", text: "**Asbestos in older Perth homes.** In homes built before the late 1980s, tile beds, sheeting and backing boards can contain asbestos. Under WorkSafe WA, licensed removal is required for any quantity of friable asbestos, or for more than 10 square metres of non-friable asbestos. Licensed removal work must be notified to WorkSafe at least five days before it starts. A Perth renovation company puts licensed removal at $2,000 to $8,000 per room. If anything is suspected, work stops and it gets tested before it gets cut." },
+           same claim the bathroom and floor pages carry under claim register
+           row 10, verified there on 15 Sep 2026 (HealthyWA and WorkSafe WA),
+           with "before 1990" and HealthyWA's product list in place of the
+           draft's "late 1980s" and "tile beds". Keep all three in step. */
+        { type: "p", text: "**Asbestos in older Perth homes.** In homes built before 1990, the sheeting behind wall tiles, bathroom wall panels and old vinyl floor tiles can contain asbestos. WorkSafe WA treats removing any quantity of friable asbestos, or more than 10 square metres of non-friable asbestos, as licensed asbestos removal work, and WorkSafe has to be notified at least five days before it starts. A Perth renovation company puts licensed removal at $2,000 to $8,000 per room. If anything is suspected, work stops and it gets tested before it gets cut." },
         /* [VERIFY] resolved: $3,000 to $7,000, Perth renovation company,
            Section 4. */
         { type: "p", text: "**Old pipework.** A Perth renovation company puts replacing galvanised steel pipe in a bathroom zone at $3,000 to $7,000. It is not tiling work, but it is discovered during tiling work." },
         { type: "p", text: "**Trims, edging and sealing.** Tile trims, silicone to junctions, and sealing for stone and some grouts. Small individually, and usually left out of a verbal estimate." },
-        { type: "p", text: "**Other trades.** Plumbing work in WA has to be done by a licensed plumber, with narrow exceptions such as replacing a showerhead or clearing a blocked pipe. If your job moves water, that is a second trade and a second invoice." },
+        { type: "p", text: "**Other trades.** Plumbing work in WA has to be done by a licensed plumber, with narrow exceptions at your own home such as replacing a shower head or clearing a blocked fixture or waste pipe with a plunger. If your job moves water, that is a second trade and a second invoice." },
         { type: "p", text: "**Making good.** Paint, cornice, door adjustment and the skirting that did not survive the demolition." },
         { type: "p", text: "**Margin and GST.** A quote that looks 10 per cent cheaper than the others is sometimes a quote excluding GST." },
 
@@ -931,7 +990,7 @@ window.SITE_CONFIG = {
           "Complaints can be made to the relevant WA regulator for up to three years."
         ] },
         { type: "p", text: "Separately, building work valued at $20,000 or more that requires a building permit must be carried out by a registered builder, and home indemnity insurance is required for permit-requiring work over $20,000. Whether a permit is needed depends on the scope of the work, not its cost. Schedule 4 of the Building Regulations 2012 lists the exempt work." },
-        { type: "p", text: "And the line worth remembering regardless: under section 37(2) of the Building Act 2011, work must meet the applicable building standards even where no building permit is required. A small job is not an exempt job." },
+        { type: "p", text: "And the line worth remembering regardless: under section 37(2) of the Building Act 2011, where building work is done without a building permit, the owner must ensure the finished work complies with every building standard that applies to it. A small job is not an exempt job." },
 
         /* Canberra pattern. Advice only, no new figures: the one price below
            is the slab figure already given under What makes Perth different. */
