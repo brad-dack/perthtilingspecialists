@@ -104,9 +104,8 @@ window.SITE_CONFIG = {
       headline: "Find a Tiler in Perth for Floors, Walls and Bathrooms",
       subheadline: "Tell us about your job and we will pass it to a Perth tiler who can quote it. New floors, wall tiling, bathroom retiles, regrouting and tile repairs.",
       ctaText: "Get a tiling quote",
-      /* Photo-style, synthetic. No faces, no branded vans, no uniforms.
-         TODO (Brad): image file not yet supplied. Dimensions assumed at the
-         README's 1200x800; correct them to the real file. */
+      /* Photo-style, synthetic (Gemini, cropped to 1200x800). No faces, no
+         branded vans, no uniforms. */
       image: {
         src: "images/home-hero-tiled-interior.jpg",
         alt: "Tiled floor and wall surfaces in a modern home interior.",
@@ -114,12 +113,29 @@ window.SITE_CONFIG = {
         height: 800
       },
       blocks: [
-        { type: "h2", text: "How it works" },
-        { type: "p", text: "Three steps, and none of them cost you anything." },
-        { type: "p", text: "**1. Tell us about the job.** The room, roughly how big it is, and what you want done. A photo helps if you have one." },
-        { type: "p", text: "**2. We pass it to a tiler.** Someone who works in your part of Perth and does that kind of work." },
-        { type: "p", text: "**3. They contact you and quote.** You deal with them directly from that point, and they set their own price." },
-        { type: "p", text: "We are not a tiling company. We do not lay tile and we do not quote work. We find out what you need and put it in front of a tiler who does. [More about how this site works and how it is paid for](about.html)." },
+        /* Routing block, replacing the draft's "How it works" steps (Brad,
+           15 Sep 2026: read too much like a lead service). Follows Canberra's
+           "Start with what you actually need": sort the visitor into repair,
+           new work or budget, and send each to the page that answers it. The
+           commercial disclosure lives on About and in the collection notice
+           above every form, so it is not repeated here.
+           No cost figures in the budget paragraph, per the cannibalisation
+           map: the cost guide owns every price on the site. Canberra quotes a
+           range here; Perth deliberately does not. */
+        { type: "h2", text: "Start with what you actually need" },
+        { type: "p", text: "Most people looking for a tiler in Perth are in one of three situations, and they are different jobs with different costs. Working out which one you are in is the most useful thing you can do before anyone quotes." },
+
+        { type: "h3", text: "Something is cracked, loose or leaking" },
+        { type: "p", text: "Tiles that have cracked, lifted or sound hollow when you tap them. Grout that is crumbling. A shower that is letting water through. The first question is always whether the problem is at the surface or underneath it, because that decides whether you need a small repair or the tiles have to come off." },
+        { type: "p", text: "[Cracked, loose and drummy tiles](floor-tiling-perth.html) · [Regrouting and leaking showers](bathroom-tiling-perth.html)" },
+
+        { type: "h3", text: "You are tiling something new" },
+        { type: "p", text: "A floor, a bathroom, a splashback. New work is more predictable than repair work, and what it costs is driven mostly by the tile you choose, the layout, and the condition of the floor or wall underneath." },
+        { type: "p", text: "[Floor tiling](floor-tiling-perth.html) · [Bathroom tiling and waterproofing](bathroom-tiling-perth.html)" },
+
+        { type: "h3", text: "You are still working out a budget" },
+        { type: "p", text: "Published Perth prices for the same job disagree with each other, sometimes by a factor of two, and bathroom renovation figures disagree by far more. Our cost guide puts them side by side and explains why." },
+        { type: "p", text: "[What tiling costs in Perth](tiling-cost-perth.html)" },
 
         { type: "h2", text: "What we can get quoted" },
         { type: "p", text: "**Floor tiling.** New floors, replacing old floors, and repairs to cracked or drummy tiles. Also wall tiling outside wet areas. More on [floor tiling in Perth](floor-tiling-perth.html)." },
@@ -130,10 +146,6 @@ window.SITE_CONFIG = {
            keyword. Kept to two sentences so it does not become a fifth page by
            accident. If it ever grows, it belongs as a section on floor tiling,
            not a page. */
-
-        { type: "h2", text: "What tiling costs in Perth" },
-        { type: "p", text: "Published Perth prices for the same job disagree with each other, sometimes by a factor of two. We collected what Perth suppliers, builders, renovators and cost guide sites actually publish, put them side by side, and explained why they land so far apart." },
-        { type: "p", text: "[What tiling costs in Perth](tiling-cost-perth.html)" },
 
         { type: "h2", text: "Where we cover" },
         { type: "p", text: "The Perth metropolitan area, north and south of the river, and out to the eastern suburbs. If you are outside the metro area, tell us where you are and we will say straight away whether we can find someone rather than leaving you waiting." },
@@ -153,27 +165,33 @@ window.SITE_CONFIG = {
         ] },
         { type: "p", text: "You will not know all of it, and that is fine. Nobody can price a tiling job properly without seeing the substrate anyway, which is why the tiler will want to visit." },
 
+        /* Questions about the job, not about the service (Brad, 15 Sep 2026:
+           the draft's "Do you charge me anything?" set read as rank and rent).
+           Canberra pattern. Every answer restates something the floor or
+           bathroom page already says, and links there. Still no cost figures
+           and no standards citations on this page. How the service is paid
+           for, and who does the work, is on About. */
         { type: "h2", text: "Common questions" },
         { type: "faqs", items: [
           {
-            q: "Do you charge me anything?",
-            a: "No. The tiler pays for the enquiry. You pay the tiler for the work, at whatever price the two of you agree."
+            q: "My shower is leaking. Will regrouting fix it?",
+            a: "Not if water is getting past the grout into the wall or floor. Grout is not a waterproofing layer. The membrane behind the tiles is, and new grout will not fix a membrane that has failed. A leaking shower needs an assessment before anyone quotes a repair. See [regrouting and leaking showers](bathroom-tiling-perth.html)."
           },
           {
-            q: "Do you do the tiling yourselves?",
-            a: "No. We are not tilers and we do not claim to be. We pass enquiries to Perth tilers who do the work and quote it themselves."
+            q: "Why does one of my tiles sound hollow?",
+            a: "It is drummy, which means the adhesive is no longer holding it to the floor across some or all of its area. It may not be loose yet, but it is on its way. The hollow area is often bigger than the visible damage, so it is worth tapping across the whole floor before a repair is quoted. See [cracked, loose and drummy tiles](floor-tiling-perth.html)."
           },
           {
-            q: "How many quotes will I get?",
-            a: "One from us. You are free to get others, and for a job of any size you should."
+            q: "Why do tiling quotes for the same job vary so much?",
+            a: "Usually because they are not pricing the same job. One includes taking up the old floor, one assumes the substrate is flat, one leaves out waterproofing. Give every tiler the same brief and ask for the scope in writing, line by line. Our [cost guide](tiling-cost-perth.html) explains where the published figures come from."
           },
           {
-            q: "How soon will I hear back?",
-            a: "It depends on when a tiler picks it up. We pass enquiries on as we read them, and the tiler contacts you directly from there. If nobody has been in touch and you want to know where it is, call or email and we will tell you."
+            q: "How long does a bathroom take to tile?",
+            a: "Laying the tiles is rarely what sets the timetable. Removal, substrate preparation and membrane curing do, and a membrane cannot be tiled over early. Ask how long the bathroom will be out of use, including curing time."
           },
           {
-            q: "Can you help if I only need a small repair?",
-            a: "Yes, though small jobs are harder to place than large ones. Be specific about what is wrong and we will tell you if we cannot find someone."
+            q: "Should I keep spare tiles?",
+            a: "Yes. If a tile cracks later, replacing it depends on having a match, and matching a tile from a different production batch is unreliable because the colour can shift between batches. If you have spares from the original job, mention them when you enquire about a repair."
           }
         ] },
 
@@ -194,70 +212,59 @@ window.SITE_CONFIG = {
       metaTitle: "About Perth Tiling Specialists | How This Site Works",
       metaDescription: "What Perth Tiling Specialists is, the area we cover, what happens when you enquire, how the service is paid for, and how to get in touch.",
       headline: "About Perth Tiling Specialists",
+      /* Restructured 15 Sep 2026 on Brad's instruction to follow Canberra's
+         About (canberratilelayers.com.au/about): short sections in the order
+         who runs this, what the business does, what it covers, what happens
+         after you enquire, how it is paid for, where, contact. The v1 draft's
+         longer passages were cut rather than reworded, and no new claims
+         added. Two Canberra lines deliberately NOT carried across: "the quote
+         is free" (this build dropped "free quote" everywhere, since no draft
+         says the tiler's quote is free) and Canberra's conditional pre-renter
+         wording (handover section 11: Brad kept present tense for Perth). */
       blocks: [
-        { type: "lead", text: "Perth Tiling Specialists is a lead matching service for tiling work in the Perth metropolitan area. We are not a tiling company. We take enquiries from homeowners, work out what the job actually is, and pass it to a Perth tiler who can quote it." },
-        { type: "p", text: "This page explains who runs the site, how it makes money, and what happens to your enquiry. If any of that matters to you before you send one, it should all be here." },
-
-        { type: "h2", text: "What we do, and what we do not do" },
-        { type: "p", text: "**We do:** take your enquiry, work out what kind of job it is, and pass it to a tiler who works in your area and does that kind of work. We also research and publish the material on this site, including [what tiling costs in Perth](tiling-cost-perth.html), [floor tiling](floor-tiling-perth.html), and [bathroom tiling and waterproofing](bathroom-tiling-perth.html)." },
-        { type: "p", text: "**We do not:** lay tile, quote work, set prices, supply materials, employ tilers, or supervise the job. Once your enquiry reaches a tiler, your arrangement is with them." },
-        { type: "p", text: "The practical consequence is worth stating plainly. If you have a question about your specific job, the tiler quoting it is the person who can answer it. Not us. We can tell you what a job generally involves and what to ask. We cannot tell you what your floor needs, because we are not going to be standing on it." },
-
         { type: "h2", text: "Who runs this" },
-        { type: "p", text: "I am Brad, and I run Perth Tiling Specialists as a sole trader." },
-        { type: "p", text: "I have not laid a tile in my life and I do not claim to. What I do is research, and that is most of what this site is. I read the actual standards and the actual regulations rather than other people's summaries of them, I track down published figures and record where each one came from, and I write it up so a homeowner can check it themselves. Where something could not be verified properly, it is not on the site." },
-        { type: "p", text: "That approach comes from my other work. My main business is regulatory compliance advice, which is largely the discipline of establishing what a rule actually says before anyone acts on it. Applied to tiling, it produces pages that cite the National Construction Code rather than repeating what a trade blog said, and a cost guide that shows you nine published Perth figures and explains why they disagree rather than inventing a tenth." },
-        { type: "p", text: "What I cannot give you is trade experience, and I am not going to pretend otherwise. The tiler who quotes your job has that. I built the part of this that I am actually qualified to build." },
-        /* TODO (Brad): every sentence above must be true of you specifically.
-           If any of it is not, cut it rather than softening it. In particular:
-           "I read the actual standards" is verifiable against the claim
-           register, so it stands. Do not add anything about years, volumes, or
-           numbers of clients. */
+        /* TODO (Brad): every sentence here must be true of you specifically.
+           If any of it is not, cut it rather than softening it. Do not add
+           anything about years, volumes, or numbers of clients. */
+        { type: "p", text: "Perth Tiling Specialists is run by Brad. I am not a tiler. I have never laid a tile and do not claim to. For how a specific job actually gets done, the tiler doing the work is the one to ask." },
+        { type: "p", text: "What I do is research. The [cost guide](tiling-cost-perth.html) on this site puts published Perth figures from builders, suppliers, a peak body, tradie marketplaces and cost guide sites side by side, and explains why they disagree. The [bathroom tiling](bathroom-tiling-perth.html) page sets out what the waterproofing requirements actually say, and the [floor tiling](floor-tiling-perth.html) page explains when a cracked or drummy tile can be repaired and when the floor has a bigger problem. My main business is regulatory compliance advice, which is largely the work of establishing what a rule actually says before anyone acts on it." },
 
-        { type: "h2", text: "How this is paid for" },
+        { type: "h2", text: "What this business does" },
+        { type: "p", text: "We take enquiries from Perth homeowners about tiling and tile repairs, and pass each one to a Perth tiler who works in that area and does that kind of work." },
+        { type: "p", text: "We do not lay tile, quote work, set prices, supply materials, employ tilers or supervise jobs. There is no crew and no equipment. Every physical part of a job is done by the tiler, and once your enquiry reaches them, your arrangement is with them." },
+
+        { type: "h2", text: "What we cover, and what we don't" },
+        { type: "p", text: "We stick to tiling: floors, walls, bathrooms and showers, kitchen and laundry splashbacks, regrouting, and repairs to cracked, loose or drummy tiles." },
+        /* TODO (Brad): the renovation line follows Canberra's position. No
+           Perth draft states it. Confirm it is how Perth enquiries are handled,
+           or cut the paragraph. */
+        { type: "p", text: "Full bathroom renovations are a different job. A renovation involves plumbing, electrical, carpentry and plastering alongside the tiling, and it is generally run by a builder rather than a tiler. If you are stripping a bathroom back and starting again, a renovation builder is who you want, and we will say so rather than take the enquiry." },
+        { type: "p", text: "Plumbing, electrical work, stone benchtops and structural work are all separate trades we do not handle. In Western Australia, plumbing work has to be done by a licensed plumber." },
+
+        { type: "h2", text: "What happens after you enquire" },
+        /* TODO (Brad): this describes a process that needs a renter to be
+           real. Handover section 11: Brad has considered this and decided to
+           leave present tense. Logged, not to be re-raised. */
+        { type: "p", text: "We read your enquiry, come back to you if something important is missing, and pass it to one Perth tiler who covers your area and does that kind of job. They contact you to look at the job and quote it, and from there you deal with them directly. If we cannot find someone, we will tell you rather than leave you waiting." },
+        /* Kept in step with the privacy page's "Why we collect it" and "Nobody
+           else" (corrected 13 Sep 2026). Privacy is the fuller disclosure, so
+           this follows it. If either changes, change both. */
+        { type: "p", text: "Your details go to that tiler so they can quote the job. We also use enquiries in aggregate, without names or contact details, to see what kinds of jobs people are asking about. Your details are not sold and not added to a marketing list. The full position is in the [privacy policy](privacy.html)." },
+
+        { type: "h2", text: "How the service is paid for" },
         { type: "p", text: "The tiler pays for the enquiry. You do not." },
-        { type: "p", text: "That is the whole commercial model, and it is worth understanding what it means for you. We have an interest in sending you a tiler who does good work, because the arrangement only continues if the enquiries are worth what they cost. We also have an interest in you making an enquiry, which is why this site exists at all." },
-        { type: "p", text: "What it does not mean: we are not paid more if your job is bigger, we do not take a cut of the quote, and we do not add anything to what you pay the tiler. The price you are quoted is the tiler's own price, set by them." },
-        { type: "p", text: "You are free to get other quotes, and for any job of size you should." },
-
-        { type: "h2", text: "What happens when you enquire" },
-        { type: "ol", items: [
-          "You send the details through the form, or call.",
-          "We read it, and come back to you if something important is missing.",
-          "We pass it to a Perth tiler who works in your area and does that kind of job.",
-          "They contact you to arrange a look at the job and quote it.",
-          "From there you deal with them directly."
-        ] },
-        { type: "p", text: "If we cannot find someone for your job, we will tell you, rather than leaving you waiting to hear back. Small repairs are the hardest to place." },
-        /* TODO (Brad): step 3 describes a process that needs a renter to be
-           real. Before launch, decide what actually happens to an enquiry on
-           day one and make sure this list describes that, not the intended end
-           state. This is the single most likely place for the site to say
-           something untrue.
-           (Handover section 11: Brad has considered this and decided to leave
-           the copy as written. Logged, not to be re-raised.) */
+        { type: "p", text: "We are not paid more if your job is bigger, we do not take a cut of the quote, and we add nothing to what you pay the tiler. The price you are quoted is the tiler's own. You are free to get other quotes, and for a job of any size you should." },
 
         { type: "h2", text: "Where we cover" },
-        { type: "p", text: "The Perth metropolitan area, north and south of the river, and the eastern suburbs. If you are outside it, send the enquiry anyway and we will tell you straight away whether we can help." },
-
-        { type: "h2", text: "Your details" },
-        /* Kept in step with the privacy page's "Why we collect it", corrected
-           13 Sep 2026. This previously said "We only use what you send us to
-           pass your enquiry to a tiler", which contradicted privacy's
-           aggregate use (job types, no names or contact details). Privacy is
-           the fuller disclosure, so this line follows it. If either changes,
-           change both. */
-        { type: "p", text: "We use what you send us to pass your enquiry to a tiler, and in aggregate, without your name or contact details, to see what kinds of jobs people are asking about. The [privacy page](privacy.html) sets out what is collected, who it goes to, and how to ask for it to be removed." },
+        { type: "p", text: "The Perth metropolitan area, north and south of the river, and out to the eastern suburbs. If you are outside it, send the enquiry anyway and we will tell you straight away whether we can help." },
 
         { type: "h2", text: "Contact" },
-        /* TODO (Brad): insert the Four Foxes sole trader ABN and confirm the
-           name you want published. The ABN is already confirmed for
-           publication per the Phase 3 constants, it just needs to go in. Check
-           the trading name is registered against that ABN before it goes
-           live. */
-        { type: "p", text: "**Perth Tiling Specialists**\nBrad [SURNAME], sole trader\nABN [ABN]" },
+        /* Name follows Canberra's "Brad, trading as ...", which resolved the
+           old [SURNAME] placeholder. ABN is Brad's sole trader ABN, the same
+           one Canberra publishes (confirmed by Brad, 15 Sep 2026). Keep it in
+           step with the privacy page's Contact section. */
+        { type: "p", text: "Brad, trading as Perth Tiling Specialists. ABN 78 538 005 810." },
         { type: "p", text: "Phone: (08) 9516 1688\nEmail: hello@perthtilingspecialists.com.au" },
-        { type: "p", text: "Service area: Perth metropolitan area" },
         { type: "p", text: "[Send an enquiry](#quote)" }
       ]
     },
@@ -366,7 +373,7 @@ window.SITE_CONFIG = {
         { type: "p", text: "If what we do with enquiry information changes, this page changes first. The date at the top tells you when it was last updated." },
 
         { type: "h2", text: "Contact" },
-        { type: "p", text: "**Perth Tiling Specialists**\nBrad [SURNAME], sole trader\nABN [ABN]\nEmail: hello@perthtilingspecialists.com.au\nPhone: (08) 9516 1688" }
+        { type: "p", text: "Brad, trading as Perth Tiling Specialists\nABN 78 538 005 810\nEmail: hello@perthtilingspecialists.com.au\nPhone: (08) 9516 1688" }
       ]
     }
   },
@@ -400,8 +407,7 @@ window.SITE_CONFIG = {
       metaDescription: "Floor tiling in Perth: new floors, wall tiling and cracked or drummy tile repairs. Learn what the job involves and get a quote from a Perth tiler.",
       headline: "Floor Tiling in Perth: Laying, Replacing and Repairing Tiles",
       ctaText: "Get your floor tiling job quoted",
-      /* Photo-style, synthetic. TODO (Brad): image file not yet supplied;
-         dimensions assumed at 1200x800. */
+      /* Photo-style, synthetic (Gemini, cropped to 1200x800). */
       image: {
         src: "images/floor-tiling-perth.jpg",
         alt: "Large format floor tiles being laid with spacers between them.",
@@ -451,8 +457,7 @@ window.SITE_CONFIG = {
            hollow void beneath it. No caption (illustrative).
            TODO (Brad): keep the diagram general. No adhesive coverage
            percentages, no bond strength figures, nothing that would need a
-           source. Two tiles, one bonded, one with a void.
-           TODO (Brad): file not yet supplied; dimensions assumed. */
+           source. Two tiles, one bonded, one with a void. */
         { type: "image", src: "images/drummy-tile-cross-section.svg", alt: "Cross-section diagram comparing a fully bonded floor tile with a drummy tile that has a hollow void beneath it.", width: 1200, height: 800 },
 
         { type: "h2", text: "Older Perth floors" },
@@ -494,7 +499,7 @@ window.SITE_CONFIG = {
       headline: "Bathroom Tiling in Perth",
       ctaText: "Get your bathroom tiling quoted",
       /* Finished modern bathroom, floor to ceiling tiles. Photo-style,
-         synthetic. TODO (Brad): file not yet supplied; dimensions assumed. */
+         synthetic (Gemini, cropped to 1200x800). */
       image: {
         src: "images/bathroom-tiling-perth.jpg",
         alt: "Modern bathroom with floor to ceiling wall tiles and a tiled shower recess.",
@@ -561,9 +566,10 @@ window.SITE_CONFIG = {
         /* Diagram: shower waterproofing extent. Membrane up the wall, wall to
            floor junction, hob or stepdown, fall to waste. Labels: 1800 mm wall
            height, 25 mm stepdown, fall to the waste. No caption (illustrative).
-           TODO (Brad): draw an original. Do not reproduce or trace an NCC
-           figure. Labels must match whichever NCC edition the gate check
-           confirms. File not yet supplied; dimensions assumed. */
+           An original drawing, not traced from an NCC figure. Its labels
+           match the requirements list above as verified at the gate on
+           13 Sep 2026, with 1800 mm measured from the floor substrate. If
+           any of those figures change, change the SVG's labels too. */
         { type: "image", src: "images/shower-waterproofing-extent.svg", alt: "Diagram showing waterproofing membrane extent in a shower, including wall height, stepdown and fall to the floor waste.", width: 1200, height: 800 },
 
         { type: "h2", text: "What a bathroom tiling job involves" },
@@ -598,8 +604,8 @@ window.SITE_CONFIG = {
            both times. Left as drafted rather than reworded. */
         { type: "p", text: "Costs for regrouting and where they vary are on the [bathroom tiling and regrouting costs](tiling-cost-perth.html) page. Tiles that are cracked, loose or drummy are a different job, covered under [cracked or drummy tiles](floor-tiling-perth.html)." },
         /* Regrouting close-up, old grout line against fresh. Photo-style,
-           synthetic, illustrative only, so no caption.
-           TODO (Brad): file not yet supplied; dimensions assumed. */
+           synthetic (Gemini, cropped to 1200x800), illustrative only, so no
+           caption. */
         { type: "image", src: "images/regrouting-close-up.jpg", alt: "Close-up of a tiled wall showing a discoloured grout line beside a freshly grouted one.", width: 1200, height: 800 },
 
         { type: "h2", text: "Splashbacks" },
@@ -641,7 +647,7 @@ window.SITE_CONFIG = {
        ours. Under the Canberra method they are not. New meta describes
        collection and comparison instead. Re-approve before bake.
        Rate card: Perth itemised rate card searched for and confirmed absent,
-       13 Sep 2026. Replaced by the scope decomposition table in Section 3,
+       13 Sep 2026. Replaced by the scope table under Bathroom renovation,
        not filled with national figures. Revisit under Option A once a renter
        is attached. */
     {
@@ -652,28 +658,33 @@ window.SITE_CONFIG = {
       metaDescription: "What does tiling cost in Perth? We collected published Perth prices for tiling per m2, bathroom retiles and regrouting, and explain why they disagree.",
       headline: "Tiling Costs in Perth: What Drives the Price",
       ctaText: "Get a quote for your job",
+      ctaHeading: "Working out a budget for a Perth tiling job",
+      ctaBody: "Tell us the room, roughly the area, and what is there now. We will pass it to a Perth tiler who can quote it, and the tiler sets their own price.",
+      /* Reformatted 15 Sep 2026 on Brad's instruction to follow Canberra's
+         cost guide (canberratilelayers.com.au/tiling-cost-guide-canberra):
+         the v2 draft's numbered section headings, "Section 3 below" cross
+         references and sourcing asides ("the best sourced of the Perth
+         adjustments here") read as notes to the author. Headings are now
+         unnumbered, table columns say "Published by", the method note box is
+         folded into the opening, and the page ends with Budgeting sensibly
+         and FAQs, then the CTA band. The in-body "11. Get your job quoted"
+         section is replaced by ctaHeading/ctaBody. No figure was added or
+         changed: the FAQ answers and budgeting points restate figures already
+         on this page. */
       blocks: [
-        /* Method note: the draft places this at the top of the rendered page. */
-        { type: "note", text: "Figures on this page were collected from published Australian sources in September 2026. Each is attributed by the type of business that published it, not by name. Prices change, publishers revise their pages, and none of these figures were quoted for your job." },
-
-        /* Section 1, "Opening". The draft's section label is not rendered as a
-           heading (it reads as a structural label, like "Lead" on the other
-           drafts), so the first visible numbered heading is 2.
-           TODO (Brad): confirm, or add an h2 for section 1.
-           [VERIFY] resolved: $3,000 to $65,000+, all 2026, figures file
+        /* [VERIFY] resolved: $3,000 to $65,000+, all 2026, figures file
            Section 1 "The spread". */
-        { type: "lead", text: "Published prices for a bathroom renovation in Perth run from about $3,000 at the cosmetic end to $65,000 and beyond at the top. Every one of those figures was published in 2026, by an Australian source, describing work in Perth." },
-        { type: "p", text: "That is not a mistake by any one publisher. It is what happens when a builder, a tile supplier, a peak body, a tradie marketplace and a programmatic cost guide all answer the same question from different positions, describing different scopes with the same words." },
-        { type: "p", text: "This page collects the published Perth figures we could find, puts them side by side, says what kind of source each one came from, and then explains why they disagree. It does not add a number of its own. The prices here are other people's prices, reproduced so you can see the range before you start collecting quotes." },
-        { type: "p", text: "**What this page is not.** We are not a tiling company and these are not our rates. We pass enquiries to Perth tilers who quote their own work. Anything you read here is background for the conversation you will have with them, not a substitute for it." },
+        { type: "lead", text: "Search for what a bathroom renovation costs in Perth and you will find published figures from about $3,000 at the cosmetic end to $65,000 and beyond at the top. All of them were published in 2026, and all of them describe work in Perth." },
+        { type: "p", text: "That is not because anyone is lying. It is because a builder, a tile supplier, a peak body, a tradie marketplace and a cost guide site all answer the same question from different positions, and use the same words for different jobs." },
+        { type: "p", text: "This guide gives you the published numbers, tells you what kind of business published each one, and explains why they differ. Then it covers the costs that turn up after work starts, and the questions that make quotes comparable. None of these figures are our prices, and none of them were quoted for your job." },
 
-        { type: "h2", text: "2. The headline numbers" },
+        { type: "h2", text: "The headline numbers" },
         { type: "h3", text: "Tiling labour, per square metre" },
         /* [VERIFY] resolved: all nine rows match figures file Section 2
            (Perth supplier, Perth supplier bathroom, cost guide site, Perth tile
            supplier, Perth builder, Perth tiler, tradie marketplace reclassified
            in the second pass, national guide, calculator site). */
-        { type: "table", headers: ["Source type", "Floor, standard lay", "Wall", "Feature or wet area", "Hourly"], rows: [
+        { type: "table", headers: ["Published by", "Floor, standard lay", "Wall", "Feature or wet area", "Hourly"], rows: [
           ["Perth supplier", "$55 to $75", "", "$90 to $150", "$50 to $90"],
           ["Perth supplier, bathroom work", "$75 to $120", "", "", "$60+"],
           ["Cost guide site", "$37 to $94, averaged at $58", "$42 to $105", "$63 to $125", "$126"],
@@ -696,7 +707,7 @@ window.SITE_CONFIG = {
 
         { type: "h3", text: "Tiles themselves" },
         /* [VERIFY] resolved: all four rows, figures file Section 3. */
-        { type: "table", headers: ["Source type", "Material", "Supply price per m2"], rows: [
+        { type: "table", headers: ["Published by", "Material", "Supply price per m2"], rows: [
           ["Perth supplier", "Budget ceramic", "from $20"],
           ["Perth supplier", "General range", "$20 to $65"],
           ["Cost guide site", "Mid-range porcelain", "$50 to $120"],
@@ -708,7 +719,7 @@ window.SITE_CONFIG = {
         /* [VERIFY] resolved: all nine rows, figures file Section 3. "Replacing
            individual tiles" is the file's "Tile replacement, $25 to $50 per m2,
            Perth builder". */
-        { type: "table", headers: ["Item", "Published figure", "Source type"], rows: [
+        { type: "table", headers: ["Item", "Published figure", "Published by"], rows: [
           ["Self-levelling compound", "$25 to $40 per m2", "National guide"],
           ["Waterproofing, per m2", "$37 to $84 per m2", "Cost guide site"],
           ["Waterproofing, per m2", "$40 to $70 per m2 plus certificate", "National guide"],
@@ -726,15 +737,15 @@ window.SITE_CONFIG = {
         { type: "h3", text: "Whole jobs" },
         /* [VERIFY] resolved: $7,500 to $18,500 Perth supplier (Section 3);
            around $6,000 for 100m2 Perth specialist (Section 2b). */
-        { type: "table", headers: ["Job", "Published figure", "Source type"], rows: [
+        { type: "table", headers: ["Job", "Published figure", "Published by"], rows: [
           ["Around 100m2 of house flooring, supply and install", "$7,500 to $18,500", "Perth supplier"],
           ["Around 100m2 of house flooring", "around $6,000", "Perth specialist"]
         ] },
-        { type: "p", text: "Bathroom tiling figures are in Section 3 below, where they are worth more alongside the renovation totals." },
+        { type: "p", text: "Figures for tiling a whole bathroom are further down, next to the renovation totals, where the comparison tells you more." },
 
         { type: "h3", text: "Regrouting and shower work" },
         /* [VERIFY] resolved: all four rows, figures file Section 3. */
-        { type: "table", headers: ["Published figure", "Source type"], rows: [
+        { type: "table", headers: ["Published figure", "Published by"], rows: [
           ["Shower base regrout, from $350", "Perth grout specialist"],
           ["Full shower regrout, from $550", "Perth grout specialist"],
           ["Shower regrout, from $250", "Perth shower repair specialist"],
@@ -743,11 +754,11 @@ window.SITE_CONFIG = {
         { type: "p", text: "Two Perth specialists advertise from $250 and from $550 for what sounds like the same job. A national guide puts the average at around $1,500. The word doing the work in the Perth figures is \"from\". A starting price is a way of getting a phone call, not a quote. What the job actually costs depends on the size of the shower, the grout type, how much of the old grout has to come out, and whether the membrane behind it is still intact. If it is not, regrouting is the wrong repair and the tiles are coming off. That is a diagnosis, and it happens on site." },
         { type: "p", text: "Regrouting sits inside a bathroom tiling job. The job itself is described on our [bathroom tiling](bathroom-tiling-perth.html) page." },
 
-        { type: "h2", text: "3. A bathroom renovation in Perth, side by side" },
+        { type: "h2", text: "Bathroom renovation in Perth, side by side" },
         { type: "p", text: "Tiling is one trade inside a bathroom renovation, so the total is the number most people search for first. Here is what Perth and WA sources published in 2026." },
         /* [VERIFY] resolved: all ten rows, figures file Section 1. The Perth
            builder's second figure set is deliberately not used. */
-        { type: "table", headers: ["Source type", "Published figure"], rows: [
+        { type: "table", headers: ["Published by", "Published figure"], rows: [
           ["Peak body (HIA)", "WA average around $26,000"],
           ["Tradie marketplace", "Perth average around $15,667"],
           ["Cost guide site", "$27,300 for a mid-range bathroom. Basic $10,500. Cosmetic refresh $3,000 to $8,000"],
@@ -764,10 +775,10 @@ window.SITE_CONFIG = {
         { type: "p", text: "Narrow that to one description, a mid-range bathroom, and four sources still give four answers: around $15,667 from a tradie marketplace, around $26,000 from a peak body, $27,300 from a cost guide site, and $21,000 to $36,750 from a Perth builder. Same room, same year, same city." },
 
         { type: "h3", text: "What each figure actually covers" },
-        { type: "p", text: "Here is the part that explains the table above. We went back to each source and recorded whether it says what its figure includes." },
+        { type: "p", text: "Most of the gap in that table comes down to whether each source says what its figure includes." },
         /* [VERIFY] resolved: all nine rows, figures file Section 1 scope
            disclosure table. */
-        { type: "table", headers: ["Source type", "Does it state the scope?", "What it says"], rows: [
+        { type: "table", headers: ["Published by", "Does it state the scope?", "What it says"], rows: [
           ["Peak body (HIA)", "No", "A WA average, no inclusions listed"],
           ["Tradie marketplace", "No", "A Perth average of jobs booked through the platform"],
           ["Tradie marketplace", "Partly", "Tiers labelled basic, average and full overhaul"],
@@ -787,7 +798,7 @@ window.SITE_CONFIG = {
         { type: "h3", text: "Tiling on its own tells a different story" },
         { type: "p", text: "Ask the narrower question, what does it cost to tile a bathroom rather than renovate one, and the published figures stop disagreeing." },
         /* [VERIFY] resolved: all four rows, figures file Section 2b. */
-        { type: "table", headers: ["Source type", "Published figure", "Scope stated"], rows: [
+        { type: "table", headers: ["Published by", "Published figure", "Scope stated"], rows: [
           ["Perth supplier", "$2,000 to $7,000. For 25 to 30m2 of tiled surface, $4,500 to $6,500", "Complete tiling job, supply and install"],
           ["Perth tile supplier", "$3,000 to $6,000", "Standard 28m2 bathroom, material and labour"],
           ["Perth specialist", "$3,000 to $6,000", "Not detailed"],
@@ -797,8 +808,8 @@ window.SITE_CONFIG = {
         { type: "p", text: "The fourth row is not a contradiction either, once you read the scope. It is labour only across about 10 square metres of floor. The first row is supply and install across 25 to 30 square metres of floor and walls. Different job, stated plainly, different number." },
         { type: "p", text: "That is the whole lesson of this page in one table. Figures converge when the scope is defined and scatter when it is not. Tiling is a defined scope. Renovation is not." },
 
-        { type: "h2", text: "4. Why the numbers disagree" },
-        { type: "p", text: "Start with what Section 3 showed. The tiling figures agree and the renovation figures do not. Everything below is a reason for that gap, in rough order of how much of it each one explains." },
+        { type: "h2", text: "Why the numbers disagree so much" },
+        { type: "p", text: "Understanding this is worth more than any single figure. The bathroom tiling figures agree with each other and the renovation figures do not, and these are the reasons, roughly in order of how much of the gap each one explains." },
         { type: "p", text: "**Different scopes wearing the same label.** This is most of it. \"Mid-range bathroom renovation\" is not a defined scope. For one publisher it means new tiles, new vanity, same layout and same plumbing. For another it includes moving the shower, replacing the bath and rewiring. The words are identical and the jobs are not. \"Tiling a bathroom\" leaves far less room to differ, which is why those figures land within a few thousand dollars of each other." },
         { type: "p", text: "**Who is writing, and about whose customers.** A tradie marketplace reports what the jobs booked through it cost, and small jobs book more easily online than large ones, so its average sits low. A renovation company quoting full turnkey projects reports the customers who reach it, and its floor sits above the marketplace's ceiling. Neither is wrong about its own book." },
         /* [VERIFY] resolved: $126 cost guide site; $50 to $90 from the Perth
@@ -806,12 +817,12 @@ window.SITE_CONFIG = {
         { type: "p", text: "**Some cost pages are not built from jobs at all.** Programmatic cost guide sites publish a figure for every city and every trade. The Perth number and the Adelaide number are often generated by the same process, adjusted by a factor. That is why a cost guide site can publish an hourly rate of $126 in a market where two Perth sources say $50 to $90." },
         { type: "p", text: "**Fixtures move the total more than tiling does.** A change of tapware, a frameless screen, a stone top or a freestanding bath can move a bathroom total by thousands without changing the tiling scope by a square metre. Two quotes for the same tiling work can be $10,000 apart on fixtures alone." },
         { type: "p", text: "**Averages hide the shape of the distribution.** A single average across budget refreshes and western suburbs rebuilds describes almost nobody's actual bathroom." },
-        { type: "p", text: "**What to do with that.** Stop looking for the right number for a bathroom renovation, because there is not one. Break your job into defined scopes, price each one, and add them up. The tiling figures in Section 3 show that a defined scope produces a usable number even from unrelated sources. That is also exactly what you should be asking a tiler to give you in writing, which is Section 8." },
+        { type: "p", text: "**What to do with that.** Stop looking for the right number for a bathroom renovation, because there is not one. Break your job into defined scopes, price each one, and add them up. The bathroom tiling figures above show that a defined scope produces a usable number even from unrelated sources. It is also exactly what you should ask a tiler to give you in writing, as set out under how to get a quote you can rely on, below." },
         /* TODO (Brad): "labour is roughly half the job" is a Canberra line. No
            Perth published source for it in the figures file. Dropped from this
            section rather than carried across unsourced. */
 
-        { type: "h2", text: "5. Why cost per square metre is misleading" },
+        { type: "h2", text: "Why cost per square metre is misleading" },
         { type: "p", text: "Per square metre is the figure everyone wants, and it is the least reliable one on this page." },
         /* [VERIFY] resolved: $55 to $75 standard, $75 to $120 bathroom, Perth
            supplier, Section 2. */
@@ -819,18 +830,23 @@ window.SITE_CONFIG = {
         { type: "p", text: "Fixed costs make it worse. Setting up, protecting the rest of the house, mixing, cutting, cleaning up and disposal do not shrink with the room. Spread across a small area, they dominate the rate." },
         { type: "p", text: "Use per square metre to sanity-check a quote against the ranges on this page. Do not use it to price your job." },
 
-        { type: "h2", text: "6. What actually drives the cost" },
+        { type: "h2", text: "What actually drives the cost" },
+        { type: "h3", text: "The tile itself" },
         /* [VERIFY] resolved: from $20 budget ceramic (Perth supplier), $100 to
            $250+ premium stone (cost guide site), Section 3. */
-        { type: "p", text: "**Tile format and material.** Large-format tiles need a flatter substrate and more careful setting. Mosaics are slow. Natural stone needs sealing and is less forgiving. Budget ceramic starts around $20 per square metre to supply and premium stone reaches $250 and above, according to a Perth supplier and a cost guide site respectively." },
+        { type: "p", text: "Large format tiles need a flatter substrate and more careful setting. Mosaics are slow. Natural stone needs sealing and is less forgiving. Budget ceramic starts around $20 per square metre to supply and premium stone reaches $250 and above, according to a Perth supplier and a cost guide site respectively." },
+        { type: "h3", text: "The layout" },
         /* [VERIFY] resolved: 20 to 40% labour, national guide, Section 3. */
-        { type: "p", text: "**Layout.** A straight lay is the baseline. Diagonal, herringbone and brick-bond patterns add cutting, add wastage and, per a national guide, add 20 to 40 per cent to labour." },
-        { type: "p", text: "**The substrate underneath.** This is where the money hides. A flat, sound, dry substrate is cheap to tile. One that needs grinding, patching or self-levelling is not, and nobody knows which one you have until the old floor comes up." },
-        { type: "p", text: "**Wet areas.** A bathroom carries waterproofing, falls to the waste and junction detailing that a hallway does not. The requirements are set by the National Construction Code and AS 3740:2021, not by the tiler, and they are described on our [bathroom tiling](bathroom-tiling-perth.html) page." },
-        { type: "p", text: "**Access and sequencing.** Second storey, tight parking, a single bathroom in an occupied house, or a job that has to wait on a plumber and an electrician. All of it costs time." },
+        { type: "p", text: "A straight lay is the baseline. Diagonal, herringbone and brick bond patterns add cutting and wastage, and a national guide puts the extra labour at 20 to 40 per cent." },
+        { type: "h3", text: "The substrate, which is where the money hides" },
+        { type: "p", text: "A flat, sound, dry substrate is cheap to tile. One that needs grinding, patching or self-levelling is not, and nobody knows which one you have until the old floor comes up." },
+        { type: "h3", text: "Wet areas" },
+        { type: "p", text: "A bathroom carries waterproofing, falls to the waste and junction detailing that a hallway does not. The requirements are set by the National Construction Code and AS 3740:2021, not by the tiler, and they are described on our [bathroom tiling](bathroom-tiling-perth.html) page." },
+        { type: "h3", text: "Access and sequencing" },
+        { type: "p", text: "Second storey, tight parking, a single bathroom in an occupied house, or a job that has to wait on a plumber and an electrician. All of it costs time." },
 
-        { type: "h3", text: "Perth-specific drivers" },
-        { type: "p", text: "These are the ones that make Perth figures different from national ones. Each is a published claim from a single source and is attributed as such." },
+        { type: "h3", text: "What makes Perth different" },
+        { type: "p", text: "These are the things that make Perth figures different from national ones." },
         { type: "p", text: "**Whether your floor is a slab.** Check this before you plan a new layout, because it changes the cost of every decision that follows." },
         /* [VERIFY] resolved: $2,000 to $6,000 per plumbing point, Perth
            supplier, Section 4. The comparative premise (Perth builds more on
@@ -843,10 +859,10 @@ window.SITE_CONFIG = {
         /* [VERIFY] resolved: Master Builders WA, 8 to 15%, figures file
            Section 1 (budgets vs eastern states) and Section 4 (materials).
            Note the file records it as reached via a secondary site. */
-        { type: "p", text: "**Freight.** Master Builders WA puts the freight component at 8 to 15 per cent on WA renovation budgets compared with the eastern states. Peak body figure, and the best sourced of the Perth adjustments here." },
+        { type: "p", text: "**Freight.** Master Builders WA puts the freight component at 8 to 15 per cent on WA renovation budgets compared with the eastern states." },
         /* [VERIFY] resolved: 10 to 20% above Melbourne, cost guide site,
            Section 4. */
-        { type: "p", text: "**Labour.** A cost guide site puts Perth labour 10 to 20 per cent above Melbourne, attributing it to mining and FIFO competition for trades. Single source, so treat it as a claim rather than a settled number." },
+        { type: "p", text: "**Labour.** A cost guide site puts Perth labour 10 to 20 per cent above Melbourne, attributing it to mining and FIFO competition for trades. That is one publisher's claim rather than a settled number." },
         /* [VERIFY] resolved: western suburbs 20 to 30% (cost guide site,
            Section 4); $50,000+ against $15,000 to $35,000 (Perth renovator,
            Section 1). */
@@ -854,7 +870,7 @@ window.SITE_CONFIG = {
         /* [VERIFY] resolved: coastal salt zone, cost guide site, Section 4. */
         { type: "p", text: "**Coastal corrosion.** A cost guide site notes that coastal suburbs push buyers toward stainless and corrosion-resistant hardware. It affects fixtures rather than tiling, but it lands in the same total." },
 
-        { type: "h2", text: "7. The costs people do not budget for" },
+        { type: "h2", text: "The costs people do not budget for" },
         /* [VERIFY] resolved: wastage 10 to 15%, Section 3. */
         { type: "p", text: "**Wastage.** Order 10 to 15 per cent over the measured area, and more for diagonal or herringbone. Running out mid-job and finding a different dye lot is worse than over-ordering." },
         /* [VERIFY] resolved: $30 to $60 per m2, national guide, Section 3. */
@@ -874,15 +890,31 @@ window.SITE_CONFIG = {
         { type: "p", text: "**Making good.** Paint, cornice, door adjustment and the skirting that did not survive the demolition." },
         { type: "p", text: "**Margin and GST.** A quote that looks 10 per cent cheaper than the others is sometimes a quote excluding GST." },
 
-        { type: "h2", text: "8. How to get a quote you can rely on" },
-        { type: "p", text: "**Give every quoter the same brief.** Same room, same measurements, same tile, same scope. If one tiler prices a full retile and another prices tiling over existing, the difference between the quotes tells you nothing." },
-        { type: "p", text: "**Ask for the scope in writing, line by line.** Removal and disposal, substrate preparation, waterproofing, tiling, grout and silicone, trims, and making good. A single total with no breakdown cannot be compared to anything." },
-        { type: "p", text: "**Ask what is excluded.** Tile supply, plumbing, electrical, asbestos testing and rubbish removal are the usual exclusions." },
-        { type: "p", text: "**Ask how variations are handled.** Specifically, what happens if the substrate is worse than expected. An hourly rate and a written approval step is a reasonable answer. Silence is not." },
-        { type: "p", text: "**Settle the tile order.** Who buys, who counts, who wears the wastage, where they get stored and how long the lead time is." },
-        { type: "p", text: "**On repairs, expect diagnosis before price.** A cracked tile, a drummy floor and a leaking shower can look identical and have three different causes. Quotes given over the phone for repairs are guesses. Cracked and drummy tiles are covered on our [floor tiling](floor-tiling-perth.html) page." },
+        { type: "h2", text: "How to get a quote you can rely on" },
+        { type: "p", text: "The goal is not the lowest number. It is quotes that describe the same job." },
+        { type: "h3", text: "Give every quoter the same brief" },
+        { type: "p", text: "Same room, same measurements, same tile, same scope. If one tiler prices a full retile and another prices tiling over the existing floor, the difference between the quotes tells you nothing." },
+        { type: "h3", text: "Ask what is included, line by line" },
+        { type: "ul", items: [
+          "Removal and disposal",
+          "Substrate preparation",
+          "Waterproofing",
+          "Tiling",
+          "Grout and silicone",
+          "Trims",
+          "Making good"
+        ] },
+        { type: "p", text: "A single total with no breakdown cannot be compared to anything." },
+        { type: "h3", text: "Ask what is excluded" },
+        { type: "p", text: "Tile supply, plumbing, electrical, asbestos testing and rubbish removal are the usual exclusions." },
+        { type: "h3", text: "Ask how variations are handled" },
+        { type: "p", text: "Specifically, what happens if the substrate is worse than expected. An hourly rate and a written approval step is a reasonable answer. Silence is not." },
+        { type: "h3", text: "Settle the tile order" },
+        { type: "p", text: "Who buys, who counts, who wears the wastage, where the tiles are stored and how long the lead time is." },
+        { type: "h3", text: "For repairs, expect a diagnosis before a price" },
+        { type: "p", text: "A cracked tile, a drummy floor and a leaking shower can look identical and have three different causes. Quotes given over the phone for repairs are guesses. Cracked and drummy tiles are covered on our [floor tiling](floor-tiling-perth.html) page." },
 
-        { type: "h2", text: "9. Your rights on a WA tiling contract" },
+        { type: "h2", text: "Your rights on a WA tiling contract" },
         /* Act and regulation names are italic in the draft. The block renderer
            supports bold only, so they render roman. Words unchanged. */
         { type: "p", text: "This part is not a matter of opinion, and most homeowners do not know it." },
@@ -901,12 +933,28 @@ window.SITE_CONFIG = {
         { type: "p", text: "Separately, building work valued at $20,000 or more that requires a building permit must be carried out by a registered builder, and home indemnity insurance is required for permit-requiring work over $20,000. Whether a permit is needed depends on the scope of the work, not its cost. Schedule 4 of the Building Regulations 2012 lists the exempt work." },
         { type: "p", text: "And the line worth remembering regardless: under section 37(2) of the Building Act 2011, work must meet the applicable building standards even where no building permit is required. A small job is not an exempt job." },
 
-        { type: "h2", text: "10. Nothing on this page replaces an on-site quote" },
-        { type: "p", text: "Every figure here was published by someone describing a job that is not yours. The substrate under your existing floor is the largest single variable in a tiling quote and it is not knowable until the tiles come up. Use this page to recognise a number that is out of range. Use a tiler standing in the room to get a real one." },
+        /* Canberra pattern. Advice only, no new figures: the one price below
+           is the slab figure already given under What makes Perth different. */
+        { type: "h2", text: "Budgeting sensibly" },
+        { type: "p", text: "**Hold a contingency.** Something almost always turns up when the old tiles come up. A contingency is the difference between a variation being an inconvenience and being a crisis." },
+        { type: "p", text: "**Understand what the cheapest quote is cheaper at.** Sometimes lower overhead. More often a narrower scope, less preparation, an assumption that becomes a variation later, or a price that excludes GST." },
+        { type: "p", text: "**Spend where failure is expensive.** Waterproofing and substrate preparation are hidden once the tiles go down, and putting either right means taking the finished surface off. Tile is visible and replaceable. If the budget has to give, give on the tile." },
+        { type: "p", text: "**Keep the plumbing where it is.** On a slab, moving a shower, vanity or floor waste means cutting the slab before anything else happens, at $2,000 to $6,000 per plumbing point according to a Perth supplier. Keeping the layout frees that money for everything else." },
 
-        { type: "h2", text: "11. Get your job quoted" },
-        { type: "p", text: "Tell us the room, the approximate area and what you are trying to do. We pass it to a Perth tiler who can quote it. We do not do the tiling ourselves, and the tiler who quotes you sets their own price." },
-        { type: "p", text: "[Get a quote for your job](#quote)" }
+        { type: "h2", text: "Nothing on this page replaces an on-site quote" },
+        { type: "p", text: "Every figure here was published by someone describing a job that is not yours. Prices change and publishers revise their pages. The substrate under your existing floor is the largest single variable in a tiling quote, and it is not knowable until the tiles come up. Use this page to recognise a number that is out of range. Use a tiler standing in the room to get a real one." },
+
+        /* Every answer restates figures and statements already on this page,
+           with the same attribution. Builds this page's FAQPage schema. */
+        { type: "h2", text: "Common questions" },
+        { type: "faqs", items: [
+          { q: "How much does a tiler charge per square metre in Perth?", a: "Published Perth figures vary widely. A Perth supplier puts standard floor tiling at $55 to $75 per square metre and bathroom work at $75 to $120, while a cost guide site puts standard floor labour at $37 to $94. A small room costs more per square metre than a large one, because a small floor is mostly cuts and edges." },
+          { q: "Why are my tiling quotes so different?", a: "Almost always because they cover different scopes. Removal, disposal, substrate preparation, waterproofing and trims are the usual differences. Give each tiler the same written brief, ask for a line by line breakdown, and most of the gap becomes visible." },
+          { q: "What does it cost to tile a bathroom, as opposed to renovating one?", a: "Three Perth sources of different types land on roughly $3,000 to $6,500 for tiling a standard bathroom. Published renovation figures for the same room run from $15,667 to $36,750, because they include plumbing, fixtures and other trades, and most of them do not say which." },
+          { q: "What does it cost to regrout a shower in Perth?", a: "Two Perth specialists advertise from $250 and from $550, and a national guide puts the average at around $1,500. A \"from\" price is a starting point, not a quote. If the membrane behind the grout has failed, regrouting is the wrong repair. See [bathroom tiling](bathroom-tiling-perth.html)." },
+          { q: "Does moving the plumbing add much to a bathroom?", a: "Yes, particularly on a slab. Moving a shower, vanity or floor waste on a concrete slab means cutting the slab first, and a Perth supplier puts that at $2,000 to $6,000 per plumbing point, before any tiling starts." },
+          { q: "How much deposit can a tiler ask for in WA?", a: "Where the Home Building Contracts Act 1991 (WA) applies, which is fixed-price home building contracts between $7,500 and $500,000, the deposit is capped at 6.5 per cent of the contract price. The Act names tiling as home building work, and the contract must be in writing and signed by both parties." }
+        ] }
       ]
     }
   ],
