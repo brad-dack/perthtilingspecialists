@@ -72,16 +72,20 @@ window.SITE_CONFIG = {
   /* --- Tracking / integrations ----------------------------------------- */
   ga4Id: "G-WVV41F95JK",
 
-  /* TODO (Brad): ingestUrl and ingestSecret stay on their placeholders until
-     the site_id row exists (phase 2 freeze note). Preflight fails on them,
-     which is correct.
-     TODO (Brad): this Turnstile key was frozen as the shared portfolio key,
-     but it differs from Canberra's by one character: Perth has
-     "0x4AAAAAAAEHD1..." (seven A's), Canberra has "0x4AAAAAAEHD1..." (six).
-     One of the two is a typo. Check against the Cloudflare dashboard. */
-  ingestUrl: "YOUR_INGEST_URL",
-  ingestSecret: "YOUR_INGEST_SECRET",
-  turnstileSiteKey: "0x4AAAAAAAEHD1tLftcrbDXIx",
+  /* Form ingest, set 15 Sep 2026 (rank-and-rent-backend runbook "Add a new
+     site", step 5). ingestUrl is the one shared ingest-form function, same as
+     Canberra. ingestSecret must match sites.ingest_secret on the
+     'perth-tiling-specialists' row, or every submission is rejected. It is
+     meant to sit in public config: the function matches it to a site, and
+     Turnstile is the spam gate.
+     turnstileSiteKey corrected from "0x4AAAAAAAEHD1..." (seven A's), which
+     threw Turnstile error 400020 (invalid sitekey) on the live Perth page, to
+     Canberra's "0x4AAAAAAEHD1..." (six A's), which renders without error.
+     TODO (Brad): confirm perthtilingspecialists.com.au is in the shared
+     "Rank and Rent forms" widget's hostname list if a test submission fails. */
+  ingestUrl: "https://bnfgnglzswtrvzfqkgjh.functions.supabase.co/ingest-form",
+  ingestSecret: "a125add13eb843b65a1ddcfd4f7175de",
+  turnstileSiteKey: "0x4AAAAAAEHD1tLftcrbDXIx",
 
   /* --- Structured data ---------------------------------------------------
      Organization, sitewide, per the handover constants. No LocalBusiness
@@ -284,7 +288,7 @@ window.SITE_CONFIG = {
       metaTitle: "Privacy Policy | Perth Tiling Specialists",
       metaDescription: "What Perth Tiling Specialists collects when you make an enquiry, who your details go to, how long they are kept, and how to have them removed.",
       headline: "Privacy Policy",
-      lastUpdated: "[DATE]",
+      lastUpdated: "15 September 2026",
       blocks: [
         { type: "lead", text: "This page explains what we collect when you make an enquiry, what we do with it, and how to get it removed. It is written to be read rather than to be legally impressive." },
 
