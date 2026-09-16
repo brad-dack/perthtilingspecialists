@@ -266,7 +266,7 @@ window.SITE_CONFIG = {
         /* Name follows Canberra's "Brad, trading as ...", which resolved the
            old [SURNAME] placeholder. ABN is Brad's sole trader ABN, the same
            one Canberra publishes (confirmed by Brad, 15 Sep 2026). Keep it in
-           step with the privacy page's Contact section. */
+           step with the privacy page's "Who this covers" and Contact. */
         { type: "p", text: "Brad, trading as Perth Tiling Specialists. ABN 78 538 005 810." },
         { type: "p", text: "Phone: (08) 9516 1688\nEmail: hello@perthtilingspecialists.com.au" },
         { type: "p", text: "[Send an enquiry](#quote)" }
@@ -274,110 +274,100 @@ window.SITE_CONFIG = {
     },
 
     /* ---------------------------------------------------------------------
-       PRIVACY - privacy-draft.md v1. Written to APP standard voluntarily
-       rather than to the minimum the small business exemption allows. The
-       draft notes record why: the trading-in-personal-information exception
-       looks directly relevant to this model, and reporting on the exemption's
-       removal is inconsistent. Brad to verify against OAIC guidance as it
-       stands at publication. Not legal advice, not reviewed by a solicitor.
-       Everything on this page describes Brad's own practice, so accuracy is a
-       matter of checking the real setup, not a source. */
+       PRIVACY - restructured 16 Sep 2026 on Brad's instruction to follow
+       Canberra's privacy policy (canberratilelayers.com.au/privacy): who this
+       covers, what we collect, why, who we share it with, how long, where it
+       is stored, cookies, access and deletion, complaints, changes.
+       Not legal advice, not reviewed by a solicitor. Everything here describes
+       Brad's own setup, so accuracy is a matter of checking the real system,
+       not a source. Where Canberra's wording did not match Perth's setup, the
+       Perth fact wins:
+         - The form has no email field (contact.fields: name, phone, suburb,
+           optional job description, plus the job type). Canberra lists email.
+         - Canberra says call records include "which page of the site you
+           called from". Perth has one tracking number and twilio-status logs
+           caller number, time and CallDuration only, so that is not claimed.
+         - Canberra says "The greeting tells you this before the tone". Not
+           claimed: Perth's greeting MP3 could not be checked, and its
+           greeting_text does not say the message is recorded.
+           TODO (Brad): once the greeting says so, a sentence can be added.
+         - Resend is named: forward-lead emails leads (with voicemail audio
+           attached) to the renter through Resend. Canberra omits it.
+         - GitHub Pages is named as the host (handover constants).
+         - Google Analytics is in use here (ga4Id is set), so "uses", not
+           "may use".
+       Retention, checked against the backend: prune-storage (monthly,
+       RETENTION_MONTHS = 12) deletes voicemail audio and attachment FILES
+       after 12 months and deliberately keeps leads and call_events rows as
+       invoicing evidence. The v1 page said "Enquiries are kept for 12 months
+       and then deleted", which nothing enforced; Canberra's "as long as
+       needed ... for a reasonable period afterwards" is the accurate
+       description, with removal on request.
+       Kept from Perth v1 because they are true and useful: voicemails are not
+       transcribed (twilio-voice Record transcribe="false"); aggregate use of
+       enquiries without names, which About's "What happens after you enquire"
+       summarises (keep the two in step); and the note that a tiler's copy has
+       to be requested from the tiler. */
     privacy: {
-      /* TODO (Brad): the page plan did not specify a title or meta for this
-         page. These are new and need approval. Both within limits. */
       metaTitle: "Privacy Policy | Perth Tiling Specialists",
-      metaDescription: "What Perth Tiling Specialists collects when you make an enquiry, who your details go to, how long they are kept, and how to have them removed.",
+      metaDescription: "What Perth Tiling Specialists collects when you make an enquiry or call, who your details go to, how long they are kept, and how to have them removed.",
       headline: "Privacy Policy",
-      lastUpdated: "15 September 2026",
+      lastUpdated: "16 September 2026",
       blocks: [
-        { type: "lead", text: "This page explains what we collect when you make an enquiry, what we do with it, and how to get it removed. It is written to be read rather than to be legally impressive." },
+        { type: "h2", text: "Who this covers" },
+        { type: "p", text: "This policy applies to Perth Tiling Specialists (ABN 78 538 005 810), run by Brad as a sole trader, and to information collected through this website and its phone number." },
 
         { type: "h2", text: "What we collect" },
-        { type: "p", text: "**When you send an enquiry:** your name, the contact details you give us, the suburb or area the job is in, and whatever you tell us about the job. If you attach a photo of the work, we collect that too." },
-        /* ACCURACY NOTE, corrected 13 Sep 2026. The draft said "Calls are not
-           recorded and not transcribed", recorded as confirmed in its notes.
-           The shared backend says otherwise (rank-and-rent-backend, same
-           correction as Canberra b603e72):
-             - twilio-voice has no <Dial>: no call is answered live. It plays
-               the site greeting, then <Record maxLength="120"
-               transcribe="false">.
-             - twilio-status uploads the audio to the Supabase "voicemails"
-               bucket, and logs from_number on every call_events row,
-               including calls that ring out with no message.
-             - prune-storage (monthly, RETENTION_MONTHS = 12) deletes the audio
-               FILES after 12 months but deliberately keeps the leads and
-               call_events rows, since they are the invoicing evidence.
-           So "not transcribed" stays true. Keep this paragraph in step with
-           twilio-voice and prune-storage.
-           TODO (Brad): the greeting (sites.greeting_audio_url and
-           greeting_text for this site) should tell callers the message is
-           recorded and passed to a tiler, before the tone. Not claimed here
-           because this site's greeting could not be checked from the repo.
-           TODO (Brad): "How long we keep it" below says enquiries are deleted
-           after 12 months. For calls, only the recording is: the caller's
-           number and call time stay in call_events and leads indefinitely.
-           This sits with the existing Supabase deletion-rule TODO. */
-        { type: "p", text: "**When you call:** calls to the number on this site are not answered live. You hear a short greeting and can leave a voicemail. Your phone number and the time of the call are logged whether or not you leave a message. If you do leave one, it is recorded and stored. Voicemails are not transcribed, and recordings are deleted after 12 months." },
-        { type: "p", text: "**When you visit the site:** we use Google Analytics, which collects information about visits to the site such as pages viewed, approximate location, and the type of device and browser used. This is not tied to your name and we do not use it to identify individuals." },
-        { type: "p", text: "**Spam protection:** the enquiry form uses Cloudflare Turnstile to block automated submissions. It checks that the form is being filled in by a person." },
-        { type: "p", text: "We do not ask for and do not want financial information, identity documents, or anything else you would not put in an email to a tradesperson." },
+        { type: "p", text: "When you send an enquiry through the form, we collect:" },
+        { type: "ul", items: [
+          "Your name",
+          "Your phone number",
+          "Your suburb",
+          "The type of job",
+          "Anything you tell us about the job"
+        ] },
+        { type: "p", text: "When you email us, we collect your email address and whatever you send, including any photos of the job." },
+        { type: "p", text: "When you call the number on this site, we collect your phone number and the time and length of the call. Calls are not answered live. They go to voicemail, and if you leave a message it is recorded and stored so that it can be passed on and acted on. Voicemails are not transcribed. Recordings are kept for up to twelve months and then deleted, though a record that the call happened is kept for our own accounting." },
+        { type: "p", text: "When you visit the site, standard analytics data is collected, including pages visited, approximate location derived from your IP address, device type and how you arrived at the site." },
 
         { type: "h2", text: "Why we collect it" },
-        { type: "p", text: "To do the one thing this site does: understand your job well enough to pass it to a tiler who can quote it." },
-        /* About's "Your details" section summarises this paragraph. Keep the
-           two in step. */
-        { type: "p", text: "We also use enquiry information in aggregate to understand what kinds of jobs people are asking about, which shapes what we write about. That use does not involve your name or contact details." },
+        { type: "p", text: "To pass your enquiry to a tiler who can quote the job, and to respond to you about that enquiry." },
+        { type: "p", text: "Enquiries are also used in aggregate, without names or contact details, to understand what kinds of jobs people are asking about, so the site can be improved." },
 
-        { type: "h2", text: "Who your details go to" },
-        { type: "p", text: "**A tiler.** That is the point of the enquiry. We pass your name, contact details, the location of the job and what you have told us about it to a tiling contractor who can quote the work. By sending an enquiry, you are asking us to do this." },
-        { type: "p", text: "From that point the tiler holds your details as well as us, and how they handle them is their responsibility rather than ours." },
-        { type: "p", text: "**Our service providers.** The site runs on services that necessarily handle this data: Supabase stores form submissions, Cloudflare protects the form, Google Analytics measures site usage, and Twilio handles phone calls. Some of these store data outside Australia." },
-        /* TODO (Brad): confirm which regions your Supabase project and
-           Cloudflare account actually store data in, and name them here if
-           they are outside Australia. Vague is worse than specific. */
-        { type: "p", text: "**Nobody else.** We do not sell your details, we do not pass them to marketing lists, and we do not pass them to more than one tiler without telling you." },
-        /* TODO (Brad): "we do not pass them to more than one tiler without
-           telling you" is a commitment about how the model runs. If the model
-           ever becomes multi-renter with shared leads, this line has to change
-           before the practice does. */
+        { type: "h2", text: "Who we share it with" },
+        { type: "p", text: "**The tiler.** Where we have a tiler covering that type of work in your area, your enquiry details go to them so they can contact you about the job. Your job is not sent to multiple businesses. Where we do not have a tiler for your area, we will tell you rather than pass your details anywhere. Once a tiler has your details, how they handle them is their responsibility." },
+        /* TODO (Brad): "Your job is not sent to multiple businesses" is a
+           commitment about how the model runs. If leads are ever shared
+           between renters, this line has to change before the practice does. */
+        { type: "p", text: "**Service providers.** The site uses third party services that process data on our behalf. The enquiry form submits directly to our own system rather than to a third party form service. That system is hosted on Supabase, so your details pass through their servers to reach us. A Cloudflare Turnstile check runs in your browser first to filter out automated spam. Calls and voicemails are handled by Twilio. Enquiries are sent on to the tiler by email through Resend. Cloudflare handles this site's DNS and email routing, the site itself is hosted on GitHub Pages, and Google Analytics is used to understand how the site is used. Each of these is a large international provider, each may store or process data outside Australia, and each publishes its own privacy policy describing how it handles data." },
+        /* TODO (Brad): confirm the Supabase project region and name it here if
+           it is outside Australia. Specific is better than "may". */
+        { type: "p", text: "**What we do not do.** We do not sell your information. We do not add you to a marketing list. We do not share your details with advertisers, data brokers, or any business other than the tiler handling your enquiry." },
 
         { type: "h2", text: "How long we keep it" },
-        { type: "p", text: "Enquiries are kept for 12 months and then deleted." },
-        { type: "p", text: "Analytics data is retained according to Google's settings for this property." },
-        /* TODO (Brad): set a 12 month deletion rule in Supabase so the page
-           describes something enforced rather than intended. Also check the
-           GA4 data retention setting matches what this says.
-           TODO (Brad): the contact section of the privacy page has no phone
-           hours line, matching About. Keep it that way. */
+        { type: "p", text: "Enquiry details, call records and analytics data are kept only as long as needed to handle the enquiry and to run the site, and for a reasonable period afterwards for our own records. Voicemail recordings are deleted after twelve months. If you would like your details removed sooner, contact us and we will remove them." },
 
-        { type: "h2", text: "Getting your details, correcting them, or having them deleted" },
-        { type: "p", text: "Email hello@perthtilingspecialists.com.au and ask. Specifically, you can ask us to:" },
-        { type: "ul", items: [
-          "tell you what we hold about you",
-          "correct anything that is wrong",
-          "delete your enquiry entirely"
-        ] },
-        { type: "p", text: "We will do it within 30 days, and usually much faster. There is no charge." },
-        { type: "p", text: "If you ask us to delete your details after we have already passed your enquiry to a tiler, we can delete our copy, but you would need to ask the tiler separately about theirs. We will tell you who they are so you can." },
+        { type: "h2", text: "Where it is stored" },
+        { type: "p", text: "See \"Service providers\" above. Each of those companies may store or process data outside Australia, and each publishes its own privacy policy describing how." },
 
         { type: "h2", text: "Cookies and analytics" },
-        { type: "p", text: "Google Analytics sets cookies to measure how the site is used. You can block cookies in your browser settings, or use Google's opt-out browser add-on. The site works without them." },
-        { type: "p", text: "Cloudflare Turnstile may set a token while you are using the form. It is there to keep spam out." },
+        { type: "p", text: "This site uses Google Analytics to understand how visitors find and use it, for example which pages are viewed. Google Analytics uses cookies and collects usage data such as general location and device type. It does not see anything typed into the enquiry form. You can block cookies in your browser settings and the site still works." },
+        { type: "p", text: "Cloudflare Turnstile may set a token while you are using the enquiry form. It is there to keep spam out." },
 
-        { type: "h2", text: "Security" },
-        { type: "p", text: "Enquiries are stored in a database that requires authentication to access. No system is completely secure, and we are not going to claim otherwise." },
-        { type: "p", text: "If something goes wrong and your information is exposed, we will tell you." },
-        /* TODO (Brad): row level security confirmed done. This paragraph is
-           accurate as written. If the Supabase schema changes, re-check it. */
+        { type: "h2", text: "Accessing or deleting your information" },
+        { type: "p", text: "You can ask us what information we hold about you, ask for it to be corrected, or ask for it to be deleted. Contact us at hello@perthtilingspecialists.com.au." },
+        { type: "p", text: "If your enquiry has already gone to a tiler, we can delete our copy, but you would need to ask the tiler about theirs. We will tell you who they are so you can." },
 
-        { type: "h2", text: "Children" },
-        { type: "p", text: "This site is aimed at homeowners arranging tiling work. It is not directed at children and we do not knowingly collect information from them." },
+        { type: "h2", text: "Complaints" },
+        { type: "p", text: "If you are unhappy with how we have handled your information, contact us first at hello@perthtilingspecialists.com.au." },
+        { type: "p", text: "If you are not satisfied with our response, you can contact the Office of the Australian Information Commissioner at [oaic.gov.au](https://www.oaic.gov.au)." },
 
-        { type: "h2", text: "Changes to this page" },
-        { type: "p", text: "If what we do with enquiry information changes, this page changes first. The date at the top tells you when it was last updated." },
+        { type: "h2", text: "Changes" },
+        { type: "p", text: "We may update this policy. The current version is always the one on this page, with the date it was last updated at the top." },
 
         { type: "h2", text: "Contact" },
-        { type: "p", text: "Brad, trading as Perth Tiling Specialists\nABN 78 538 005 810\nEmail: hello@perthtilingspecialists.com.au\nPhone: (08) 9516 1688" }
+        /* Keep in step with About's Contact section. No hours line. */
+        { type: "p", text: "Perth Tiling Specialists\nPhone: (08) 9516 1688\nEmail: hello@perthtilingspecialists.com.au" }
       ]
     }
   },
