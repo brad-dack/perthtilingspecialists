@@ -114,7 +114,9 @@ window.SITE_CONFIG = {
         src: "images/home-hero-tiled-interior.jpg",
         alt: "Tiled floor and wall surfaces in a modern home interior.",
         width: 1200,
-        height: 800
+        height: 800,
+        widths: [400, 560, 720, 960],
+        sizes: "(min-width: 900px) 450px, min(520px, calc(100vw - 40px))"
       },
       blocks: [
         /* Routing block, replacing the draft's "How it works" steps (Brad,
@@ -406,7 +408,9 @@ window.SITE_CONFIG = {
         src: "images/floor-tiling-perth.jpg",
         alt: "Large format floor tiles being laid with spacers between them.",
         width: 1200,
-        height: 800
+        height: 800,
+        widths: [400, 560, 720, 960],
+        sizes: "(min-width: 900px) 450px, min(520px, calc(100vw - 40px))"
       },
       blocks: [
         { type: "lead", text: "Most of what determines whether a tiled floor lasts happens before the first tile goes down. The substrate underneath it, how flat and sound and dry it is, decides more than the tile you choose or the price you pay." },
@@ -518,7 +522,9 @@ window.SITE_CONFIG = {
         src: "images/bathroom-tiling-perth.jpg",
         alt: "Modern bathroom with floor to ceiling wall tiles and a tiled shower recess.",
         width: 1200,
-        height: 800
+        height: 800,
+        widths: [400, 560, 720, 960],
+        sizes: "(min-width: 900px) 450px, min(520px, calc(100vw - 40px))"
       },
       blocks: [
         { type: "lead", text: "A bathroom is the hardest room in the house to tile. It is mostly edges, it has to be waterproof before a single tile goes down, and the parts that matter most are the parts you will never see again once the job is finished." },
@@ -651,7 +657,7 @@ window.SITE_CONFIG = {
         /* Regrouting close-up, old grout line against fresh. Photo-style,
            synthetic (Gemini, cropped to 1200x800), illustrative only, so no
            caption. */
-        { type: "image", src: "images/regrouting-close-up.jpg", alt: "Close-up of a tiled wall showing a discoloured grout line beside a freshly grouted one.", width: 1200, height: 800 },
+        { type: "image", src: "images/regrouting-close-up.jpg", alt: "Close-up of a tiled wall showing a discoloured grout line beside a freshly grouted one.", width: 1200, height: 800, widths: [400, 560, 720, 960], sizes: "min(720px, calc(100vw - 40px))" },
 
         { type: "h2", text: "Splashbacks" },
         { type: "p", text: "Kitchen and laundry splashbacks are the same trade and a much smaller job. They are usually priced hourly rather than by the square metre, and the labour is in the setting out and the cuts around power points rather than the area." },

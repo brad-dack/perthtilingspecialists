@@ -61,14 +61,22 @@
   function injectGA4() {
     var id = cfg.ga4Id;
     if (!id || id.indexOf("XXXX") !== -1 || !/^G-[A-Z0-9]+$/.test(id)) return;
-    var s = document.createElement("script");
-    s.async = true;
-    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
-    document.head.appendChild(s);
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag("js", new Date());
     window.gtag("config", id);
+    /* gtag.js is ~170KB. Fetching it only after the load event keeps it from
+       competing with the hero image on slow mobile connections (PageSpeed had
+       it downloading while LCP was still pending). Calls made before it
+       arrives queue in dataLayer and are replayed when it does. */
+    function load() {
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+      document.head.appendChild(s);
+    }
+    if (document.readyState === "complete") load();
+    else window.addEventListener("load", load, { once: true });
   }
 
   /* Click-to-call tracking: fires a GA4 event for any tel: link. gtag only
