@@ -4,7 +4,9 @@
 # Pages without front matter are still copied through untouched.
 exclude:
   - README.md
-  - LAUNCH_PLAYBOOK.md
+  - PLAYBOOK.md
+  - CODE-SESSION-START.md
   - TEMPLATE_SUMMARY.md
   - New site prompt.txt
   - bake.js
+  - build

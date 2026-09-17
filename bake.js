@@ -1026,7 +1026,7 @@ const faviconContent = () => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0
 /* ---------- bake (write mode) --------------------------------------------- */
 
 function bake() {
-  const problems = [...validateTheme(), ...validateAreaSlugs(), ...validateForms()];
+  const problems = [...validateTheme(), ...validateAreaSlugs(), ...validateForms(), ...buildGates()];
   if (problems.length) {
     console.error("Cannot bake - fix these entries in config.js first:");
     problems.forEach(p => console.error("  ✖ " + p));
@@ -1065,6 +1065,520 @@ function bake() {
 
   console.log("\nDone. Commit the regenerated files.");
   console.log("Before launch, run:  node bake.js --check");
+}
+
+/* ---------- build/ artefact guards (G1 to G10) -----------------------------
+   The five artefacts under build/ are the build's record: what was decided,
+   what is owed, and what has been proved. PLAYBOOK.md gives each task a gate;
+   these guards make the mechanical half of those gates enforceable, so a gate
+   cannot be passed by saying it was passed.
+
+   G1 (constants frozen) and G3 (page plan signed off) block `node bake.js`.
+   The other eight are reported by --check.
+
+   Every guard stays OFF while config.js is still the unpopulated template,
+   because there is no build behind it to check.
+
+   Why these exist: on Perth Tiling Specialists a commit called "freeze the
+   phase 2 constants" left ingestUrl, ingestSecret and email on placeholders;
+   the site deployed and was indexed while preflight was failing on 19 items,
+   including a [VERIFY] token in served HTML, six images that 404ed for two
+   days and a Turnstile key that was invalid for three; and the page plan the
+   copy was drafted against never reached the repo at all. */
+
+const BUILD_DIR = "build";
+
+const normKey = s => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+const cutTo = (s, n) => (String(s).length > n ? String(s).slice(0, n - 3) + "..." : String(s));
+const cleanCell = s => String(s || "").trim().replace(/^`+|`+$/g, "").trim();
+
+/* The stock config that ships with the template. No build, nothing to check. */
+const isStockTemplate = () =>
+  /yourdomain\.com/i.test(String(cfg.domain || "")) ||
+  /\bSpringfield\b/.test(String((cfg.business && cfg.business.name) || ""));
+
+const readRepo = rel => {
+  try { return fs.readFileSync(path.join(__dirname, rel), "utf8"); }
+  catch (e) { return null; }
+};
+const readBuild = rel => readRepo(path.join(BUILD_DIR, rel));
+
+/* Everything under a "## <heading>" up to the next "## ". */
+function sectionOf(raw, heading) {
+  if (!raw) return "";
+  const esc = heading.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const lines = raw.split(/\r?\n/);
+  const start = lines.findIndex(l => new RegExp("^##\\s+" + esc + "\\s*$", "i").test(l));
+  if (start === -1) return "";
+  const rest = lines.slice(start + 1);
+  const end = rest.findIndex(l => /^##\s/.test(l));
+  return (end === -1 ? rest : rest.slice(0, end)).join("\n");
+}
+
+/* "Status: FROZEN | 12 September 2026" -> "FROZEN". Anything after the pipe
+   is a human note, not the status. */
+function statusWord(raw, label) {
+  if (!raw) return null;
+  const m = raw.match(new RegExp("^" + label + ":[ \\t]*(.+)$", "mi"));
+  return m ? m[1].split("|")[0].trim().toUpperCase() : null;
+}
+
+/* Markdown table rows in a section, separator dropped. A cell may contain an
+   escaped pipe (\|), which page titles routinely do. */
+function tableRows(raw, heading) {
+  const rows = [];
+  for (const l of sectionOf(raw, heading).split(/\r?\n/)) {
+    if (!/^\s*\|/.test(l)) continue;
+    const cells = l.trim().replace(/^\|/, "").replace(/\|$/, "")
+      .split(/(?<!\\)\|/).map(c => c.replace(/\\\|/g, "|").trim());
+    if (cells.length && cells.every(c => /^:?-{2,}:?$/.test(c))) continue;
+    rows.push(cells);
+  }
+  return rows;
+}
+
+/* Two-column "| field | value |" tables, merged across several sections. */
+function fieldMap(raw, headings) {
+  const out = {};
+  for (const h of headings) {
+    for (const r of tableRows(raw, h)) {
+      if (r.length < 2) continue;
+      const k = normKey(r[0]);
+      if (!k || k === "field") continue;
+      out[k] = cleanCell(r[1]);
+    }
+  }
+  return out;
+}
+
+/* Rows of a headed table as objects, keyed by normalised column name. */
+function tableObjects(raw, heading) {
+  const rows = tableRows(raw, heading);
+  if (rows.length < 2) return [];
+  const head = rows[0].map((h, i) => normKey(h) || "col" + i);
+  return rows.slice(1).map(r => {
+    const o = {};
+    head.forEach((h, i) => { o[h] = cleanCell(r[i]); });
+    return o;
+  });
+}
+
+const hasToken = s => /\[NEEDS INPUT/i.test(String(s || ""));
+
+/* file -> the head config.js actually bakes for it. */
+function configHeads() {
+  const m = new Map();
+  const p = cfg.pages || {};
+  if (p.home) m.set("index.html", { title: p.home.metaTitle, meta: p.home.metaDescription, h1: p.home.headline });
+  if (p.about) m.set("about.html", { title: p.about.metaTitle, meta: p.about.metaDescription, h1: p.about.headline });
+  if (p.privacy) m.set("privacy.html", { title: p.privacy.metaTitle, meta: p.privacy.metaDescription, h1: p.privacy.headline });
+  for (const s of cfg.services || []) {
+    m.set(s.page, { title: s.metaTitle, meta: s.metaDescription, h1: s.headline });
+  }
+  return m;
+}
+
+/* G1. Constants frozen, and config.js agrees with them. Blocks the bake. */
+function g1Constants() {
+  const out = [];
+  const raw = readBuild("02-constants.md");
+  if (raw === null) {
+    return ["G1 build/02-constants.md is missing. Copy it from the template " +
+      "and fill it (PLAYBOOK.md T07 to T16)."];
+  }
+  const st = statusWord(raw, "Status");
+  if (st !== "FROZEN") {
+    out.push("G1 build/02-constants.md Status is \"" + (st || "unset") +
+      "\", not FROZEN (PLAYBOOK.md T16). Fill the values, do not change the " +
+      "status to unblock the bake.");
+  }
+  const tokens = raw.match(/\[NEEDS INPUT[^\]]*\]/gi) || [];
+  if (tokens.length) {
+    out.push("G1 build/02-constants.md still owes " + tokens.length +
+      " value(s), first: " + cutTo(tokens[0], 70));
+  }
+  const f = fieldMap(raw, ["Identity", "Infrastructure"]);
+  const b = cfg.business || {};
+  const pairs = [
+    ["brand", b.name, "business.name"],
+    ["domain", cfg.domain, "domain"],
+    ["phonee164", b.phone, "business.phone"],
+    ["phonedisplay", b.phoneDisplay, "business.phoneDisplay"],
+    ["email", b.email, "business.email"],
+    ["ga4measurementid", cfg.ga4Id, "ga4Id"],
+    ["turnstilesitekey", cfg.turnstileSiteKey, "turnstileSiteKey"],
+    ["ingesturl", cfg.ingestUrl, "ingestUrl"]
+  ];
+  for (const [key, actual, where] of pairs) {
+    const want = f[key];
+    if (want === undefined) {
+      out.push("G1 build/02-constants.md has no \"" + key + "\" row in Identity " +
+        "or Infrastructure (the guard reads those labels literally)");
+      continue;
+    }
+    if (hasToken(want)) continue;          // already counted above
+    const got = String(actual == null ? "" : actual);
+    const blank = /^(none|n\/a|not set|unset)$/i.test(want);
+    if (blank ? got !== "" : want !== got) {
+      out.push("G1 constants disagree: build/02-constants.md \"" + key + "\" is \"" +
+        cutTo(want, 50) + "\" but config.js " + where + " is \"" + cutTo(got, 50) + "\"");
+    }
+  }
+  return out;
+}
+
+/* G3. Page plan signed off, and it matches what config.js bakes. Blocks the
+   bake, because transcribing copy against an unapproved plan is what made
+   "which page, which H1" a question that was still open at the last commit. */
+function g3Plan() {
+  const out = [];
+  const raw = readBuild("03-plan.md");
+  if (raw === null) {
+    return ["G3 build/03-plan.md is missing. Copy it from the template and " +
+      "fill it (PLAYBOOK.md T17 to T19)."];
+  }
+  const st = statusWord(raw, "Status");
+  if (st !== "SIGNED-OFF") {
+    out.push("G3 build/03-plan.md Status is \"" + (st || "unset") +
+      "\", not SIGNED-OFF (PLAYBOOK.md T19)");
+  }
+  const heads = configHeads();
+  const inv = tableObjects(raw, "Inventory").filter(r => r.file && !hasToken(r.file));
+  const invByFile = new Map(inv.map(r => [r.file, r]));
+  const planHeads = new Map(tableObjects(raw, "Head")
+    .filter(r => r.file && !hasToken(r.file)).map(r => [r.file, r]));
+
+  for (const [file, h] of heads) {
+    const row = invByFile.get(file);
+    if (!row) {
+      out.push("G3 config.js bakes " + file + " but build/03-plan.md Inventory has no row for it");
+      continue;
+    }
+    if (!row.templatefit) {
+      out.push("G3 build/03-plan.md Inventory row " + file + " has an empty Template fit cell (PLAYBOOK.md T18)");
+    }
+    const p = planHeads.get(file);
+    if (!p) {
+      out.push("G3 build/03-plan.md Head has no row for " + file);
+      continue;
+    }
+    const cmp = [["title", p.title, h.title], ["meta", p.meta, h.meta], ["h1", p.h1, h.h1]];
+    for (const [what, planned, baked] of cmp) {
+      if (hasToken(planned)) continue;
+      if (String(planned || "") !== String(baked || "")) {
+        out.push("G3 " + file + " " + what + " differs: plan has \"" + cutTo(planned, 45) +
+          "\", config.js has \"" + cutTo(baked, 45) + "\" (change the plan and re-sign it, " +
+          "or fix config.js)");
+      }
+    }
+  }
+  for (const row of inv) {
+    if (!heads.has(row.file) && !/dropped/i.test(row.templatefit || "")) {
+      out.push("G3 build/03-plan.md Inventory lists " + row.file +
+        " but config.js does not bake it (mark it dropped, or build it)");
+    }
+  }
+  return out;
+}
+
+/* G2. Market read written down, its data files on disk, and every planned
+   page carrying its own SERP ownership row rather than inheriting the head
+   term's. */
+function g2Market() {
+  const out = [];
+  const raw = readBuild("01-market.md");
+  if (raw === null) return ["G2 build/01-market.md is missing (PLAYBOOK.md T01 to T06)"];
+  const st = statusWord(raw, "Status");
+  if (st !== "GO") {
+    out.push("G2 build/01-market.md Status is \"" + (st || "unset") + "\", not GO (PLAYBOOK.md T06)");
+  }
+  for (const r of tableObjects(raw, "Data files")) {
+    const f = r.file;
+    if (!f || hasToken(f)) continue;
+    if (!exists(f)) out.push("G2 build/01-market.md Data files lists " + f + ", which is not on disk");
+  }
+  const plan = readBuild("03-plan.md");
+  if (plan) {
+    const serp = tableObjects(raw, "SERP ownership")
+      .filter(r => r.query).map(r => ({ key: normKey(r.query), row: r }));
+    /* A row that exists but says "not read" is not a SERP read. */
+    const unread = v => !v || /^(not read|never read|unknown|n\/a|tbd|none)$/i
+      .test(String(v).replace(/\*/g, "").trim());
+    for (const row of tableObjects(plan, "Inventory")) {
+      const kw = row.primarykeyword;
+      if (!row.file || hasToken(row.file) || !kw || hasToken(kw) || /^(n\/a|none)$/i.test(kw)) continue;
+      if (/dropped/i.test(row.templatefit || "")) continue;
+      /* A primary keyword may carry alternates ("tiler perth / tiling perth").
+         Any one of them having its own row satisfies the rule. Matching is
+         exact: a row has to name the query the page actually targets. */
+      const wanted = kw.split("/").map(normKey).filter(Boolean);
+      if (!wanted.length) continue;
+      const hit = serp.find(s => wanted.includes(s.key));
+      if (!hit) {
+        out.push("G2 " + row.file + " targets \"" + cutTo(kw, 40) +
+          "\" but build/01-market.md has no SERP ownership row for it (PLAYBOOK.md T03)");
+      } else if (unread(hit.row.winnable) || unread(hit.row.top3domains)) {
+        out.push("G2 " + row.file + " has a SERP ownership row for \"" + cutTo(kw, 32) +
+          "\" but it was never read: no top 3 domains, or no verdict (PLAYBOOK.md T03)");
+      }
+    }
+  }
+  return out;
+}
+
+/* G4. Every high-risk claim sourced or dropped before drafting. */
+function g4Evidence() {
+  const out = [];
+  const raw = readBuild("03-plan.md");
+  if (raw === null) return [];        // G3 already reported the missing file
+  const ev = statusWord(raw, "Evidence");
+  if (ev !== "CLEAR") {
+    out.push("G4 build/03-plan.md Evidence is \"" + (ev || "unset") + "\", not CLEAR (PLAYBOOK.md T20)");
+  }
+  for (const r of tableObjects(raw, "Claim register")) {
+    const claim = r.claimasitwillappear || r.claim || "";
+    if (!claim || hasToken(claim)) continue;
+    const status = (r.status || "").toLowerCase();
+    if (!/^(sourced|dropped)$/.test(status)) {
+      out.push("G4 claim register row \"" + cutTo(claim, 45) + "\" is \"" +
+        (status || "blank") + "\", not sourced or dropped");
+      continue;
+    }
+    if (status === "sourced" && (!r.source || !r.datechecked)) {
+      out.push("G4 claim register row \"" + cutTo(claim, 45) +
+        "\" is sourced but has no source or no date checked");
+    }
+  }
+  return out;
+}
+
+/* G5. Every page config.js bakes has an approved copy file whose head matches. */
+function g5Copy() {
+  const out = [];
+  for (const [file, h] of configHeads()) {
+    const route = file.replace(/\.html$/, "");
+    const raw = readBuild(path.join("04-copy", route + ".md"));
+    if (raw === null) {
+      out.push("G5 " + file + " has no copy file at build/04-copy/" + route +
+        ".md (PLAYBOOK.md T21, T22)");
+      continue;
+    }
+    const st = statusWord(raw, "Status");
+    if (st !== "APPROVED") {
+      out.push("G5 build/04-copy/" + route + ".md Status is \"" + (st || "unset") +
+        "\", not APPROVED (PLAYBOOK.md T22)");
+    }
+    const f = fieldMap(raw, ["Head"]);
+    const cmp = [["title", f.title, h.title], ["meta", f.meta, h.meta], ["h1", f.h1, h.h1]];
+    for (const [what, drafted, baked] of cmp) {
+      if (drafted === undefined || hasToken(drafted)) continue;
+      if (String(drafted) !== String(baked || "")) {
+        out.push("G5 build/04-copy/" + route + ".md " + what + " differs from config.js: \"" +
+          cutTo(drafted, 40) + "\" against \"" + cutTo(baked, 40) + "\"");
+      }
+    }
+  }
+  return out;
+}
+
+/* G6. Every divergence from the template is either backported or carries a
+   written reason. The step skipped on every build so far. */
+function g6Backport() {
+  const out = [];
+  const readme = readRepo("README.md");
+  const log = readBuild("05-log.md");
+  if (!readme || !log) return out;
+  /* A README can carry more than one Divergence section, so scan rather than
+     split: collect every "### " heading while inside one. */
+  const headings = [];
+  let inside = false;
+  for (const line of readme.split(/\r?\n/)) {
+    if (/^##\s/.test(line)) inside = /^##\s+Divergence from the template\s*$/i.test(line);
+    else if (inside && /^###\s+/.test(line)) headings.push(line.replace(/^###\s+/, "").trim());
+  }
+  if (!headings.length) return out;
+  const rows = tableObjects(log, "Backport")
+    .map(r => normKey(r.divergence)).filter(k => k && !k.startsWith("needsinput"));
+  for (const h of headings) {
+    const key = normKey(h).slice(0, 20);
+    if (!key) continue;
+    if (!rows.some(r => r.includes(key))) {
+      out.push("G6 README.md divergence \"" + cutTo(h, 50) +
+        "\" has no row in build/05-log.md Backport (PLAYBOOK.md T30)");
+    }
+  }
+  return out;
+}
+
+/* G7. Launch readiness: nothing blocking is still open, and a QA pass is a
+   pass on evidence rather than on assertion. */
+function g7Launch() {
+  const out = [];
+  const warn = [];
+  const log = readBuild("05-log.md");
+  if (log === null) return { errors: ["G7 build/05-log.md is missing"], warnings: warn };
+
+  for (const r of tableObjects(log, "Open items")) {
+    if (!r.item || hasToken(r.item)) continue;
+    if (normKey(r.blocks) === "launch" && !r.closingevidence) {
+      out.push("G7 open item \"" + cutTo(r.item, 50) +
+        "\" blocks launch and has no closing evidence (build/05-log.md)");
+    }
+  }
+
+  const REQUIRED_QA = [
+    "no-js crawl", "console errors", "layout", "pagespeed", "internal links",
+    "sitemap", "notice above form", "preflight on deployed commit",
+    "form end to end", "call routes and logs", "greeting_audio_url",
+    "greeting_text", "ga4 realtime", "single indexable hostname",
+    "operator files not served"
+  ];
+  const qa = tableObjects(log, "QA");
+  const byCheck = new Map(qa.map(r => [normKey(r.check), r]));
+  const status = statusWord(sectionOf(log, "QA"), "Status");
+  const notPassed = v => /^(not done|fail|failed|partial|stale|skipped|n\/a|tbd)$/i
+    .test(String(v || "").replace(/\*/g, "").trim());
+  if (status === "PASS") {
+    for (const name of REQUIRED_QA) {
+      const row = byCheck.get(normKey(name));
+      if (!row) { out.push("G7 QA is PASS but has no \"" + name + "\" row"); continue; }
+      if (!row.result || hasToken(row.result)) out.push("G7 QA row \"" + name + "\" has no result");
+      else if (notPassed(row.result)) {
+        out.push("G7 QA is PASS but row \"" + name + "\" reads \"" + row.result + "\"");
+      } else if (!row.evidence || hasToken(row.evidence)) {
+        out.push("G7 QA row \"" + name + "\" has no evidence");
+      }
+    }
+  } else {
+    warn.push("build/05-log.md QA Status is \"" + (status || "unset") +
+      "\", not PASS: this build is not cleared for indexing (PLAYBOOK.md T28)");
+  }
+  return { errors: out, warnings: warn };
+}
+
+/* G8. The collection notice the privacy position depends on, on both
+   channels, and the artefact holding the same words as the live config.
+   See PLAYBOOK.md Appendix A, R3 and R4. */
+function g8Notices() {
+  const out = [];
+  const warn = [];
+  const notice = String((cfg.contact && cfg.contact.reassurance) || "");
+  if (!notice) {
+    out.push("G8 contact.reassurance is empty: the web form carries no collection notice (R4)");
+  } else {
+    if (!/pays?\s+for\s+the\s+(enquiry|lead)/i.test(notice)) {
+      out.push("G8 contact.reassurance does not say the contractor pays for the enquiry (R3, R4)");
+    }
+    if (!/\]\([^)]*privacy[^)]*\)/i.test(notice)) {
+      out.push("G8 contact.reassurance has no link to the privacy policy (R4)");
+    }
+  }
+  const raw = readBuild("02-constants.md");
+  if (raw !== null) {
+    const section = sectionOf(raw, "Collection notices");
+    if (notice && section.indexOf(notice) === -1) {
+      out.push("G8 build/02-constants.md Collection notices does not carry the exact " +
+        "contact.reassurance text that config.js ships (paste it verbatim)");
+    }
+    const f = fieldMap(raw, ["Collection notices"]);
+    for (const key of ["greetingaudiourlset", "greetingtextset"]) {
+      const v = f[key];
+      /* "Y", or "Y" followed by a caveat, both count as set. */
+      if (v === undefined || hasToken(v) || !/^y(es)?\b/i.test(v)) {
+        warn.push("build/02-constants.md " + key + " is not Y: the phone channel carries " +
+          "no collection notice until both columns are set (R4)");
+      }
+    }
+  }
+  return { errors: out, warnings: warn };
+}
+
+/* G9. An image referenced by config.js but never committed is a 404 on the
+   live site. Six of them were, for two days. */
+function g9Images() {
+  const out = [];
+  let tracked = null;
+  try {
+    tracked = new Set(require("child_process")
+      .execFileSync("git", ["ls-files"], { cwd: __dirname, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] })
+      .split(/\r?\n/).filter(Boolean).map(p => p.replace(/\\/g, "/")));
+  } catch (e) {
+    return [];                        // not a git repo, or no git: nothing to check against
+  }
+  const seen = new Set();
+  (function walk(node) {
+    if (Array.isArray(node)) return node.forEach(walk);
+    if (!node || typeof node !== "object") return;
+    if (typeof node.src === "string") {
+      seen.add(node.src);
+      if (Array.isArray(node.widths)) {
+        const dot = node.src.lastIndexOf(".");
+        if (dot > -1) {
+          node.widths.forEach(w => seen.add(node.src.slice(0, dot) + "-" + w + node.src.slice(dot)));
+        }
+      }
+    }
+    Object.keys(node).forEach(k => walk(node[k]));
+  })(cfg);
+  for (const src of seen) {
+    const rel = src.replace(/\\/g, "/");
+    if (exists(rel) && !tracked.has(rel)) {
+      out.push("G9 " + rel + " is on disk but not tracked by git: it will 404 on the live site");
+    }
+  }
+  return out;
+}
+
+/* G10. One indexable copy of the site, and operator notes not served from it.
+   See PLAYBOOK.md Appendix A, R5. */
+function g10Exposure() {
+  const out = [];
+  const wrangler = readRepo("wrangler.jsonc") || readRepo("wrangler.toml");
+  if (wrangler) {
+    if (!/workers_dev"?\s*[:=]\s*false/.test(wrangler)) {
+      out.push("G10 wrangler config does not set workers_dev to false: Cloudflare will " +
+        "publish a second fully crawlable copy of the site at *.workers.dev (R5)");
+    }
+    return out;
+  }
+  const NEVER_SERVE = ["README.md", "PLAYBOOK.md", "CODE-SESSION-START.md",
+    "TEMPLATE_SUMMARY.md", "New site prompt.txt", "bake.js", "build"];
+  const yml = readRepo("_config.yml");
+  if (yml === null) {
+    out.push("G10 _config.yml is missing: GitHub Pages serves every file in the repo, " +
+      "including the playbook and the build notes, from the live domain (R5)");
+    return out;
+  }
+  for (const f of NEVER_SERVE) {
+    if (!exists(f) && f !== "build") continue;
+    if (yml.indexOf(f) === -1) {
+      out.push("G10 _config.yml does not exclude " + f + ": it is served from the live domain (R5)");
+    }
+  }
+  return out;
+}
+
+/* The two that block the bake. */
+function buildGates() {
+  if (isStockTemplate()) return [];
+  return [...g1Constants(), ...g3Plan()];
+}
+
+/* Everything, for --check. */
+function buildGuards() {
+  if (isStockTemplate()) {
+    return { errors: [], warnings: [], skipped: true };
+  }
+  const launch = g7Launch();
+  const notices = g8Notices();
+  return {
+    errors: [
+      ...g1Constants(), ...g2Market(), ...g3Plan(), ...g4Evidence(), ...g5Copy(),
+      ...g6Backport(), ...launch.errors, ...notices.errors, ...g9Images(), ...g10Exposure()
+    ],
+    warnings: [...launch.warnings, ...notices.warnings],
+    skipped: false
+  };
 }
 
 /* ---------- preflight (--check mode) --------------------------------------
@@ -1396,6 +1910,15 @@ function runCheck() {
     warnings.push("photos is non-empty (" + cfg.photos.length +
       " entries) — make sure these are REAL photos from the actual business");
   }
+
+
+  /* -- 11. build/ artefact guards (G1 to G10) ----------------------------
+     PLAYBOOK.md gives each task a gate; these check the mechanical half of
+     them against the five artefacts under build/. Off for the unpopulated
+     template. */
+  const guards = buildGuards();
+  guards.errors.forEach(e => errors.push(e));
+  guards.warnings.forEach(w => warnings.push(w));
 
   /* -- report --------------------------------------------------------------- */
   if (unfinished.length) {
