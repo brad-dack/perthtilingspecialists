@@ -92,7 +92,7 @@ below record what can be proved now, not what was done at the time.
 | greeting_text | partial | The column is NOT NULL so a value exists. The stored wording was never read | 18 Sep 2026 |
 | ga4 realtime | not done | A pageview and a click_to_call event have never been confirmed | |
 | single indexable hostname | pass | brad-dack.github.io/perthtilingspecialists/ returns 301 to the apex; www returns 301 to the apex | 18 Sep 2026 |
-| operator files not served | pass | README.md, bake.js, TEMPLATE_SUMMARY.md and the old LAUNCH_PLAYBOOK.md all return 404. Re-check PLAYBOOK.md, CODE-SESSION-START.md and build/ after this commit deploys | 18 Sep 2026 |
+| operator files not served | pass | After the 18 Sep deploy: PLAYBOOK.md, CODE-SESSION-START.md, build/05-log.md, build/02-constants.md, README.md and bake.js all return 404, while the six pages return 200 | 18 Sep 2026 |
 
 ## Index log
 
