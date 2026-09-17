@@ -1079,7 +1079,8 @@ window.SITE_CONFIG = {
        happens to their details. That means this line must say, at the point
        of collection, that the details go to a contractor and that the
        contractor pays. Keep it accurate and keep the privacy policy link.
-       See LAUNCH_PLAYBOOK.md, phase 2, for the full position. The other half
+       See PLAYBOOK.md Appendix A, rules R3 and R4, for the position in full
+       (read the rule, not a summary of it). The other half
        of it is the voicemail greeting: sites.greeting_audio_url AND
        sites.greeting_text must carry the same notice. */
     reassurance: "No spam and no obligation. Your details go to a local tiler so they can quote your job - the contractor pays for the enquiry, you do not. We never sell your details or add you to a marketing list. [How we handle your information](privacy.html).",

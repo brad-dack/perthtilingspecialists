@@ -539,7 +539,7 @@ function blockHtml(b) {
          collection notice renders directly above every form, not just the
          About one: forms sit on several pages on this build, and the privacy
          position depends on the notice being at the point of collection (see
-         contact.reassurance in config and LAUNCH_PLAYBOOK.md phase 2). */
+         contact.reassurance in config, and PLAYBOOK.md Appendix A, R4). */
       return '<div class="block-form" id="quote">' +
         (b.heading ? "<h2>" + esc(b.heading) + "</h2>" : "") +
         '<p class="reassurance">' + richText(cfg.contact.reassurance) + "</p>" +
