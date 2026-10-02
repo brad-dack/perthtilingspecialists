@@ -105,6 +105,56 @@ below record what can be proved now, not what was done at the time.
 | link inventory | The cost guide is the only nominated asset. The drummy tile diagram and the shower waterproofing extent diagram are the only other original assets on the site |
 | outreach targets and status | None named. See open items |
 
+### Search Console snapshot, 3 October 2026
+
+Baseline from the Coverage and Performance exports downloaded on 3 October
+2026. Performance covers 15 to 29 September 2026, web search. Coverage runs to
+21 September, because the indexing report lags the performance report. Compare
+the next review against these numbers.
+
+**Coverage.** 5 indexed, 2 not indexed.
+
+| reason | pages | read |
+|---|---|---|
+| Page with redirect | 1 | Expected. The www and github.io hostnames 301 to the apex |
+| Discovered - currently not indexed | 1 | Probably /privacy, the only sitemap URL with no impressions. The export does not name URLs; confirm in the interface |
+
+**Performance.** 244 impressions, 0 clicks, average position 60 to 78 day to
+day with no direction.
+
+| page | impressions | avg position |
+|---|---|---|
+| /tiling-cost-perth | 146 | 71.2 |
+| /bathroom-tiling-perth | 56 | 69.0 |
+| / | 33 | 63.8 |
+| /about | 10 | 63.3 |
+| /floor-tiling-perth | 1 | 96.0 |
+
+| device | impressions | avg position |
+|---|---|---|
+| Desktop | 144 | 66.1 |
+| Mobile | 99 | 73.9 |
+| Tablet | 1 | 90.0 |
+
+Australia 229 impressions at 72.8. Ten impressions from nine other countries
+are noise.
+
+Top queries by impressions: how much does a tiler cost (22, 82.3), tiling a
+floor cost (21, 76.1), tiling specialists perth (16, 69.6), bathroom tiling
+perth (15, 74.7), perth bathroom tiling (14, 74.2), cost to tile floor (13,
+78.2), tiler cost (11, 69.7), tiling specialists (9, 43.0).
+
+Reading:
+
+- The cost guide earns 60% of impressions, mostly on national cost queries
+  with no Perth modifier. One query was for Glen Waverley, in Melbourne.
+- The home page head term barely registers: tilers perth and perth tilers
+  have 1 impression each, at 66 and 74.
+- The floor page is invisible, as the 60 to 182 link bar predicted.
+- Nothing ranks inside the top 40. With no inbound links and no named
+  outreach targets, that is a links problem, not a content problem.
+- Sitemap last read is still unconfirmed. These exports do not show it.
+
 ## Backport
 
 | divergence | template commit | or reason it stays here |
