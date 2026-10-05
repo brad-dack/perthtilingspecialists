@@ -47,9 +47,9 @@ spaces.
 | about.html | About Perth Tiling Specialists \| How This Site Works | 52 | What Perth Tiling Specialists is, the area we cover, what happens when you enquire, how the service is paid for, and how to get in touch. | 137 | About Perth Tiling Specialists |
 | privacy.html | Privacy Policy \| Perth Tiling Specialists | 41 | What Perth Tiling Specialists collects when you make an enquiry or call, who your details go to, how long they are kept, and how to have them removed. | 150 | Privacy Policy |
 
-Two of these were never in the approved plan and are live without approval:
-the cost guide meta, which was rewritten during drafting, and the privacy title
-and meta, which the plan never specified. Both are open items.
+Two of these were not in the approved plan: the cost guide meta, which was
+rewritten during drafting, and the privacy title and meta, which the plan never
+specified. Brad approved both as live on 5 October 2026.
 
 ## Nav
 

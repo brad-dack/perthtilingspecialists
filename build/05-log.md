@@ -30,6 +30,9 @@ nobody was tracking.
 | 16 Sep 2026 | T21 | Rewrite the privacy page on the settled portfolio structure | Brad | the Australian Privacy Principles draft that shipped on 13 Sep | The drafting session re-derived the settled position from a one-line summary in a handover and reached a different answer |
 | 18 Sep 2026 | T21 | Present-tense enquiry wording is settled portfolio-wide | Brad | the playbook rule requiring conditional wording until a renter is signed | The collection notice the privacy position depends on has to say it at the point of collection. Both rules could not hold. Now PLAYBOOK.md Appendix A, R11 |
 | 18 Sep 2026 | T31 | config.js is the record of this build's copy | Code, accepted by Brad | the six page drafts | The drafts were delivered in a zip, extracted to a session scratchpad, and never committed. Both are gone. build/04-copy holds each page's head, decisions and operator notes, not its blocks |
+| 5 Oct 2026 | T22 | Approve the live cost guide meta description | Brad | the meta approved in the page plan, which implied the figures were ours | The live meta attributes the figures to published Perth prices, which is what the page does |
+| 5 Oct 2026 | T22 | Approve the live privacy title and meta description | Brad | | Never in the page plan. Approved as live |
+| 5 Oct 2026 | T14 | The voicemail greeting follows the portfolio pattern: enquiries go to a tiler who can quote. It does not say the tiler pays, and will not be re-recorded | Brad | the 18 Sep open item reading R4 as requiring the payment statement on the phone channel, and R11's line that the greeting says the same as the form notice | Same format as the other sites, and the wording R4 itself gives as the pattern. The payment statement is carried by the form notice, About and the privacy page |
 
 ## Open items
 
@@ -40,17 +43,19 @@ been run.
 
 | item | blocks | surface | opened | closes when | closed | closing evidence |
 |---|---|---|---|---|---|---|
-| The voicemail greeting does not say the tiler pays for the enquiry, so the phone channel carries only half the collection notice R4 requires | launch | Me, then Code | 18 Sep 2026 | Re-record, set both columns, and hear it on a real call | |  |
+| The voicemail greeting does not say the tiler pays for the enquiry, so the phone channel carries only half the collection notice R4 requires | launch | Me, then Code | 18 Sep 2026 | Re-record, set both columns, and hear it on a real call | 5 Oct 2026 | Withdrawn by decision. See Decisions, 5 Oct 2026, T14 |
 | The greeting has never been heard on a real call to the live number | launch | Me | 18 Sep 2026 | A call, with the call_events row beside it | |  |
-| Whether the stored greeting_text matches migration 018 was never read | T14 | Code | 18 Sep 2026 | Read the row | |  |
-| The Supabase site_id UUID is not recorded anywhere in this repo | T14 | Code | 18 Sep 2026 | Read the row and write it into 02-constants.md | |  |
+| Brad reports the greeting live and tested on 5 Oct 2026, but no call to this number has ever logged. call_events has 0 rows for site f13c6b04 and 0 rows with to_number +61895161688, read 5 Oct 2026 13:20 AWST. Canberra and Limestone calls log normally, the latest at 5 Oct 2026 09:52 AWST. Calls are not reaching the webhook, or are not matched to this site | launch | Me, then Code | 5 Oct 2026 | A test call to (08) 9516 1688 produces call_status and recording rows against this site | |  |
+| Whether the stored greeting_text matches migration 018 was never read | T14 | Code | 18 Sep 2026 | Read the row | 5 Oct 2026 | Read 5 Oct 2026. It does not match. Stored: "... We will pass enquiries to a tiler who can quote the job." Migration 018: "We pass enquiries ...". greeting_audio_url is set. Follow-up below |
+| Stored greeting_text says "We will pass", not the present-tense "We pass" in migration 018 and R11. Which wording the MP3 says is not known | none | Me, then Code | 5 Oct 2026 | Confirm the MP3 wording, then make greeting_text match it | |  |
+| The Supabase site_id UUID is not recorded anywhere in this repo | T14 | Code | 18 Sep 2026 | Read the row and write it into 02-constants.md | 5 Oct 2026 | f13c6b04-d9b8-4664-9d09-475dcfcd1967, read from sites where slug = perth-tiling-specialists, now in 02-constants.md |
 | Migrations 017 and 018 are uncommitted in rank-and-rent-backend and were never applied through the CLI. The site row was created some other way | T14 | Code | 18 Sep 2026 | Commit them and show them applied in supabase migration list | |  |
 | inbound_email and its Cloudflare routing rule were reported set but never read from the row | T14 | Code | 18 Sep 2026 | Read the row, send a test email | |  |
 | forward_from_email was reported set after Resend verification but never read from the row | T14 | Code | 18 Sep 2026 | Read the row | |  |
 | gsc_site_url is not set on the site row, and the service account has no access, so the dashboard has no search data | T29 | Me, then Code | 17 Sep 2026 | Read the row | |  |
 | The Supabase and Cloudflare storage regions are unknown, and the privacy page says only that data may go overseas | T21 | Me | 13 Sep 2026 | Name the regions, then name them on the page | |  |
-| The cost guide meta is live and was never approved. The approved one implied the figures were ours | T22 | Me | 13 Sep 2026 | Approve the live meta or replace it | |  |
-| The privacy title and meta were never in the page plan and are live without approval | T22 | Me | 13 Sep 2026 | Approve or replace | |  |
+| The cost guide meta is live and was never approved. The approved one implied the figures were ours | T22 | Me | 13 Sep 2026 | Approve the live meta or replace it | 5 Oct 2026 | Approved by Brad, 5 Oct 2026. Live text unchanged in tiling-cost-perth.html |
+| The privacy title and meta were never in the page plan and are live without approval | T22 | Me | 13 Sep 2026 | Approve or replace | 5 Oct 2026 | Approved by Brad, 5 Oct 2026. Live text unchanged in privacy.html |
 | AS 4586 has never been verified as the current slip resistance edition | T20 | Code | 12 Sep 2026 | Check Standards Australia | |  |
 | No NCC edition is named on the bathroom page. The figures are NCC 2022; WA adopted NCC 2025 on 1 May 2026 | T20 | Code | 13 Sep 2026 | Check NCC 2025 Part 10.2 and name an edition or keep it edition-free deliberately | |  |
 | "Labour is roughly half the job" on the cost guide is a Canberra line with no Perth source | T20 | Code | 13 Sep 2026 | Source it or cut it | |  |

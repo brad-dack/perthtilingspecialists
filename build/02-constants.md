@@ -54,7 +54,7 @@ Do not raise it again.
 | ga4 property id | 553777970 |
 | turnstile site key | 0x4AAAAAAEHD1tLftcrbDXIx |
 | turnstile hostname added | Y. Proved by a successful test submission on 16 September 2026, which a missing hostname would have rejected |
-| supabase site_id | Row exists, slug perth-tiling-specialists, project bnfgnglzswtrvzfqkgjh. UUID not read in this session, see open items |
+| supabase site_id | f13c6b04-d9b8-4664-9d09-475dcfcd1967, slug perth-tiling-specialists, project bnfgnglzswtrvzfqkgjh. Read from the row on 5 October 2026 |
 | ingest url | https://bnfgnglzswtrvzfqkgjh.functions.supabase.co/ingest-form |
 | ingest secret location | sites.ingest_secret on the perth-tiling-specialists row. The same value sits in config.js by design: the function matches it to a site and Turnstile is the spam gate |
 | inbound email | hello@perthtilingspecialists.com.au, Cloudflare Email Routing to the rank-and-rent-email-ingest Worker. Reported set, not read from the row, see open items |
@@ -96,7 +96,8 @@ the settled structure three days later, in commit 7e5911b.
 
 ## Collection notices
 
-T12. Both channels carry the same notice. See PLAYBOOK.md rule R4.
+T12. See PLAYBOOK.md rule R4. The form notice says the tiler pays; the
+greeting follows the portfolio pattern and does not (decision, 5 October 2026).
 
 **Form notice** (`contact.reassurance`, rendered above every form on the site):
 
@@ -107,18 +108,16 @@ No spam and no obligation. Your details go to a local tiler so they can quote yo
 
 Hi, thanks for calling Perth Tiling Specialists. Leave your name, suburb and job details after the tone. We pass enquiries to a tiler who can quote the job.
 
-**This greeting does not carry the whole notice.** It says enquiries are passed
-to a tiler, but not that the tiler pays for the enquiry, which R4 requires on
-both channels, and not that the message is recorded, which the privacy page
-would otherwise state. The phone channel is therefore half implemented. Open
-item, `build/05-log.md`.
+This is the portfolio greeting, the same format as Canberra Tile Layers and
+the other sites. It says enquiries go to a tiler and deliberately does not say
+the tiler pays. Decided by Brad, 5 October 2026, `build/05-log.md` Decisions.
 
 | field | value |
 |---|---|
 | mp3 recorded | Y |
-| greeting_audio_url set | Y |
-| greeting_text set | Y. The column is NOT NULL, so any row has one. Whether the stored wording matches the text above was not read in this session |
-| greeting heard on a real call | Not done. See open items |
+| greeting_audio_url set | Y. Read 5 October 2026 |
+| greeting_text set | Y, but it differs from the text above. Read 5 October 2026: "Hi, thanks for calling Perth Tiling Specialists. Leave your name, suburb and job details after the tone. We will pass enquiries to a tiler who can quote the job." See open items |
+| greeting heard on a real call | Brad reports it live and tested, 5 October 2026. No call to this number has logged in call_events. See open items |
 
 ## Search Console
 
