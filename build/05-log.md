@@ -33,6 +33,7 @@ nobody was tracking.
 | 5 Oct 2026 | T22 | Approve the live cost guide meta description | Brad | the meta approved in the page plan, which implied the figures were ours | The live meta attributes the figures to published Perth prices, which is what the page does |
 | 5 Oct 2026 | T22 | Approve the live privacy title and meta description | Brad | | Never in the page plan. Approved as live |
 | 5 Oct 2026 | T14 | The voicemail greeting follows the portfolio pattern: enquiries go to a tiler who can quote. It does not say the tiler pays, and will not be re-recorded | Brad | the 18 Sep open item reading R4 as requiring the payment statement on the phone channel, and R11's line that the greeting says the same as the form notice | Same format as the other sites, and the wording R4 itself gives as the pattern. The payment statement is carried by the form notice, About and the privacy page |
+| 5 Oct 2026 | T21 | Renovation enquiries go to the tiler like any other. About still says renovations are usually builder-led, but no longer promises to turn the enquiry away | Brad | Canberra's "we will say so rather than take the enquiry", carried into About unconfirmed | The promise described handling Perth never committed to. The tiler decides what is in scope |
 
 ## Open items
 
@@ -67,7 +68,7 @@ been run.
 | Canberra backport: it attributes the 1:80 fall to a paywalled standard. NCC Housing Provisions 10.2.12 states it, is free to verify, and gives the 1:50 maximum Canberra omits | none | Code | 12 Sep 2026 | A commit in the Canberra repo | |  |
 | The R11 greeting exception added to PLAYBOOK.md on 5 Oct 2026 is not in the template's copy | T30 | Code | 5 Oct 2026 | A commit in the template repo | |  |
 | The engine changes in this build are not backported to the template | T30 | Code | 13 Sep 2026 | Template commits, or a written reason each cannot be | |  |
-| The About renovation paragraph follows Canberra's position. No Perth draft states it | T21 | Brad | 13 Sep 2026 | Confirm it is how enquiries are handled, or cut it | |  |
+| The About renovation paragraph follows Canberra's position. No Perth draft states it | T21 | Brad | 13 Sep 2026 | Confirm it is how enquiries are handled, or cut it | 5 Oct 2026 | Reworded by decision, see Decisions 5 Oct 2026, T21. about.html now ends the paragraph "If you send the enquiry anyway, we pass it to the tiler, and they will tell you if it is outside what they do." |
 | The privacy page and the home page both refer to sending a photo, but the web form cannot take a file. A photo can only arrive by email, and that routing was never confirmed | T21 | Code | 13 Sep 2026 | Confirm the email routing, or drop the photo sentences | |  |
 | step1Label, successMessage and errorMessage are still template copy rather than draft copy | T21 | Code | 13 Sep 2026 | Rewrite or accept deliberately | |  |
 | The brand theme is still the template default: green, bold, diagonal | none | Brad | 12 Sep 2026 | Pick a theme, or accept the default deliberately | |  |

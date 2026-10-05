@@ -44,8 +44,10 @@ Live as `/* TODO (Brad) */` comments in `config.js`:
 - Every sentence in "Who runs this" must be true of Brad specifically. If any
   of it is not, cut it rather than softening it. Nothing about years, volumes
   or numbers of clients.
-- The renovation paragraph follows Canberra's position. No Perth draft states
-  it. Confirm it is how Perth enquiries are actually handled, or cut it.
+- The renovation paragraph says renovations are usually builder-led, and that
+  a renovation enquiry still goes to the tiler, who says if it is out of scope.
+  It does not promise to turn the enquiry away, unlike Canberra. Decided by
+  Brad, 5 October 2026.
 - "Your details" is kept in step with the privacy page's "Why we collect it"
   and "Nobody else". The privacy page is the fuller disclosure, so this follows
   it. If either changes, change both.

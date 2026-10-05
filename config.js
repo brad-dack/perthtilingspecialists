@@ -241,10 +241,7 @@ window.SITE_CONFIG = {
 
         { type: "h2", text: "What we cover, and what we don't" },
         { type: "p", text: "We stick to tiling: floors, walls, bathrooms and showers, kitchen and laundry splashbacks, regrouting, and repairs to cracked, loose or drummy tiles." },
-        /* TODO (Brad): the renovation line follows Canberra's position. No
-           Perth draft states it. Confirm it is how Perth enquiries are handled,
-           or cut the paragraph. */
-        { type: "p", text: "Full bathroom renovations are a different job. A renovation involves plumbing, electrical, carpentry and plastering alongside the tiling, and it is generally run by a builder rather than a tiler. If you are stripping a bathroom back and starting again, a renovation builder is who you want, and we will say so rather than take the enquiry." },
+        { type: "p", text: "Full bathroom renovations are a different job. A renovation involves plumbing, electrical, carpentry and plastering alongside the tiling, and it is generally run by a builder rather than a tiler. If you are stripping a bathroom back and starting again, a renovation builder is usually who you want. If you send the enquiry anyway, we pass it to the tiler, and they will tell you if it is outside what they do." },
         { type: "p", text: "Plumbing, electrical work, stone benchtops and structural work are all separate trades we do not handle. In Western Australia, plumbing work has to be done by a licensed plumber." },
 
         { type: "h2", text: "What happens after you enquire" },
