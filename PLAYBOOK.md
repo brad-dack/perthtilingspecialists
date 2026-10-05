@@ -624,6 +624,12 @@ are passed to a contractor in the trade, and the contractor pays for the
 enquiry. The form notice, the voicemail greeting, the About page and the
 privacy page all say the same thing.
 
+**The voicemail greeting is the exception on payment.** It follows the R4
+pattern, saying enquiries go to a tiler who can quote, and does not say the
+contractor pays. The form notice, About and the privacy page carry the payment
+statement. Decided by Brad, 5 October 2026, to keep the same greeting format
+on every site. Do not open a re-record item for it.
+
 **This supersedes** the earlier rule requiring conditional wording until a
 renter was signed. That rule was in direct conflict with R3 and R4, which
 require the present-tense statement at the point of collection, and both could

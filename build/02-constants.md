@@ -117,7 +117,7 @@ the tiler pays. Decided by Brad, 5 October 2026, `build/05-log.md` Decisions.
 | mp3 recorded | Y |
 | greeting_audio_url set | Y. Read 5 October 2026 |
 | greeting_text set | Y, but it differs from the text above. Read 5 October 2026: "Hi, thanks for calling Perth Tiling Specialists. Leave your name, suburb and job details after the tone. We will pass enquiries to a tiler who can quote the job." See open items |
-| greeting heard on a real call | Brad reports it live and tested, 5 October 2026. No call to this number has logged in call_events. See open items |
+| greeting heard on a real call | Y. Brad, 5 October 2026, with a call_events ringing row at 13:27 AWST. No completed or recording row followed. See open items |
 
 ## Search Console
 
