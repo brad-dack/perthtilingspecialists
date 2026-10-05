@@ -314,7 +314,7 @@ window.SITE_CONFIG = {
       metaTitle: "Privacy Policy | Perth Tiling Specialists",
       metaDescription: "What Perth Tiling Specialists collects when you make an enquiry or call, who your details go to, how long they are kept, and how to have them removed.",
       headline: "Privacy Policy",
-      lastUpdated: "16 September 2026",
+      lastUpdated: "5 October 2026",
       blocks: [
         { type: "h2", text: "Who this covers" },
         { type: "p", text: "This policy applies to Perth Tiling Specialists (ABN 78 538 005 810), run by Brad as a sole trader, and to information collected through this website and its phone number." },
@@ -341,16 +341,14 @@ window.SITE_CONFIG = {
         /* TODO (Brad): "Your job is not sent to multiple businesses" is a
            commitment about how the model runs. If leads are ever shared
            between renters, this line has to change before the practice does. */
-        { type: "p", text: "**Service providers.** The site uses third party services that process data on our behalf. The enquiry form submits directly to our own system rather than to a third party form service. That system is hosted on Supabase, so your details pass through their servers to reach us. A Cloudflare Turnstile check runs in your browser first to filter out automated spam. Calls and voicemails are handled by Twilio. Enquiries are sent on to the tiler by email through Resend. Cloudflare handles this site's DNS and email routing, the site itself is hosted on GitHub Pages, and Google Analytics is used to understand how the site is used. Each of these is a large international provider, each may store or process data outside Australia, and each publishes its own privacy policy describing how it handles data." },
-        /* TODO (Brad): confirm the Supabase project region and name it here if
-           it is outside Australia. Specific is better than "may". */
+        { type: "p", text: "**Service providers.** The site uses third party services that process data on our behalf. The enquiry form submits directly to our own system rather than to a third party form service. That system is hosted by Supabase in Tokyo, Japan, and that is where your details are stored. A Cloudflare Turnstile check runs in your browser first to filter out automated spam. Calls and voicemails are handled by Twilio. Enquiries are sent on to the tiler by email through Resend. Cloudflare handles this site's DNS and email routing, the site itself is hosted on GitHub Pages, and Google Analytics is used to understand how the site is used. Each of these is a large international provider, each may store or process data outside Australia, and each publishes its own privacy policy describing how it handles data." },
         { type: "p", text: "**What we do not do.** We do not sell your information. We do not add you to a marketing list. We do not share your details with advertisers, data brokers, or any business other than the tiler handling your enquiry." },
 
         { type: "h2", text: "How long we keep it" },
         { type: "p", text: "Enquiry details, call records and analytics data are kept only as long as needed to handle the enquiry and to run the site, and for a reasonable period afterwards for our own records. Voicemail recordings are deleted after twelve months. If you would like your details removed sooner, contact us and we will remove them." },
 
         { type: "h2", text: "Where it is stored" },
-        { type: "p", text: "See \"Service providers\" above. Each of those companies may store or process data outside Australia, and each publishes its own privacy policy describing how." },
+        { type: "p", text: "Enquiry details, call records and voicemail recordings are kept in our own system, which is hosted by Supabase in Tokyo, Japan. The other services listed under \"Service providers\" above may also store or process data outside Australia, and each publishes its own privacy policy describing how." },
 
         { type: "h2", text: "Cookies and analytics" },
         { type: "p", text: "This site uses Google Analytics to understand how visitors find and use it, for example which pages are viewed. Google Analytics uses cookies and collects usage data such as general location and device type. It does not see anything typed into the enquiry form. You can block cookies in your browser settings and the site still works." },

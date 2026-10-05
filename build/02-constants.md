@@ -59,7 +59,7 @@ Do not raise it again.
 | ingest secret location | sites.ingest_secret on the perth-tiling-specialists row. The same value sits in config.js by design: the function matches it to a site and Turnstile is the spam gate |
 | inbound email | hello@perthtilingspecialists.com.au, Cloudflare Email Routing to the rank-and-rent-email-ingest Worker. Reported set, not read from the row, see open items |
 | forward from email | Reported set after Resend domain verification, not read from the row, see open items |
-| storage regions | Not determined. The privacy page names Supabase, Cloudflare, Twilio, Resend, GitHub Pages and Google as processors and says each may store data outside Australia, without naming a region. See open items |
+| storage regions | Supabase: ap-northeast-1, Tokyo, read from supabase projects list on 5 October 2026, and named on the privacy page. Cloudflare: nothing stored at rest; the email Worker has no storage bindings and passes mail on to Gmail and the Supabase ingest function. Twilio, Resend, GitHub Pages and Google are not pinned to a region; the privacy page says they may store data outside Australia |
 | retention rule | prune-storage runs monthly and deletes voicemail audio and email attachments older than 12 months. The leads and call_events rows are deliberately kept, because they are the invoicing evidence |
 
 ## Positioning
