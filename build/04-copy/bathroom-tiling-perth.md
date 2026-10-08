@@ -1,6 +1,6 @@
 # Bathroom tiling: /bathroom-tiling-perth
 
-Status: APPROVED | 15 September 2026, commit 7551d26
+Status: DRAFT v2 | 8 October 2026, awaiting Brad's approval. Previous approval: v1 APPROVED 15 September 2026, commit 7551d26
 
 ## Head
 
@@ -24,6 +24,31 @@ regrouting, splashbacks, and the enquiry form at `#quote`.
 This is the highest-risk page on the site for implied capability. Every
 sentence in the waterproofing section describes what the contractor should do
 and what the homeowner should check, never what we do.
+
+## Draft v2, 8 October 2026
+
+Additions only, plus one sentence appended. The blocks are in `config.js`
+`services[1].blocks`, each with a comment saying why it is there.
+
+- **New H2 "Signs your shower waterproofing has failed"**, after the regrouting
+  section. Targets leaking shower perth as a section, which is all the
+  `01-market.md` thesis allows (the SERP belongs to shower repair specialists).
+  Home already routes "leaking showers" here and the page said one sentence
+  about it. Opens with the direct answer (damp outside the shower, then signs
+  inside it), says none of the signs proves membrane failure on its own, lists
+  what to look for, why covering it up fails, the licensed plumber rule
+  (restating verified claim register row, same wording as the page already
+  carries), and pre-1990 asbestos (points at Older Perth bathrooms). Ends with
+  a link to the form. No diagnosis is promised.
+- **New H2 "Common questions"** with three FAQs, before the quote section, so
+  the page gets FAQPage schema. Questions: tile over existing bathroom tiles,
+  retile only the shower, different tiles in the shower and the floor. No slip
+  resistance standard or rating is named, because claim register row 8 is
+  still open.
+- **Appended** to "Give every tiler the same brief": a link to the floor page's
+  tile-over section.
+- **Inbound links added** from the floor page (new section, Wet areas are
+  different) and the cost guide (For repairs, expect a diagnosis).
 
 ## Changes from plan
 

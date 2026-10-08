@@ -434,6 +434,20 @@ window.SITE_CONFIG = {
         { type: "p", text: "The catch is that nobody can see it until the old floor comes up. A tiler quoting your job is estimating what they expect to find. This is why quotes for retiling carry variation clauses, and why a quote with no variation clause is not more generous, it is just less honest about the same risk." },
         { type: "p", text: "If you are replacing an existing floor, ask what happens if the substrate is worse than expected, and how that gets approved before the extra work starts." },
 
+        /* Added 8 Oct 2026 (draft v2), for "tile removal perth" and "tiling over
+           existing tiles". All three Perth competitors read on that date cover
+           it (a removal page, FAQs). Owns the tile-over decision; removal
+           prices stay on the cost guide (R12). The asbestos line points at the
+           verified Older Perth floors section rather than restating it. */
+        { type: "h2", text: "Removing old tiles or tiling over them" },
+        { type: "p", text: "New tiles can sometimes go over an old tiled floor, but only when every existing tile is still fully bonded, the floor is flat, and the extra height works at doors and thresholds. If any of those is not true, the old tiles have to come up first." },
+        { type: "p", text: "**Why a tile-over is a gamble.** The new floor is only as sound as the old one under it. A drummy or cracked tile underneath carries its problem straight through to the new surface, and the evidence ends up buried. Tapping across the whole floor before anyone decides is the minimum." },
+        { type: "p", text: "**Height.** Tiling over adds the thickness of a new tile and its adhesive bed. That height has to be absorbed somewhere: at door bottoms, at the step into the next room, under the dishwasher space, and where the tiles meet carpet or timber." },
+        { type: "p", text: "**Wet areas are different.** Tiling over a bathroom floor or a shower does nothing for the waterproofing underneath, and if that has failed, a new layer of tiles hides the problem rather than fixing it. That is covered on the [bathroom tiling](bathroom-tiling-perth.html) page." },
+        { type: "p", text: "**Taking it up.** Removal means breaking out the tiles, grinding back the old adhesive or bed, and carting away a heavy load of waste. It is also the moment the substrate finally becomes visible, which is why a quote that includes removal usually carries a variation clause. What removal and disposal add to the price is on the [cost guide](tiling-cost-perth.html)." },
+        { type: "p", text: "**Older Perth homes.** In homes built before 1990, old vinyl floor tiles and linoleum backing can contain asbestos, as set out under Older Perth floors below. Breaking up the old floor is exactly the step that would disturb it, so if there is any doubt, it gets tested before removal starts." },
+        { type: "p", text: "Not sure whether yours can be tiled over? [Tell us about the floor](#quote) and we will pass it to a Perth tiler who can look at it before quoting." },
+
         { type: "h2", text: "Tile format, layout and setting out" },
         { type: "p", text: "**Format.** Large format tiles need a flatter substrate than small ones, because any dip in the floor shows up as lippage at the edges. Getting a floor flat enough for a 600 by 600 or larger tile is often the real work in the job." },
         { type: "p", text: "**Layout.** A straight lay is the baseline. Diagonal, herringbone and brick bond patterns take longer, produce more cuts and more wastage, and demand a more accurate set out. The pattern is a labour decision as much as an aesthetic one." },
@@ -488,6 +502,15 @@ window.SITE_CONFIG = {
           "Anything you have noticed: movement, moisture, hollow sounding areas, cracks that keep returning"
         ] },
         { type: "p", text: "Give every tiler the same brief, because two quotes for different scopes cannot be compared. What tiling costs in Perth, and why published figures for the same job disagree so widely, is covered on our [tiling cost per m2](tiling-cost-perth.html) page." },
+
+        /* Added 8 Oct 2026 (draft v2). Builds this page's FAQPage schema.
+           Answers restate this page; no figures, no standards. */
+        { type: "h2", text: "Common questions" },
+        { type: "faqs", items: [
+          { q: "Can new tiles be laid over old floor tiles?", a: "Sometimes. Every existing tile has to be fully bonded and the floor flat, and the extra height has to work at doors and thresholds. A drummy tile under the new floor carries its problem straight through, so the old floor needs tapping across before anyone decides." },
+          { q: "How long does it take to tile a floor?", a: "It depends far more on what happens before the tiles go down than on the laying. Taking up an old floor, grinding back adhesive and levelling the substrate can take longer than the tiling, and the grout cannot go in until the adhesive has set. Ask how long the room will be out of use, from removal to the first time you can walk on it." },
+          { q: "Can a tiler replace just a few cracked tiles?", a: "Yes, if the problem is contained and there is a tile to match. A single cracked tile is often impact damage, but cracks that run across several tiles or keep coming back usually mean something is moving underneath. If you kept spares from the original job, say so when you enquire." }
+        ] },
 
         { type: "h2", text: "Get your floor tiling job quoted" },
         { type: "p", text: "Tell us the room, roughly the area and what you want done. We will pass it to a Perth tiler who can quote it. We do not do the tiling ourselves, and the tiler who quotes you sets their own price." },
@@ -654,6 +677,30 @@ window.SITE_CONFIG = {
            caption. */
         { type: "image", src: "images/regrouting-close-up.jpg", alt: "Close-up of a tiled wall showing a discoloured grout line beside a freshly grouted one.", width: 1200, height: 800, widths: [400, 560, 720, 960], sizes: "min(720px, calc(100vw - 40px))" },
 
+        /* Added 8 Oct 2026 (draft v2), for "leaking shower perth" as a section,
+           which is what 01-market.md's thesis allows (the SERP itself belongs
+           to shower repair specialists). Home already routes "leaking showers"
+           here, and the page said one sentence about it. Signs only, stated as
+           possibilities, no diagnosis promised. The plumbing line restates the
+           verified claim register row 9 wording; the asbestos line points at
+           Older Perth bathrooms rather than restating it. */
+        { type: "h2", text: "Signs your shower waterproofing has failed" },
+        { type: "p", text: "The usual signs are damp turning up outside the shower: on the other side of the shower wall, at the base of a nearby wall, in a skirting board or door frame that has swollen, or on the ceiling below. Inside the shower, tiles that sound hollow or move, grout that keeps cracking in the same place, and mould that keeps returning at the base of the walls can all point the same way." },
+        { type: "p", text: "None of these proves the membrane has failed on its own. A poorly fitted floor waste, a failed seal around the screen, a leaking pipe in the wall or poor ventilation can leave similar marks. That is why a leaking shower needs diagnosing before anyone prices a fix." },
+        { type: "p", text: "What to look for:" },
+        { type: "ul", items: [
+          "Damp, staining or flaking paint on the other side of the shower wall",
+          "Swollen skirting boards, architraves or door frames near the bathroom",
+          "Tiles that sound hollow or move underfoot, especially near the waste and the hob or stepdown",
+          "Grout or silicone that cracks again soon after it has been replaced",
+          "Mould that keeps coming back at the base of the shower walls, or a musty smell that will not clear",
+          "Water marks on the ceiling below a first floor bathroom"
+        ] },
+        { type: "p", text: "**Why covering it up does not work.** If the membrane has failed, new grout, new silicone or a new layer of tiles will hide the problem for a while without stopping the water. Fixing it means taking the shower back to the substrate, rebuilding the falls and the membrane to the requirements set out above, and retiling." },
+        { type: "p", text: "**If it turns out to be a pipe.** A leak from the pipework in the wall is plumbing work before it is tiling work, and in Western Australia that has to be done by a licensed plumber." },
+        { type: "p", text: "**Older Perth showers.** A shower built decades ago may have been built to older requirements, or without a membrane at all. In homes built before 1990, the sheeting behind the wall tiles can contain asbestos, as covered under Older Perth bathrooms below, so it gets tested before anything is cut out." },
+        { type: "p", text: "If you are seeing any of this, [tell us what you have noticed](#quote) and we will pass it to a Perth tiler. Expect them to want to see the shower before giving a price." },
+
         { type: "h2", text: "Splashbacks" },
         { type: "p", text: "Kitchen and laundry splashbacks are the same trade and a much smaller job. They are usually priced hourly rather than by the square metre, and the labour is in the setting out and the cuts around power points rather than the area." },
 
@@ -677,7 +724,17 @@ window.SITE_CONFIG = {
           "How long the bathroom will be out of use, including membrane curing time",
           "What documentation you will get for the waterproofing"
         ] },
-        { type: "p", text: "Give every tiler the same brief. If one prices a full retile and another prices tiling over the existing floor, the difference between the two quotes tells you nothing useful." },
+        { type: "p", text: "Give every tiler the same brief. If one prices a full retile and another prices tiling over the existing floor, the difference between the two quotes tells you nothing useful. When tiling over is and is not an option is covered on our [floor tiling](floor-tiling-perth.html) page." },
+
+        /* Added 8 Oct 2026 (draft v2). Builds this page's FAQPage schema.
+           No slip resistance standard or rating named (claim register row 8
+           is still open). */
+        { type: "h2", text: "Common questions" },
+        { type: "faqs", items: [
+          { q: "Can you tile over existing bathroom tiles?", a: "Not as a fix for anything wet. A new layer of tiles does nothing for the membrane underneath, and if that membrane has failed it hides the evidence. On the floor it also raises the level, which eats into the stepdown at the shower. On dry walls away from the shower, tiling over sound, well bonded tiles is sometimes possible, but every existing tile has to be checked first." },
+          { q: "Can a shower be retiled without redoing the whole bathroom?", a: "It can be. The shower can be stripped back, rewaterproofed and retiled on its own, provided the new membrane can be joined properly at the edge of the shower and you can live with how the new tiles meet the old. Whether that works in your bathroom depends on how it was built, which is a question for the tiler on site." },
+          { q: "Can I use different tiles in the shower and on the rest of the floor?", a: "Yes. Shower floors often use a smaller tile or a mosaic because it sits into the fall to the waste more easily, while the rest of the floor takes a larger format. Ask about slip resistance for the shower floor specifically, and how the change of tile will be finished where the two meet." }
+        ] },
 
         { type: "h2", text: "Get your bathroom tiling quoted" },
         { type: "p", text: "Tell us about the room, roughly the area and what you want done. We will pass it to a Perth tiler who can quote it. We do not do the tiling ourselves, and the tiler who quotes you sets their own price." },
@@ -724,9 +781,16 @@ window.SITE_CONFIG = {
          changed: the FAQ answers and budgeting points restate figures already
          on this page. */
       blocks: [
+        /* Lead rewritten 8 Oct 2026 (draft v3): Search Console showed most of
+           this page's impressions on "how much does a tiler cost", "tiling a
+           floor cost" and "cost to tile floor", which the old lead (bathroom
+           renovation spread) did not answer. No new figure: $37 to $94 and $55
+           to $75 / $75 to $120 are the labour table rows below, same
+           publisher types. The old lead is kept as the next paragraph. */
+        { type: "lead", text: "Published Perth figures put a tiler's labour for a standard floor at $37 to $94 per square metre (a cost guide site) or $55 to $75 (a Perth supplier), with bathroom work at $75 to $120. The tiles, taking up an old floor, preparation and waterproofing are priced on top, and they are usually where two quotes for the same room part company." },
         /* [VERIFY] resolved: $3,000 to $65,000+, all 2026, figures file
            Section 1 "The spread". */
-        { type: "lead", text: "Search for what a bathroom renovation costs in Perth and you will find published figures from about $3,000 at the cosmetic end to $65,000 and beyond at the top. All of them were published in 2026, and all of them describe work in Perth." },
+        { type: "p", text: "Whole bathroom renovations spread much further. Search for what one costs in Perth and you will find published figures from about $3,000 at the cosmetic end to $65,000 and beyond at the top. All of them were published in 2026, and all of them describe work in Perth." },
         { type: "p", text: "That is not because anyone is lying. It is because a builder, a tile supplier, a peak body, a tradie marketplace and a cost guide site all answer the same question from different positions, and use the same words for different jobs." },
         { type: "p", text: "This guide gives you the published numbers, tells you what kind of business published each one, and explains why they differ. Then it covers the costs that turn up after work starts, and the questions that make quotes comparable. None of these figures are our prices, and none of them were quoted for your job." },
 
@@ -926,7 +990,7 @@ window.SITE_CONFIG = {
         /* [VERIFY] resolved: wastage 10 to 15%, Section 3. */
         { type: "p", text: "**Wastage.** Order 10 to 15 per cent over the measured area, and more for diagonal or herringbone. Running out mid-job and finding a different dye lot is worse than over-ordering." },
         /* [VERIFY] resolved: $30 to $60 per m2, national guide, Section 3. */
-        { type: "p", text: "**Removal and disposal.** Tile removal is published at $30 to $60 per square metre by a national guide, and tip fees sit on top. Tile and mortar waste is heavy, and skip pricing follows weight." },
+        { type: "p", text: "**Removal and disposal.** Tile removal is published at $30 to $60 per square metre by a national guide, and tip fees sit on top. Tile and mortar waste is heavy, and skip pricing follows weight. When an old floor can stay and when it has to come up is covered on our [floor tiling](floor-tiling-perth.html) page." },
         { type: "p", text: "**What demolition reveals.** Rot, movement, failed old waterproofing or a substrate that will not take a new floor. None of it is visible when the quote is written, which is why quotes carry variation clauses." },
         /* [VERIFY] resolved for the price: $2,000 to $8,000 per room, Perth
            renovation company, Section 4 ("pair with the WorkSafe WA rule").
@@ -966,7 +1030,7 @@ window.SITE_CONFIG = {
         { type: "h3", text: "Settle the tile order" },
         { type: "p", text: "Who buys, who counts, who wears the wastage, where the tiles are stored and how long the lead time is." },
         { type: "h3", text: "For repairs, expect a diagnosis before a price" },
-        { type: "p", text: "A cracked tile, a drummy floor and a leaking shower can look identical and have three different causes. Quotes given over the phone for repairs are guesses. Cracked and drummy tiles are covered on our [floor tiling](floor-tiling-perth.html) page." },
+        { type: "p", text: "A cracked tile, a drummy floor and a leaking shower can look identical and have three different causes. Quotes given over the phone for repairs are guesses. Cracked and drummy tiles are covered on our [floor tiling](floor-tiling-perth.html) page, and the signs of a failed shower on our [bathroom tiling](bathroom-tiling-perth.html) page." },
 
         { type: "h2", text: "Your rights on a WA tiling contract" },
         /* Act and regulation names are italic in the draft. The block renderer
@@ -1003,6 +1067,11 @@ window.SITE_CONFIG = {
         { type: "h2", text: "Common questions" },
         { type: "faqs", items: [
           { q: "How much does a tiler charge per square metre in Perth?", a: "Published Perth figures vary widely. A Perth supplier puts standard floor tiling at $55 to $75 per square metre and bathroom work at $75 to $120, while a cost guide site puts standard floor labour at $37 to $94. A small room costs more per square metre than a large one, because a small floor is mostly cuts and edges." },
+          /* Added 8 Oct 2026 (draft v3) for "tiling a floor cost" and "cost to
+             tile floor". Every figure is already on this page: Perth supplier
+             labour and general tile range, Perth tiler supply and install,
+             national guide removal. */
+          { q: "What does it cost to tile a floor in Perth, including the tiles?", a: "Add the tile to the labour. A Perth supplier puts standard floor labour at $55 to $75 per square metre and its general tile range at $20 to $65 on top of that. Figures that already include the tile vary just as much: a Perth tiler publishes $30 to $100 per square metre for supply and install. If an old floor has to come up first, a national guide puts removal at $30 to $60 per square metre, before tip fees. Whether it has to come up at all is covered on our [floor tiling](floor-tiling-perth.html) page." },
           { q: "Why are my tiling quotes so different?", a: "Almost always because they cover different scopes. Removal, disposal, substrate preparation, waterproofing and trims are the usual differences. Give each tiler the same written brief, ask for a line by line breakdown, and most of the gap becomes visible." },
           { q: "What does it cost to tile a bathroom, as opposed to renovating one?", a: "Three Perth sources of different types land on roughly $3,000 to $6,500 for tiling a standard bathroom. Published renovation figures for the same room run from $15,667 to $36,750, because they include plumbing, fixtures and other trades, and most of them do not say which." },
           { q: "What does it cost to regrout a shower in Perth?", a: "Two Perth specialists advertise from $250 and from $550, and a national guide puts the average at around $1,500. A \"from\" price is a starting point, not a quote. If the membrane behind the grout has failed, regrouting is the wrong repair. See [bathroom tiling](bathroom-tiling-perth.html)." },

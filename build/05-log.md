@@ -34,6 +34,8 @@ nobody was tracking.
 | 5 Oct 2026 | T22 | Approve the live privacy title and meta description | Brad | | Never in the page plan. Approved as live |
 | 5 Oct 2026 | T14 | The voicemail greeting follows the portfolio pattern: enquiries go to a tiler who can quote. It does not say the tiler pays, and will not be re-recorded | Brad | the 18 Sep open item reading R4 as requiring the payment statement on the phone channel, and R11's line that the greeting says the same as the form notice | Same format as the other sites, and the wording R4 itself gives as the pattern. The payment statement is carried by the form notice, About and the privacy page |
 | 5 Oct 2026 | T21 | Renovation enquiries go to the tiler like any other. About still says renovations are usually builder-led, but no longer promises to turn the enquiry away | Brad | Canberra's "we will say so rather than take the enquiry", carried into About unconfirmed | The promise described handling Perth never committed to. The tiler decides what is in scope |
+| 8 Oct 2026 | T21 | Cost guide lead answers the per m2 tiler cost first; bathroom renovation spread moves to the next paragraph. New floor-cost FAQ. Draft v3 | Code, awaiting Brad's approval | the approved v2 lead | Search Console: 242 of the page's 291 impressions were national tiler and floor cost queries the old lead did not answer. No figure added |
+| 8 Oct 2026 | T21 | Floor page gains "Removing old tiles or tiling over them" and a three-question FAQ. Bathroom page gains "Signs your shower waterproofing has failed" and a three-question FAQ. Draft v2 of each | Code, awaiting Brad's approval | the approved v1 of each | Competitor teardown, 8 Oct 2026 (01-market.md). Both pages had no FAQPage schema. Leaking shower stays a section, as the T05 thesis requires |
 
 ## Open items
 
@@ -74,6 +76,8 @@ been run.
 | The brand theme is still the template default: green, bold, diagonal | none | Brad | 12 Sep 2026 | Pick a theme, or accept the default deliberately | |  |
 | The Search Console verification date is not known | none | Code | 18 Sep 2026 | The property's own record | |  |
 | Pre-index QA was never run as a set. Four rows below are proved after the fact; the rest were never done | T29 | Code and Me | 18 Sep 2026 | A full QA pass with evidence | |  |
+| Three copy drafts from 8 Oct 2026 (floor v2, bathroom v2, cost guide v3) are baked into the HTML but not approved. Not pushed | T22 | Me | 8 Oct 2026 | Each file's Status set to APPROVED, then push | |  |
+| Splashback page proposed 8 Oct 2026 and held. tile splashback perth is 10 a month; a sixth nav item needs an engine change to the 1024px header; the home page TODO says kitchens and laundries belong as a section | none | Brad | 8 Oct 2026 | A decision row: build it (then T03 SERP read, plan rows, H1 sign-off, engine change) or drop it | |  |
 
 ## QA
 
@@ -161,6 +165,46 @@ Reading:
 - Nothing ranks inside the top 40. With no inbound links and no named
   outreach targets, that is a links problem, not a content problem.
 - Sitemap last read is still unconfirmed. These exports do not show it.
+
+### Search Console snapshot, 8 October 2026
+
+From the Performance and Coverage exports downloaded on 8 October 2026: last
+28 days against the previous 28, web search. The previous window ends before
+launch on 13 September, so every query is new and no drop can be measured
+against it. Compare against the 3 October snapshot above instead, bearing in
+mind the two windows overlap.
+
+**Coverage.** Still 5 indexed and 2 not indexed (page with redirect, and
+discovered but not indexed, probably /privacy). Daily impressions averaged
+about 14 from 18 to 30 September and about 34 from 1 to 4 October.
+
+**Performance.** 455 impressions, 0 clicks. Australia 437 at 72.1.
+
+| page | impressions | avg position | 3 Oct snapshot |
+|---|---|---|---|
+| /tiling-cost-perth | 291 | 73.0 | 146 at 71.2 |
+| /bathroom-tiling-perth | 106 | 68.7 | 56 at 69.0 |
+| / | 43 | 59.0 | 33 at 63.8 |
+| /about | 13 | 60.2 | 10 at 63.3 |
+| /floor-tiling-perth | 2 | 53.5 | 1 at 96.0 |
+
+| query cluster | queries | impressions | weighted position | page |
+|---|---|---|---|---|
+| cost queries with no Perth modifier | 42 | 242 | 76.0 | cost guide |
+| bathroom tiling, Perth | 6 | 97 | 73.6 | bathroom |
+| head and brand | 5 | 40 | 56.9 | home |
+| outside the service area (Magill, Edwardstown, Glen Waverley) | 4 | 8 | 81.9 | none, ignore |
+
+Reading:
+
+- No query sits at 8 to 20 in Australia. The best are tiling specialists at
+  36.5 (12 impressions, was 43.0) and tiler cost at 57.1 (27, was 69.7).
+- No drops of more than 3 positions. CTR is 0 everywhere, but at positions 57
+  to 94 that is a ranking problem, not a title problem.
+- No Perth suburb or in-area service query has appeared, so there is no gap
+  query to build for yet.
+- The cost guide's lead answered bathroom renovation cost while its traffic
+  asked tiler and floor cost. Changed in draft v3, see Decisions.
 
 ## Backport
 

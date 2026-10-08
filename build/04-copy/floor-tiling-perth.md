@@ -1,6 +1,6 @@
 # Floor tiling: /floor-tiling-perth
 
-Status: APPROVED | 15 September 2026, commit 7551d26
+Status: DRAFT v2 | 8 October 2026, awaiting Brad's approval. Previous approval: v1 APPROVED 15 September 2026, commit 7551d26
 
 ## Head
 
@@ -20,6 +20,30 @@ Structure as shipped: lead, what the page covers, substrate and why it drives
 the cost, setting out, AS 3958:2023, wall tiling outside wet areas, cracked,
 loose and drummy tiles with the drummy tile diagram, asbestos in older homes,
 and the enquiry form at `#quote`.
+
+## Draft v2, 8 October 2026
+
+Additions only. Nothing in v1 was reworded or removed. The blocks are in
+`config.js` `services[0].blocks`, each with a comment saying why it is there.
+
+- **New H2 "Removing old tiles or tiling over them"**, after "The substrate is
+  where the money hides". Targets tile removal perth and tiling over existing
+  tiles. All three Perth competitors read on 8 October 2026 cover it (see
+  `01-market.md` Competitor gaps). Opens with the direct answer: a tile-over
+  only works when every tile is bonded, the floor is flat and the height
+  works. Covers the gamble, height, wet areas (links bathroom), removal (links
+  the cost guide for price, per R12), and pre-1990 asbestos (points at Older
+  Perth floors rather than restating it). Ends with a link to the form.
+- **New H2 "Common questions"** with three FAQs, before the quote section. This
+  page had no FAQ, so it had no FAQPage schema; Gun Tiling has one on every
+  service page. Questions: tile over old floor tiles, how long a floor takes,
+  replacing a few cracked tiles. No figures, no standards.
+- **Inbound links added** from the cost guide (Removal and disposal paragraph,
+  and the new floor-cost FAQ) and the bathroom page (What to ask before you
+  accept a quote).
+
+No new claim needing the register: the only regulatory content is the
+existing pre-1990 asbestos line, referenced, not restated.
 
 ## Changes from plan
 

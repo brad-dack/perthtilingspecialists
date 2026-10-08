@@ -1,6 +1,6 @@
 # Cost guide: /tiling-cost-perth
 
-Status: APPROVED | 15 September 2026, commit b12f05c
+Status: DRAFT v3 | 8 October 2026, awaiting Brad's approval. Previous approval: v2 APPROVED 15 September 2026, commit b12f05c
 
 ## Head
 
@@ -21,6 +21,27 @@ by side with their publisher types, why whole-renovation figures diverge while
 tiling-only figures converge, scope decomposition, budgeting sensibly, how to
 get a quote you can rely on, contract rights and the deposit cap, FAQs, and a
 CTA band. No form on this page: its quote links point at `/about#quote`.
+
+## Draft v3, 8 October 2026
+
+The `lead` block changed. No figure was added or changed. The blocks are in
+`config.js` `services[2].blocks`.
+
+- **Lead rewritten.** Search Console for the 28 days to the 8 October 2026 export put
+  242 of this page's 291 impressions on national cost queries ("how much does a
+  tiler cost", "tiling a floor cost", "cost to tile floor"). The old lead
+  answered bathroom renovation cost instead. The new lead gives the floor
+  labour rows already in the labour table, with the same publisher types, in
+  its first sentence, and says what is priced on top in its second. The old
+  lead is now the first paragraph, prefixed "Whole bathroom renovations spread
+  much further."
+- **New FAQ** "What does it cost to tile a floor in Perth, including the
+  tiles?" Every figure in it is already on the page: Perth supplier labour and
+  tile range, Perth tiler supply and install, national guide removal. Links the
+  floor page.
+- **Two sentences appended** with internal links: Removal and disposal now
+  links the floor page; For repairs, expect a diagnosis now links the bathroom
+  page.
 
 ## Changes from plan
 

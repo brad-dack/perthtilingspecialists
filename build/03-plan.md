@@ -64,8 +64,8 @@ the call button need about 1010px in one row.
 | page | owns | must not expand into | sends readers to |
 |---|---|---|---|
 | index.html | routing the reader to the right page, how the site works, commercial disclosure in brief | any cost figure, any standards detail | all four other pages |
-| floor-tiling-perth.html | substrate, setting out, wall tiling outside wet areas, cracked, loose and drummy tile repair | waterproofing detail, any price | bathroom tiling for wet areas, cost guide for price |
-| bathroom-tiling-perth.html | waterproofing, falls, shower detailing, regrouting, splashbacks | any price, including regrouting prices | cost guide for price, floor tiling for substrate |
+| floor-tiling-perth.html | substrate, setting out, wall tiling outside wet areas, cracked, loose and drummy tile repair, the decision to remove old tiles or tile over them (added 8 Oct 2026) | waterproofing detail, any price, including removal prices | bathroom tiling for wet areas, cost guide for price |
+| bathroom-tiling-perth.html | waterproofing, falls, shower detailing, regrouting, splashbacks, the signs of a failed shower (added 8 Oct 2026) | any price, including regrouting prices; diagnosing a leak, which is the specialists' SERP | cost guide for price, floor tiling for substrate and tile-over |
 | tiling-cost-perth.html | **every cost figure on the site**, contract rights, the deposit cap | how-to detail that belongs on a service page | both service pages |
 | about.html | who runs this, what the business does and does not do, how it is paid for, contact | service detail, prices | all pages |
 | privacy.html | collection, disclosure, retention, access | commercial explanation beyond what disclosure needs | about |
