@@ -65,18 +65,38 @@
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag("js", new Date());
     window.gtag("config", id);
-    /* gtag.js is ~170KB. Fetching it only after the load event keeps it from
-       competing with the hero image on slow mobile connections (PageSpeed had
-       it downloading while LCP was still pending). Calls made before it
-       arrives queue in dataLayer and are replayed when it does. */
+    /* gtag.js is ~170KB and ~250ms of script evaluation. It's fetched only
+       after the load event AND the browser's first largest-contentful-paint
+       report: on a fast connection "load" can fire before the first paint, and
+       gtag.js then sat in front of the hero (PageSpeed mobile flipped between
+       ~98 and ~80 on the same page depending on which won). Browsers without
+       LCP entries (Safari, Firefox) fetch on "load". The 5s timeout covers a
+       tab that never paints (opened in the background), which reports no LCP.
+       Calls made before it arrives queue in dataLayer and are replayed. */
+    var done = false;
     function load() {
+      if (done) return;
+      done = true;
       var s = document.createElement("script");
       s.async = true;
       s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
       document.head.appendChild(s);
     }
-    if (document.readyState === "complete") load();
-    else window.addEventListener("load", load, { once: true });
+    function afterLoad() {
+      var types = window.PerformanceObserver && PerformanceObserver.supportedEntryTypes;
+      if (!types || types.indexOf("largest-contentful-paint") === -1) return load();
+      try {
+        new PerformanceObserver(function (list, obs) {
+          obs.disconnect();
+          setTimeout(load, 0);
+        }).observe({ type: "largest-contentful-paint", buffered: true });
+      } catch (e) {
+        return load();
+      }
+      setTimeout(load, 5000);
+    }
+    if (document.readyState === "complete") afterLoad();
+    else window.addEventListener("load", afterLoad, { once: true });
   }
 
   /* Click-to-call tracking: fires a GA4 event for any tel: link. gtag only
