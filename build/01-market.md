@@ -44,12 +44,23 @@ combined, not the 1,400 the first reading of the workbook implied.
 | bathroom waterproofing perth | 50 | not recorded | national pull | no | section on bathroom-tiling-perth.html |
 | tiling cost perth | 20 | not recorded | national pull | no | tiling-cost-perth.html |
 | Perth cost terms (grouped) | ~100 combined | not recorded | national pull | no | tiling-cost-perth.html |
-| tile regrouting perth | not recorded | 16.30 | national pull | no | section on bathroom-tiling-perth.html |
+| tile regrouting perth | 50 | 16.30 | national pull | no | section on bathroom-tiling-perth.html |
 | leaking shower perth | 90 | 34.02 | national pull | no | no page, see Future niche log |
-| waterproofing perth | not recorded | 9.43 | national pull | no | no page, wrong trade |
-| pool tiling perth | not recorded | not recorded | national pull | no | no page, pool renovators |
+| waterproofing perth | 140 | 9.43 | national pull | no | no page, wrong trade |
+| pool tiling perth | 140 | 3.57 | national pull | no | no page, pool renovators |
 | outdoor tiling perth | null | n/a | national pull | **yes** | no page |
+| wall tiling perth | 50 | 0.88 | Perth pull | no | section on floor-tiling-perth.html |
+| tile repairs perth | 40 | 7.65 | Perth pull | no | section on floor-tiling-perth.html |
+| tile splashback perth | 10 | 1.48 | Perth pull | no | section on bathroom-tiling-perth.html. A page was proposed 8 Oct 2026; see Competitor gaps |
 | tiling installation terms | not recorded | 0.88 to 1.96 | national pull | no | covered by the service pages |
+
+**Partly recovered, 8 October 2026.** `build/data/volume-perth-2026-09-11.csv`
+is a 12-term Perth-location pull found in `dfseo/` (written 11 September 2026,
+12:49). It fills the volumes above that were "not recorded", and gives the
+single-location figures behind the grouped ranges: tiler perth and tiling
+perth 590 each at $7.84, floor tiling perth 210 at $1.89, bathroom tiler perth
+and bathroom tiling perth 40 each at $5.03. The other 14 terms of the 26-term
+list are still lost.
 
 ## SERP ownership
 
@@ -72,6 +83,34 @@ both pages shipped without their SERP ever being read. Open items.
 None of the top three publish figures or explain what drives a tiling price.
 Four incumbent homepages were torn down at the time; the notes were not kept
 beyond that conclusion, which is what the cost guide was built to exploit.
+
+### Teardown, 8 October 2026
+
+Fifteen sites fetched as raw HTML with their sitemaps expanded. Three are in
+Perth; the other twelve (three each in Brisbane, Sydney, Melbourne and
+Adelaide) were read for ideas only, and nothing city-specific from them
+transfers: QBCC and NSW licensing, Melbourne postcode pages and the like.
+
+| site | H1 | homepage words | page types | schema | trust signals |
+|---|---|---|---|---|---|
+| guntiling.com.au | Premium Tiler in Perth | 1,334 | 9 service pages (floor, bathroom, waterproofing, tile removal, polished porcelain, tile supply, renovations, tile art), gallery, careers, 8 blog posts including two Perth cost posts | LocalBusiness, AggregateRating, Review, Product; FAQPage on each service page; Article on posts | review schema, testimonials, projects, AS 3740 named on the waterproofing page |
+| abctilingandstone.com.au | Perth's Tiling And Stone Experts | 1,707 | about 20 service pages (wall and floor, waterproofing and caulking, splashbacks, alfresco, balcony, stairs, pavers, feature wall, stone sealing, commercial, residential), projects, testimonials, review page, team, about 52 blog posts | plugin default only (WebPage, Organization) | Google reviews, insured, years, team page |
+| trademarktiling.com.au | several H1s, led by Kitchen Splashbacks | 764 | splashback hub with kitchen and laundry children, bathroom repairs (leaking shower, shower waterproofing), tilers perth, kitchen tiling, testimonials, partners, 8 blog posts from 2018 to 2019 | plugin default only | testimonials, family owned |
+
+Our pages run 4,600 to 7,900 words against their 1,100 to 2,500. What they
+have that this site does not, ranked by likely ranking impact: referring
+domains (74 and 60, see `build/data`); a page per service, especially
+splashbacks (all three) and waterproofing and tile removal; FAQs with FAQPage
+schema on service pages (Gun Tiling); real reviews and review schema;
+LocalBusiness schema with an address; galleries of real work; blogs. Reviews,
+LocalBusiness, galleries and credentials are blocked by R10 until a renter
+exists. Acted on 8 October 2026: FAQs on the floor and bathroom pages, a
+tile-over or removal section on floor, and a failed-shower section on bathroom.
+
+Splashbacks: every Perth competitor has a page, but `tile splashback perth`
+is 10 searches a month in the recovered pull, and the home page carries a
+standing note that kitchens and laundries belong as a section, not a page. A
+page was proposed and is held for Brad's decision, see `05-log.md`.
 
 ## Commercial thesis
 
@@ -112,6 +151,7 @@ credentials in the shell environment.
 | build/data/refdomains_floor_tiling.csv | python refdomains_adhoc.py --domains domains_floor_tiling.txt --output refdomains_floor_tiling.csv | 12 September 2026 |
 | build/data/refdomains_remedial.csv | python refdomains_adhoc.py --domains domains_remedial.txt --output refdomains_remedial.csv | 11 September 2026 |
 | build/data/domains_remedial.txt | written by hand, the input list for the remedial pull | 11 September 2026 |
+| build/data/volume-perth-2026-09-11.csv | python volume_adhoc.py with the Perth location, keywords from dfseo/keywords.txt (recovered from dfseo/perth.csv; the exact command was not recorded) | 11 September 2026 |
 | build/data/cost_national.csv | python volume_adhoc.py --keywords <cost terms> --locations Australia | 11 September 2026 |
 
 The keyword volume pull for the main 26-term list was pasted into a chat as
