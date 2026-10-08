@@ -146,7 +146,7 @@ window.SITE_CONFIG = {
         { type: "h2", text: "What we can get quoted" },
         { type: "p", text: "**Floor tiling.** New floors, replacing old floors, and repairs to cracked or drummy tiles. Also wall tiling outside wet areas. More on [floor tiling in Perth](floor-tiling-perth.html)." },
         { type: "p", text: "**Bathroom tiling.** Full bathroom retiles, shower and splashback work, and regrouting where the tiles themselves are sound. Waterproofing sits inside this work and is covered on the [bathroom tiling](bathroom-tiling-perth.html) page." },
-        { type: "p", text: "**Kitchens and laundries.** Splashbacks, floors and wall tiling. Same trade, smaller jobs, and often quoted hourly rather than by the square metre." },
+        { type: "p", text: "**Kitchens and laundries.** Splashbacks, floors and wall tiling. Same trade, smaller jobs, and often quoted hourly rather than by the square metre. More on [splashbacks](floor-tiling-perth.html)." },
         { type: "p", text: "**Repairs and small jobs.** A few cracked tiles, a lifting floor, a shower that needs regrouting. Small jobs are harder to get quoted than large ones, so it helps to be specific about what you need." },
         /* TODO (Brad): kitchens and laundries have no page and no target
            keyword. Kept to two sentences so it does not become a fifth page by
@@ -456,7 +456,14 @@ window.SITE_CONFIG = {
 
         { type: "h2", text: "Wall tiling" },
         { type: "p", text: "Outside wet areas, wall tiling is the same trade and much of the same thinking. The substrate has to be sound and flat, the set out decides where the cuts land, and the detail work around windows, edges and power points is where the time goes." },
-        { type: "p", text: "Wall tiling in a bathroom, shower or other wet area is a different job, because it sits on top of a waterproofing membrane and carries requirements that dry wall tiling does not. That is covered on the [bathroom floor and wall tiling](bathroom-tiling-perth.html) page, along with splashbacks." },
+        { type: "p", text: "Wall tiling in a bathroom, shower or other wet area is a different job, because it sits on top of a waterproofing membrane and carries requirements that dry wall tiling does not. That is covered on the [bathroom floor and wall tiling](bathroom-tiling-perth.html) page." },
+
+        /* Moved here from the bathroom page, verbatim, 8 Oct 2026 (Brad):
+           a splashback is a kitchen or laundry job, and the home page TODO
+           already said kitchens and laundries belong as a section on this
+           page. tile splashback perth is 10 a month, so no page. */
+        { type: "h2", text: "Splashbacks" },
+        { type: "p", text: "Kitchen and laundry splashbacks are the same trade and a much smaller job. They are usually priced hourly rather than by the square metre, and the labour is in the setting out and the cuts around power points rather than the area." },
 
         { type: "h2", text: "Cracked, loose and drummy tiles" },
         { type: "p", text: "A tiled floor usually tells you it has a problem before it fails completely." },
@@ -701,8 +708,6 @@ window.SITE_CONFIG = {
         { type: "p", text: "**Older Perth showers.** A shower built decades ago may have been built to older requirements, or without a membrane at all. In homes built before 1990, the sheeting behind the wall tiles can contain asbestos, as covered under Older Perth bathrooms below, so it gets tested before anything is cut out." },
         { type: "p", text: "If you are seeing any of this, [tell us what you have noticed](#quote) and we will pass it to a Perth tiler. Expect them to want to see the shower before giving a price." },
 
-        { type: "h2", text: "Splashbacks" },
-        { type: "p", text: "Kitchen and laundry splashbacks are the same trade and a much smaller job. They are usually priced hourly rather than by the square metre, and the labour is in the setting out and the cuts around power points rather than the area." },
 
         { type: "h2", text: "Older Perth bathrooms" },
         /* VERIFIED 15 Sep 2026 (claim register row 10). Same sources and the

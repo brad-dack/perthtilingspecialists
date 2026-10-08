@@ -1,6 +1,6 @@
 # Bathroom tiling: /bathroom-tiling-perth
 
-Status: DRAFT v2 | 8 October 2026, awaiting Brad's approval. Previous approval: v1 APPROVED 15 September 2026, commit 7551d26
+Status: APPROVED | v3, Brad, 8 October 2026. v2 approved by Brad the same day; v3 is the Splashbacks move he decided, below
 
 ## Head
 
@@ -49,6 +49,11 @@ Additions only, plus one sentence appended. The blocks are in `config.js`
   tile-over section.
 - **Inbound links added** from the floor page (new section, Wet areas are
   different) and the cost guide (For repairs, expect a diagnosis).
+
+## Draft v3, 8 October 2026
+
+**Splashbacks section removed**, moved verbatim to the floor page. Decided by
+Brad, 8 October 2026; see `floor-tiling-perth.md`.
 
 ## Changes from plan
 

@@ -22,6 +22,12 @@ Structure as shipped: lead, a routing block ("Start with what you actually
 need") covering the three situations a reader is in, how the site works, what
 we can get quoted, FAQs about tiling jobs, and the enquiry form at `#quote`.
 
+## Edit, 8 October 2026
+
+One link appended to the Kitchens and laundries line in What we can get
+quoted: "More on [splashbacks](floor-tiling-perth.html)." Part of Brad's
+Splashbacks decision, 8 October 2026. No other change.
+
 ## Changes from plan
 
 The page was restructured on 15 September 2026, after it had been baked and

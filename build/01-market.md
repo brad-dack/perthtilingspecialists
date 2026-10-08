@@ -51,7 +51,7 @@ combined, not the 1,400 the first reading of the workbook implied.
 | outdoor tiling perth | null | n/a | national pull | **yes** | no page |
 | wall tiling perth | 50 | 0.88 | Perth pull | no | section on floor-tiling-perth.html |
 | tile repairs perth | 40 | 7.65 | Perth pull | no | section on floor-tiling-perth.html |
-| tile splashback perth | 10 | 1.48 | Perth pull | no | section on bathroom-tiling-perth.html. A page was proposed 8 Oct 2026; see Competitor gaps |
+| tile splashback perth | 10 | 1.48 | Perth pull | no | section on floor-tiling-perth.html, moved from bathroom 8 Oct 2026. A page was proposed and dropped; see Competitor gaps |
 | tiling installation terms | not recorded | 0.88 to 1.96 | national pull | no | covered by the service pages |
 
 **Partly recovered, 8 October 2026.** `build/data/volume-perth-2026-09-11.csv`
@@ -110,7 +110,8 @@ tile-over or removal section on floor, and a failed-shower section on bathroom.
 Splashbacks: every Perth competitor has a page, but `tile splashback perth`
 is 10 searches a month in the recovered pull, and the home page carries a
 standing note that kitchens and laundries belong as a section, not a page. A
-page was proposed and is held for Brad's decision, see `05-log.md`.
+page was proposed and dropped by Brad on 8 October 2026; the section moved
+from the bathroom page to the floor page instead.
 
 ## Commercial thesis
 

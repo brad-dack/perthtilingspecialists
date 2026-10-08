@@ -1,6 +1,6 @@
 # Floor tiling: /floor-tiling-perth
 
-Status: DRAFT v2 | 8 October 2026, awaiting Brad's approval. Previous approval: v1 APPROVED 15 September 2026, commit 7551d26
+Status: APPROVED | v3, Brad, 8 October 2026. v2 approved by Brad the same day; v3 is the Splashbacks move he decided, below
 
 ## Head
 
@@ -44,6 +44,15 @@ Additions only. Nothing in v1 was reworded or removed. The blocks are in
 
 No new claim needing the register: the only regulatory content is the
 existing pre-1990 asbestos line, referenced, not restated.
+
+## Draft v3, 8 October 2026
+
+**Splashbacks moved here from the bathroom page**, verbatim, as a section
+after Wall tiling. Decided by Brad, 8 October 2026: a splashback is a kitchen
+or laundry job, `tile splashback perth` is 10 searches a month, and the home
+page TODO already placed kitchens and laundries on this page. The Wall tiling
+paragraph loses its trailing "along with splashbacks". The home page's
+Kitchens and laundries line now links here.
 
 ## Changes from plan
 

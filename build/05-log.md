@@ -36,6 +36,7 @@ nobody was tracking.
 | 5 Oct 2026 | T21 | Renovation enquiries go to the tiler like any other. About still says renovations are usually builder-led, but no longer promises to turn the enquiry away | Brad | Canberra's "we will say so rather than take the enquiry", carried into About unconfirmed | The promise described handling Perth never committed to. The tiler decides what is in scope |
 | 8 Oct 2026 | T21 | Cost guide lead answers the per m2 tiler cost first; bathroom renovation spread moves to the next paragraph. New floor-cost FAQ. Draft v3 | Code, awaiting Brad's approval | the approved v2 lead | Search Console: 242 of the page's 291 impressions were national tiler and floor cost queries the old lead did not answer. No figure added |
 | 8 Oct 2026 | T21 | Floor page gains "Removing old tiles or tiling over them" and a three-question FAQ. Bathroom page gains "Signs your shower waterproofing has failed" and a three-question FAQ. Draft v2 of each | Code, awaiting Brad's approval | the approved v1 of each | Competitor teardown, 8 Oct 2026 (01-market.md). Both pages had no FAQPage schema. Leaking shower stays a section, as the T05 thesis requires |
+| 8 Oct 2026 | T17 | No splashback page. The Splashbacks section moves verbatim from the bathroom page to the floor page, and home links it | Brad | the splashback page proposed the same day | tile splashback perth is 10 a month, a sixth nav item needs an engine change, and the home TODO already placed kitchens and laundries on the floor page |
 
 ## Open items
 
@@ -76,8 +77,8 @@ been run.
 | The brand theme is still the template default: green, bold, diagonal | none | Brad | 12 Sep 2026 | Pick a theme, or accept the default deliberately | |  |
 | The Search Console verification date is not known | none | Code | 18 Sep 2026 | The property's own record | |  |
 | Pre-index QA was never run as a set. Four rows below are proved after the fact; the rest were never done | T29 | Code and Me | 18 Sep 2026 | A full QA pass with evidence | |  |
-| Three copy drafts from 8 Oct 2026 (floor v2, bathroom v2, cost guide v3) are baked into the HTML but not approved. Not pushed | T22 | Me | 8 Oct 2026 | Each file's Status set to APPROVED, then push | |  |
-| Splashback page proposed 8 Oct 2026 and held. tile splashback perth is 10 a month; a sixth nav item needs an engine change to the 1024px header; the home page TODO says kitchens and laundries belong as a section | none | Brad | 8 Oct 2026 | A decision row: build it (then T03 SERP read, plan rows, H1 sign-off, engine change) or drop it | |  |
+| Three copy drafts from 8 Oct 2026 (floor v2, bathroom v2, cost guide v3) are baked into the HTML but not approved. Not pushed | T22 | Me | 8 Oct 2026 | Each file's Status set to APPROVED, then push | 8 Oct 2026 | Brad approved all three in session on 8 Oct 2026; Status lines set to APPROVED and G5 clean in node bake.js --check |
+| Splashback page proposed 8 Oct 2026 and held. tile splashback perth is 10 a month; a sixth nav item needs an engine change to the 1024px header; the home page TODO says kitchens and laundries belong as a section | none | Brad | 8 Oct 2026 | A decision row: build it (then T03 SERP read, plan rows, H1 sign-off, engine change) or drop it | 8 Oct 2026 | Dropped. See Decisions, 8 Oct 2026, T17 |
 
 ## QA
 
