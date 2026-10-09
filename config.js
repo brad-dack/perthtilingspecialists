@@ -1043,15 +1043,18 @@ window.SITE_CONFIG = {
         { type: "p", text: "This part is not a matter of opinion, and most homeowners do not know it." },
         { type: "p", text: "The Home Building Contracts Act 1991 (WA) covers fixed-price home building contracts between $7,500 and $500,000, and it names tiling explicitly as home building work. It applies whether or not the contractor is a registered builder." },
         { type: "p", text: "Where it applies:" },
-        /* TODO (Brad): "the relevant WA regulator" is deliberately vague. The
-           claim register says complaints to LGIRS within 3 years. Confirm the
-           current body name and its current title before bake, since Building
-           and Energy has been restructured. */
+        /* Claim register row 11, sourced 10 Oct 2026: wa.gov.au "Building
+           dispute resolution" (last updated 25 June 2026). A home building
+           work contract complaint "may be made to the Building Commissioner";
+           the service is run by Building and Energy, part of the Department of
+           Local Government, Industry Regulation and Safety. Time limit
+           "generally three years from when the contract was entered into", or
+           three years from when the cause of the dispute arose. */
         { type: "ul", items: [
           "The contract must be in writing and signed by both parties.",
           "The deposit is capped at 6.5 per cent of the contract price.",
           "Progress payments can only be claimed for work actually carried out.",
-          "Complaints can be made to the relevant WA regulator for up to three years."
+          "Complaints can be made to the Building Commissioner, through Building and Energy, generally within three years of the contract or of the cause of the dispute."
         ] },
         { type: "p", text: "Separately, building work valued at $20,000 or more that requires a building permit must be carried out by a registered builder, and home indemnity insurance is required for permit-requiring work over $20,000. Whether a permit is needed depends on the scope of the work, not its cost. Schedule 4 of the Building Regulations 2012 lists the exempt work." },
         { type: "p", text: "And the line worth remembering regardless: under section 37(2) of the Building Act 2011, where building work is done without a building permit, the owner must ensure the finished work complies with every building standard that applies to it. A small job is not an exempt job." },

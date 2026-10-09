@@ -39,6 +39,7 @@ nobody was tracking.
 | 8 Oct 2026 | T17 | No splashback page. The Splashbacks section moves verbatim from the bathroom page to the floor page, and home links it | Brad | the splashback page proposed the same day | tile splashback perth is 10 a month, a sixth nav item needs an engine change, and the home TODO already placed kitchens and laundries on the floor page |
 | 10 Oct 2026 | T27 | Engine change to js/main.js: GA4 reports only from the live hostname, and a generate_lead event fires on an accepted form submission | Brad | the template's unguarded GA4 load and its untracked form | The GA4 read of 10 Oct 2026 (Index log) showed preview traffic counted as visitors and no way to count a form lead. Logged in README under Divergence |
 | 10 Oct 2026 | none | Keep the template default brand theme: green, bold, diagonal | Brad | the open item to pick a theme | Accepted as is |
+| 10 Oct 2026 | T20 | Evidence set to CLEAR: claim rows 8 and 10 dropped (not on any page), rows 9 and 11 sourced | Code | Evidence OPEN since 15 Sep 2026 | Brad asked for the preflight problems fixed. Each row checked against config.js, the served HTML or the primary source on 10 Oct 2026 |
 
 ## Open items
 
@@ -62,13 +63,13 @@ been run.
 | The Supabase and Cloudflare storage regions are unknown, and the privacy page says only that data may go overseas | T21 | Me | 13 Sep 2026 | Name the regions, then name them on the page | 5 Oct 2026 | Brad: Tokyo. supabase projects list shows Rank&Rent (bnfgnglzswtrvzfqkgjh) in ap-northeast-1, Tokyo. Cloudflare holds nothing at rest: the email Worker's wrangler.toml has no KV, R2 or D1 bindings and forwards to Gmail and the Supabase ingest function. Privacy page names Supabase in Tokyo under Service providers and Where it is stored, lastUpdated 5 October 2026 |
 | The cost guide meta is live and was never approved. The approved one implied the figures were ours | T22 | Me | 13 Sep 2026 | Approve the live meta or replace it | 5 Oct 2026 | Approved by Brad, 5 Oct 2026. Live text unchanged in tiling-cost-perth.html |
 | The privacy title and meta were never in the page plan and are live without approval | T22 | Me | 13 Sep 2026 | Approve or replace | 5 Oct 2026 | Approved by Brad, 5 Oct 2026. Live text unchanged in privacy.html |
-| AS 4586 has never been verified as the current slip resistance edition | T20 | Code | 12 Sep 2026 | Check Standards Australia | |  |
-| No NCC edition is named on the bathroom page. The figures are NCC 2022; WA adopted NCC 2025 on 1 May 2026 | T20 | Code | 13 Sep 2026 | Check NCC 2025 Part 10.2 and name an edition or keep it edition-free deliberately | |  |
-| "Labour is roughly half the job" on the cost guide is a Canberra line with no Perth source | T20 | Code | 13 Sep 2026 | Source it or cut it | |  |
-| The cost guide says "the relevant WA regulator" rather than naming the regulator | T20 | Code | 13 Sep 2026 | Name it | |  |
+| AS 4586 has never been verified as the current slip resistance edition | T20 | Code | 12 Sep 2026 | Check Standards Australia | 10 Oct 2026 | Dropped: no page names AS 4586. Claim register row 8 |
+| No NCC edition is named on the bathroom page. The figures are NCC 2022; WA adopted NCC 2025 on 1 May 2026 | T20 | Code | 13 Sep 2026 | Check NCC 2025 Part 10.2 and name an edition or keep it edition-free deliberately | 10 Oct 2026 | Every figure matches NCC 2025 Housing Provisions Part 10.2, checked 10 Oct 2026. Edition-free on purpose until the WA transition ends 30 Apr 2027. Claim register row 9 |
+| "Labour is roughly half the job" on the cost guide is a Canberra line with no Perth source | T20 | Code | 13 Sep 2026 | Source it or cut it | 10 Oct 2026 | Dropped: the line is in no served page. Claim register row 10 |
+| The cost guide says "the relevant WA regulator" rather than naming the regulator | T20 | Code | 13 Sep 2026 | Name it | 10 Oct 2026 | Named: the Building Commissioner, through Building and Energy, per wa.gov.au (updated 25 Jun 2026). Cost guide draft v4. Claim register row 11 |
 | The linkable asset has no named outreach targets, so it is a conversion asset in practice | T29 | Code | 13 Sep 2026 | Six named targets in 03-plan.md | |  |
 | cost-guide-perth-figures.md, which every figure on the cost guide traces to, was never committed. It exists only in Downloads | T20 | Code | 18 Sep 2026 | Commit it under build/ | |  |
-| The SERP was never read for bathroom tiler perth or tiling cost perth, both of which have pages | T03 | Code | 18 Sep 2026 | Two rows in 01-market.md SERP ownership | |  |
+| The SERP was never read for bathroom tiler perth or tiling cost perth, both of which have pages | T03 | Code | 18 Sep 2026 | Two rows in 01-market.md SERP ownership | 10 Oct 2026 | Both rows written 10 Oct 2026 from a browser read of google.com.au in Perth. Referring domain counts not pulled: DataForSEO credentials were not set |
 | The keyword volume pull for the 26-term list was pasted into a chat and never written to a file | T02 | Code | 18 Sep 2026 | Re-run and commit the CSV, or accept the loss | |  |
 | Canberra backport: it attributes the 1:80 fall to a paywalled standard. NCC Housing Provisions 10.2.12 states it, is free to verify, and gives the 1:50 maximum Canberra omits | none | Code | 12 Sep 2026 | A commit in the Canberra repo | |  |
 | The R11 greeting exception added to PLAYBOOK.md on 5 Oct 2026 is not in the template's copy | T30 | Code | 5 Oct 2026 | A commit in the template repo | |  |
@@ -84,6 +85,8 @@ been run.
 | click_to_call and generate_lead are not marked as key events in GA4, so Key events reads 0 | none | Me | 10 Oct 2026 | Both marked as key events in GA4 Admin, Events. Progress: Brad reports both marked, 10 Oct 2026. Not checkable from Code. Closes when a GA4 export shows Key events above 0 | |  |
 | Brad's own visits are counted in GA4. No internal traffic filter is defined | none | Me | 10 Oct 2026 | An internal traffic rule for Brad's IP, and the data filter set to Active. Progress: Brad reports the filter set, 10 Oct 2026. Not checkable from Code | |  |
 | generate_lead has never been seen on the live site. It was proved on localhost with gtag and fetch stubbed | none | Me, then Code | 10 Oct 2026 | One real test submission on the live site, then the event in GA4 Realtime or the next Events export. Progress: Live main.js carries the event (deployed 2c63326, 10 Oct 2026). Brad's test submission landed as a form lead at 07:31:58 AWST, 10 Oct 2026, spam_status clean. The GA4 side is not checkable from Code; closes on the next Events export | |  |
+| The cost guide site the cost guide quotes at "$37 to $94, averaged at $58" now publishes $42 to $94 with $63 typical (its page dated 1 Oct 2026, seen in the 10 Oct SERP read). The cost guide lead, labour table and FAQ still carry the 12 Sep figures | none | Code, then Brad | 10 Oct 2026 | Re-collect that publisher's figures and update every place they appear, or keep the 12 Sep figures with their collection date shown | |  |
+| Cost guide draft v4 (regulator named) is baked but not approved | T22 | Me | 10 Oct 2026 | Status set to APPROVED in build/04-copy/tiling-cost-perth.md | |  |
 
 ## QA
 

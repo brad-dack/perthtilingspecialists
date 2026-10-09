@@ -1,7 +1,7 @@
 # 03 Page plan
 
 Status: SIGNED-OFF | H1s approved 12 September 2026, reconstructed 18 September 2026
-Evidence: OPEN | see the claim register below
+Evidence: CLEAR | rows 8 to 11 resolved 10 October 2026
 
 Written by T17 to T20. Read by T21, T24 and T25. See PLAYBOOK.md.
 
@@ -13,8 +13,8 @@ plan. The status is SIGNED-OFF because both H1s were approved in the phase 3
 session and the site has been live on them since 13 September 2026, not because
 this reconstruction was signed off.
 
-Evidence is OPEN, not CLEAR: four claims still carry operator TODOs in
-`config.js`. They are rows 8 to 11 below.
+Evidence was OPEN until 10 October 2026, when rows 8 to 11 were resolved: two
+dropped because the claim is not on any page, two sourced.
 
 ## Inventory
 
@@ -118,10 +118,10 @@ to 11 are still open and are why Evidence is not CLEAR.
 | 5 | Tile installation is covered by AS 3958:2023 incorporating Amendment No. 1 (2024) | floor | Standards Australia | sourced | AS 3958 | 2023 with Amdt 1, 2024 | n/a | 12 September 2026 |
 | 6 | Waterproofing is covered by AS 3740:2021, which supersedes AS 3740-2010 | bathroom | Standards Australia | sourced | AS 3740 | 2021 | n/a | 12 September 2026 |
 | 7 | Home Building Contracts Act 1991 (WA) covers fixed-price contracts between $7,500 and $500,000 and caps the deposit at 6.5 per cent, and names tiling | cost guide | the Act itself | sourced | Home Building Contracts Act 1991 (WA) | as in force | n/a | 12 September 2026 |
-| 8 | AS 4586 is the current slip resistance standard | bathroom | Standards Australia | **open** | edition never verified | unknown | n/a | not checked |
-| 9 | No NCC edition is named anywhere on the bathroom page | bathroom | ABCB | **open** | figures were taken from NCC 2022; WA adopted NCC 2025 on 1 May 2026 with NCC 2022 Amdt 2 assessable until 30 April 2027 | unresolved | n/a | not checked |
-| 10 | Labour is roughly half the job | cost guide | a published Perth figure | **open** | carried over from a Canberra line, no Perth source | n/a | n/a | not checked |
-| 11 | "The relevant WA regulator" is deliberately vague on the cost guide | cost guide | the regulator's own name | **open** | the regulator was never named | n/a | n/a | not checked |
+| 8 | AS 4586 is the current slip resistance standard | bathroom | Standards Australia | dropped | No page names AS 4586 or any slip rating: the bathroom page asks for the tile's slip resistance rating instead. Checked in config.js and the served HTML, 10 Oct 2026 | n/a | n/a | 10 October 2026 |
+| 9 | No NCC edition is named anywhere on the bathroom page | bathroom | ABCB | sourced | All nine figures on the page (1800 mm, 1:80 and 1:50, 40 mm, 25 and 50 mm flashing, 25 mm stepdown, 1500 mm waterstop, no timber hobs and 50 mm termination, bond breakers, AS/NZS 4858) match NCC 2025 Housing Provisions Part 10.2 clauses 10.2.2, 10.2.3, 10.2.8, 10.2.12, 10.2.15, 10.2.16, 10.2.18, 10.2.24, 10.2.27, 10.2.28. ABCB adoption table: WA adopted NCC 2025 on 1 May 2026 with a 12 month transition, so the page stays edition-free on purpose until 30 April 2027 | NCC 2025 | ncc.abcb.gov.au/editions/ncc-2025/adopted/housing-provisions/10-health-and-amenity/part-102-wet-area-waterproofing | 10 October 2026 |
+| 10 | Labour is roughly half the job | cost guide | a published Perth figure | dropped | Cut from the cost guide during drafting; the line appears nowhere in config.js or the served HTML, checked 10 Oct 2026 | n/a | n/a | 10 October 2026 |
+| 11 | Complaints go to the Building Commissioner, through Building and Energy, generally within three years | cost guide | the regulator's own name | sourced | wa.gov.au, Building dispute resolution | page last updated 25 June 2026 | wa.gov.au/government/multi-step-guides/building-dispute-resolution | 10 October 2026 |
 
 ## Dropped claims
 

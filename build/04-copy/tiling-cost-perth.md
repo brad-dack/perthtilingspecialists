@@ -1,6 +1,6 @@
 # Cost guide: /tiling-cost-perth
 
-Status: APPROVED | v3, Brad, 8 October 2026, in the session that drafted it
+Status: DRAFT v4 | 10 October 2026, awaiting Brad's approval. v3 APPROVED by Brad, 8 October 2026
 
 ## Head
 
@@ -43,6 +43,18 @@ The `lead` block changed. No figure was added or changed. The blocks are in
   links the floor page; For repairs, expect a diagnosis now links the bathroom
   page.
 
+## Draft v4, 10 October 2026
+
+One list item in "Your rights on a WA tiling contract" changed, to name the
+regulator (claim register row 11, sourced 10 October 2026 against wa.gov.au,
+Building dispute resolution, updated 25 June 2026):
+
+- was: "Complaints can be made to the relevant WA regulator for up to three
+  years."
+- now: "Complaints can be made to the Building Commissioner, through Building
+  and Energy, generally within three years of the contract or of the cause of
+  the dispute."
+
 ## Changes from plan
 
 **The meta is live without approval.** The approved meta said "Indicative
@@ -75,10 +87,6 @@ Claim register rows 10 and 11 are open, which is why Evidence is OPEN.
 Live as `/* TODO (Brad) */` comments in `config.js`:
 
 - Re-approve the meta, above.
-- "Labour is roughly half the job" is carried over from a Canberra line. No
-  Perth source supports it.
-- "The relevant WA regulator" is deliberately vague. Name the regulator or cut
-  the phrase.
 - A Perth itemised rate card was searched for and confirmed absent on 13
   September 2026. The section was left out rather than filled with national
   figures. Revisit once a renter can supply real quote data.

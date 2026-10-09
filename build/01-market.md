@@ -71,8 +71,8 @@ both pages shipped without their SERP ever being read. Open items.
 |---|---|---|---|---|---|---|---|
 | tiling perth | present, count not recorded | not recorded | not recorded | hipages and Airtasker present, positions 1 to 3 held by tilers | 4 to 74 | the trade itself, with directories above | yes, positions 1 to 3 judged open |
 | floor tiling perth | 1 sponsored map listing, a flooring company rather than a tiler | yes | no | guntiling.com.au, moderntrendtiling.com.au, abctilingandstone.com.au | 74, 100, 60. Ezy Tiling at #5 has 182 | the trade itself | yes, but the link bar is higher than the head term |
-| bathroom tiler perth | not read | not read | not read | not read | not read | not read | **never read** |
-| tiling cost perth | not read | not read | not read | not read | not read | not read | **never read** |
+| bathroom tiler perth | 2: a bathroom renovator (map listing) and a bathroom tiling firm | yes | no | smallbathroomrenovationsperth.com.au, guntiling.com.au, jstilingandstone.com.au | not pulled, DataForSEO credentials not set on 10 Oct 2026 | split between bathroom renovators and tilers, with Airtasker, Reddit and Facebook threads on page 1 | yes, slowly. Read 10 Oct 2026 in a browser on google.com.au from Perth, not DataForSEO |
+| tiling cost perth | none | no | yes | discount.com.au, whatsthedamage.com.au, marblewest.com.au | not pulled, DataForSEO credentials not set on 10 Oct 2026 | Perth tile suppliers and cost guide sites, then hipages and Perth builders. Several are the publishers the cost guide cites | yes: no ads and no local pack, but the AI Overview takes clicks. Read 10 Oct 2026 in a browser on google.com.au from Perth |
 | tile regrouting perth | 1, The Grout Guy | not recorded | not recorded | no general tilers on page 1 | not recorded | specialists | no, section only |
 | leaking shower perth | not recorded | not recorded | not recorded | dedicated shower repair and sealing specialists | 131 to 319 | specialists | no |
 | waterproofing perth | not recorded | not recorded | not recorded | waterproofing and leak detection firms | not recorded | another trade | no |
