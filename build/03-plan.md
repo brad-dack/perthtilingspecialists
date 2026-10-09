@@ -149,8 +149,8 @@ to 11 are still open and are why Evidence is not CLEAR.
 Collected 12 September 2026. Reader-facing copy uses the publisher type, never
 the business name. Peak bodies may be named. The full source table, with the
 real publisher names kept for traceability, is
-`cost-guide-perth-figures.md`, which was never committed and now exists only in
-Downloads. Open item.
+`build/cost-guide-perth-figures.md`, committed 10 October 2026. Its section 8
+records the 10 October re-collection of the cost guide site's figures.
 
 Method, as it appears on the page: published Perth figures from several
 publishers are put side by side, attributed by publisher type, and the
@@ -158,11 +158,11 @@ disagreement between them is explained rather than averaged away.
 
 | item | low | high | publisher type | source name | url | date |
 |---|---|---|---|---|---|---|
-| standard floor tiling per m2 | $55 | $75 | Perth supplier | in the uncommitted figures file | n/a | 12 September 2026 |
-| bathroom tiling per m2 | $75 | $120 | Perth supplier | in the uncommitted figures file | n/a | 12 September 2026 |
-| standard floor labour per m2 | $37 | $94 | cost guide site | in the uncommitted figures file | n/a | 12 September 2026 |
-| tiler supply and install per m2 | $30 | $100 | Perth tiler | in the uncommitted figures file | n/a | 12 September 2026 |
-| bathroom renovation total, WA | $3,000 | $65,000+ | thirteen publishers | in the uncommitted figures file | n/a | 12 September 2026 |
+| standard floor tiling per m2 | $55 | $75 | Perth supplier | in build/cost-guide-perth-figures.md | n/a | 12 September 2026 |
+| bathroom tiling per m2 | $75 | $120 | Perth supplier | in build/cost-guide-perth-figures.md | n/a | 12 September 2026 |
+| standard floor labour per m2 | $42 | $94 | cost guide site | build/cost-guide-perth-figures.md, section 8 | whatsthedamage.com.au/tiling-cost-perth/ | 10 October 2026, re-collected (was $37 to $94 on 12 September) |
+| tiler supply and install per m2 | $30 | $100 | Perth tiler | in build/cost-guide-perth-figures.md | n/a | 12 September 2026 |
+| bathroom renovation total, WA | $3,000 | $65,000+ | thirteen publishers | in build/cost-guide-perth-figures.md | n/a | 12 September 2026 |
 
 Convergence and disagreement: tiling-only bathroom figures converge around
 $3,000 to $6,500, while whole-renovation figures diverge wildly, because a

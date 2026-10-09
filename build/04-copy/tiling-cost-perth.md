@@ -1,6 +1,6 @@
 # Cost guide: /tiling-cost-perth
 
-Status: APPROVED | v4, Brad, 10 October 2026. v3 approved by Brad, 8 October 2026
+Status: DRAFT v5 | 10 October 2026, awaiting Brad's approval. v4 APPROVED by Brad, 10 October 2026
 
 ## Head
 
@@ -42,6 +42,37 @@ The `lead` block changed. No figure was added or changed. The blocks are in
 - **Two sentences appended** with internal links: Removal and disposal now
   links the floor page; For repairs, expect a diagnosis now links the bathroom
   page.
+
+## Draft v5, 10 October 2026
+
+The cost guide site's figures were re-collected on 10 October 2026 (Brad's
+instruction) and every place the page quotes that publisher was updated. The
+record is `build/cost-guide-perth-figures.md` section 8.
+
+- Lead, labour table, "Two things stand out" and the per m2 FAQ: standard
+  floor $37 to $94 (avg $58) becomes $42 to $94 (typically $63). "Roughly a
+  third below" becomes "roughly a quarter below" (42 against 55).
+- Labour table: feature $63 to $125 becomes $84 to $180; hourly $126 becomes
+  $52 to $105, typically $74.
+- The hourly outlier paragraph is rewritten, because the outlier is gone:
+  "Hourly rates agree far better. The same cost guide site puts them at $52 to
+  $105, typically $74, and two Perth sources put them at $50 to $90 and around
+  $60."
+- "Some cost pages are not built from jobs at all": its last sentence used the
+  $126 as the example. It now reads "They can also move between one month and
+  the next: between our September and October 2026 checks, the cost guide site
+  quoted on this page moved its standard floor rate from $37 to $42 per square
+  metre and its hourly rate from $126 to $52 to $105."
+- Tile table and the tile paragraph: porcelain $52 to $125, premium stone $105
+  to $260.
+- Bathroom renovation table: the cost guide site row now gives basic,
+  mid-range (typically $28,350) and premium bands; the mid-range comparison
+  sentence says around $28,350 instead of $27,300; the scope table row
+  describes its tiers.
+- Bathroom tiling table: the $630 to $1,675 labour row becomes $1,575 to
+  $4,725 (labour only, floor and walls), and a new row gives the same
+  publisher's $2,950 to $7,900 supply and install figure. The paragraphs
+  under the table are adjusted to match.
 
 ## Draft v4, 10 October 2026
 

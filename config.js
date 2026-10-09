@@ -786,13 +786,18 @@ window.SITE_CONFIG = {
          changed: the FAQ answers and budgeting points restate figures already
          on this page. */
       blocks: [
-        /* Lead rewritten 8 Oct 2026 (draft v3): Search Console showed most of
+        /* Cost guide site (whatsthedamage.com.au) figures re-collected 10 Oct
+           2026 from its Perth tiling and bathroom renovation pages, both
+           "verified October 2026": see build/cost-guide-perth-figures.md,
+           section 8. Every row and sentence quoting that publisher was
+           updated in the same commit.
+           Lead rewritten 8 Oct 2026 (draft v3): Search Console showed most of
            this page's impressions on "how much does a tiler cost", "tiling a
            floor cost" and "cost to tile floor", which the old lead (bathroom
            renovation spread) did not answer. No new figure: $37 to $94 and $55
            to $75 / $75 to $120 are the labour table rows below, same
            publisher types. The old lead is kept as the next paragraph. */
-        { type: "lead", text: "Published Perth figures put a tiler's labour for a standard floor at $37 to $94 per square metre (a cost guide site) or $55 to $75 (a Perth supplier), with bathroom work at $75 to $120. The tiles, taking up an old floor, preparation and waterproofing are priced on top, and they are usually where two quotes for the same room part company." },
+        { type: "lead", text: "Published Perth figures put a tiler's labour for a standard floor at $42 to $94 per square metre (a cost guide site) or $55 to $75 (a Perth supplier), with bathroom work at $75 to $120. The tiles, taking up an old floor, preparation and waterproofing are priced on top, and they are usually where two quotes for the same room part company." },
         /* [VERIFY] resolved: $3,000 to $65,000+, all 2026, figures file
            Section 1 "The spread". */
         { type: "p", text: "Whole bathroom renovations spread much further. Search for what one costs in Perth and you will find published figures from about $3,000 at the cosmetic end to $65,000 and beyond at the top. All of them were published in 2026, and all of them describe work in Perth." },
@@ -808,7 +813,7 @@ window.SITE_CONFIG = {
         { type: "table", headers: ["Published by", "Floor, standard lay", "Wall", "Feature or wet area", "Hourly"], rows: [
           ["Perth supplier", "$55 to $75", "", "$90 to $150", "$50 to $90"],
           ["Perth supplier, bathroom work", "$75 to $120", "", "", "$60+"],
-          ["Cost guide site", "$37 to $94, averaged at $58", "$42 to $105", "$63 to $125", "$126"],
+          ["Cost guide site", "$42 to $94, typically $63", "$42 to $105", "$84 to $180", "$52 to $105, typically $74"],
           ["Perth tile supplier", "$40 to $150 supply and install", "", "", "around $60"],
           ["Perth builder", "$45 to $150 install", "", "", ""],
           ["Perth tiler", "$30 to $100 supply and install", "", "", "$50 to $90"],
@@ -819,20 +824,20 @@ window.SITE_CONFIG = {
         /* [VERIFY] resolved: $37 to $94 avg $58 (cost guide site) against $55
            to $75 and $75 to $120 (Perth supplier), Section 2. "Roughly a third"
            checks: 37 is 33% below 55. */
-        { type: "p", text: "Two things stand out. A cost guide site puts standard floor tiling labour in Perth at $37 to $94 per square metre and averages it at $58. A Perth supplier puts the same work at $55 to $75, and bathroom work at $75 to $120. The bottom of the first range sits roughly a third below the bottom of the second. Both were published this year and both say Perth." },
+        { type: "p", text: "Two things stand out. A cost guide site puts standard floor tiling labour in Perth at $42 to $94 per square metre, typically $63. A Perth supplier puts the same work at $55 to $75, and bathroom work at $75 to $120. The bottom of the first range sits roughly a quarter below the bottom of the second. Both were published this year and both say Perth." },
         /* [VERIFY] resolved: $126 cost guide site; $50 to $90 Perth supplier,
            around $60 Perth tile supplier, Section 2. (A Perth tiler also gives
            $50 to $90, so "two Perth sources" understates rather than
            overstates.) */
-        { type: "p", text: "The same cost guide site quotes an hourly rate of $126. Two Perth sources put hourly rates at $50 to $90 and around $60. Treat the $126 as an outlier rather than a Perth rate." },
+        { type: "p", text: "Hourly rates agree far better. The same cost guide site puts them at $52 to $105, typically $74, and two Perth sources put them at $50 to $90 and around $60." },
 
         { type: "h3", text: "Tiles themselves" },
         /* [VERIFY] resolved: all four rows, figures file Section 3. */
         { type: "table", headers: ["Published by", "Material", "Supply price per m2"], rows: [
           ["Perth supplier", "Budget ceramic", "from $20"],
           ["Perth supplier", "General range", "$20 to $65"],
-          ["Cost guide site", "Mid-range porcelain", "$50 to $120"],
-          ["Cost guide site", "Premium stone", "$100 to $250+"]
+          ["Cost guide site", "Mid-range porcelain", "$52 to $125"],
+          ["Cost guide site", "Premium stone", "$105 to $260"]
         ] },
         { type: "p", text: "Tile choice is the part of the quote you control most directly, and the gap between the bottom and the top of that table is larger than most people expect." },
 
@@ -882,7 +887,7 @@ window.SITE_CONFIG = {
         { type: "table", headers: ["Published by", "Published figure"], rows: [
           ["Peak body (HIA)", "WA average around $26,000"],
           ["Tradie marketplace", "Perth average around $15,667"],
-          ["Cost guide site", "$27,300 for a mid-range bathroom. Basic $10,500. Cosmetic refresh $3,000 to $8,000"],
+          ["Cost guide site", "Basic $10,500 to $21,000. Mid-range $21,000 to $36,750, typically $28,350. Premium $36,750 to $57,750"],
           ["Perth builder", "Basic $10,500 to $21,000. Mid-range $21,000 to $36,750. Premium $36,750 to $57,750"],
           ["Perth supplier", "$8,000 to $30,000+, with most landing $15,000 to $28,000"],
           ["Cost guide site", "Budget $9,000 to $16,000. Mid $20,000 to $35,000. Luxury $38,000 to $65,000+"],
@@ -893,7 +898,7 @@ window.SITE_CONFIG = {
         ] },
         /* [VERIFY] resolved: the four mid-range figures, figures file Section 1
            "Three mid-range figures to put side by side". */
-        { type: "p", text: "Narrow that to one description, a mid-range bathroom, and four sources still give four answers: around $15,667 from a tradie marketplace, around $26,000 from a peak body, $27,300 from a cost guide site, and $21,000 to $36,750 from a Perth builder. Same room, same year, same city." },
+        { type: "p", text: "Narrow that to one description, a mid-range bathroom, and four sources still give four answers: around $15,667 from a tradie marketplace, around $26,000 from a peak body, around $28,350 from a cost guide site, and $21,000 to $36,750 from a Perth builder. Same room, same year, same city." },
 
         { type: "h3", text: "What each figure actually covers" },
         { type: "p", text: "Most of the gap in that table comes down to whether each source says what its figure includes." },
@@ -903,7 +908,7 @@ window.SITE_CONFIG = {
           ["Peak body (HIA)", "No", "A WA average, no inclusions listed"],
           ["Tradie marketplace", "No", "A Perth average of jobs booked through the platform"],
           ["Tradie marketplace", "Partly", "Tiers labelled basic, average and full overhaul"],
-          ["Cost guide site", "Partly", "Separates a cosmetic refresh from a basic job from a mid-range one"],
+          ["Cost guide site", "Partly", "Basic, mid-range and premium tiers, with basic described as a cosmetic refresh or no-frills job"],
           ["Cost guide site", "Partly", "Budget, mid and luxury tiers, described by fixture grade"],
           ["Perth builder", "Yes", "Tiers set by fixture and finish grade"],
           ["Perth supplier", "Yes", "Notes that a layout change or premium finishes push past $30,000"],
@@ -923,10 +928,11 @@ window.SITE_CONFIG = {
           ["Perth supplier", "$2,000 to $7,000. For 25 to 30m2 of tiled surface, $4,500 to $6,500", "Complete tiling job, supply and install"],
           ["Perth tile supplier", "$3,000 to $6,000", "Standard 28m2 bathroom, material and labour"],
           ["Perth specialist", "$3,000 to $6,000", "Not detailed"],
-          ["Cost guide site", "$630 to $1,675", "Labour only, around 10m2"]
+          ["Cost guide site", "$2,950 to $7,900, typically $5,250", "Supply and install, excluding waterproofing"],
+          ["Cost guide site", "$1,575 to $4,725", "Labour only, floor and walls"]
         ] },
-        { type: "p", text: "Three Perth sources of three different types land on roughly $3,000 to $6,500 for tiling a standard bathroom. The renovation figures for the same room ranged from $15,667 to $36,750." },
-        { type: "p", text: "The fourth row is not a contradiction either, once you read the scope. It is labour only across about 10 square metres of floor. The first row is supply and install across 25 to 30 square metres of floor and walls. Different job, stated plainly, different number." },
+        { type: "p", text: "Three Perth sources of three different types land on roughly $3,000 to $6,500 for tiling a standard bathroom, and a cost guide site's $2,950 to $7,900 sits around them. The renovation figures for the same room ranged from $15,667 to $36,750." },
+        { type: "p", text: "The last row is not a contradiction either, once you read the scope. It is labour only, with the tiles and materials left out, while the first row is supply and install. Different job, stated plainly, different number." },
         { type: "p", text: "That is the whole lesson of this page in one table. Figures converge when the scope is defined and scatter when it is not. Tiling is a defined scope. Renovation is not." },
 
         { type: "h2", text: "Why the numbers disagree so much" },
@@ -935,7 +941,7 @@ window.SITE_CONFIG = {
         { type: "p", text: "**Who is writing, and about whose customers.** A tradie marketplace reports what the jobs booked through it cost, and small jobs book more easily online than large ones, so its average sits low. A renovation company quoting full turnkey projects reports the customers who reach it, and its floor sits above the marketplace's ceiling. Neither is wrong about its own book." },
         /* [VERIFY] resolved: $126 cost guide site; $50 to $90 from the Perth
            supplier and the Perth tiler, Section 2. */
-        { type: "p", text: "**Some cost pages are not built from jobs at all.** Programmatic cost guide sites publish a figure for every city and every trade. The Perth number and the Adelaide number are often generated by the same process, adjusted by a factor. That is why a cost guide site can publish an hourly rate of $126 in a market where two Perth sources say $50 to $90." },
+        { type: "p", text: "**Some cost pages are not built from jobs at all.** Programmatic cost guide sites publish a figure for every city and every trade. The Perth number and the Adelaide number are often generated by the same process, adjusted by a factor. They can also move between one month and the next: between our September and October 2026 checks, the cost guide site quoted on this page moved its standard floor rate from $37 to $42 per square metre and its hourly rate from $126 to $52 to $105." },
         { type: "p", text: "**Fixtures move the total more than tiling does.** A change of tapware, a frameless screen, a stone top or a freestanding bath can move a bathroom total by thousands without changing the tiling scope by a square metre. Two quotes for the same tiling work can be $10,000 apart on fixtures alone." },
         { type: "p", text: "**Averages hide the shape of the distribution.** A single average across budget refreshes and western suburbs rebuilds describes almost nobody's actual bathroom." },
         { type: "p", text: "**What to do with that.** Stop looking for the right number for a bathroom renovation, because there is not one. Break your job into defined scopes, price each one, and add them up. The bathroom tiling figures above show that a defined scope produces a usable number even from unrelated sources. It is also exactly what you should ask a tiler to give you in writing, as set out under how to get a quote you can rely on, below." },
@@ -955,7 +961,7 @@ window.SITE_CONFIG = {
         { type: "h3", text: "The tile itself" },
         /* [VERIFY] resolved: from $20 budget ceramic (Perth supplier), $100 to
            $250+ premium stone (cost guide site), Section 3. */
-        { type: "p", text: "Large format tiles need a flatter substrate and more careful setting. Mosaics are slow. Natural stone needs sealing and is less forgiving. Budget ceramic starts around $20 per square metre to supply and premium stone reaches $250 and above, according to a Perth supplier and a cost guide site respectively." },
+        { type: "p", text: "Large format tiles need a flatter substrate and more careful setting. Mosaics are slow. Natural stone needs sealing and is less forgiving. Budget ceramic starts around $20 per square metre to supply and premium stone reaches $260, according to a Perth supplier and a cost guide site respectively." },
         { type: "h3", text: "The layout" },
         /* [VERIFY] resolved: 20 to 40% labour, national guide, Section 3. */
         { type: "p", text: "A straight lay is the baseline. Diagonal, herringbone and brick bond patterns add cutting and wastage, and a national guide puts the extra labour at 20 to 40 per cent." },
@@ -1074,7 +1080,7 @@ window.SITE_CONFIG = {
            with the same attribution. Builds this page's FAQPage schema. */
         { type: "h2", text: "Common questions" },
         { type: "faqs", items: [
-          { q: "How much does a tiler charge per square metre in Perth?", a: "Published Perth figures vary widely. A Perth supplier puts standard floor tiling at $55 to $75 per square metre and bathroom work at $75 to $120, while a cost guide site puts standard floor labour at $37 to $94. A small room costs more per square metre than a large one, because a small floor is mostly cuts and edges." },
+          { q: "How much does a tiler charge per square metre in Perth?", a: "Published Perth figures vary widely. A Perth supplier puts standard floor tiling at $55 to $75 per square metre and bathroom work at $75 to $120, while a cost guide site puts standard floor labour at $42 to $94. A small room costs more per square metre than a large one, because a small floor is mostly cuts and edges." },
           /* Added 8 Oct 2026 (draft v3) for "tiling a floor cost" and "cost to
              tile floor". Every figure is already on this page: Perth supplier
              labour and general tile range, Perth tiler supply and install,
