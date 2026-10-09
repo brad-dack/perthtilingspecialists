@@ -57,8 +57,8 @@ Do not raise it again.
 | supabase site_id | f13c6b04-d9b8-4664-9d09-475dcfcd1967, slug perth-tiling-specialists, project bnfgnglzswtrvzfqkgjh. Read from the row on 5 October 2026 |
 | ingest url | https://bnfgnglzswtrvzfqkgjh.functions.supabase.co/ingest-form |
 | ingest secret location | sites.ingest_secret on the perth-tiling-specialists row. The same value sits in config.js by design: the function matches it to a site and Turnstile is the spam gate |
-| inbound email | hello@perthtilingspecialists.com.au, Cloudflare Email Routing to the rank-and-rent-email-ingest Worker. Reported set, not read from the row, see open items |
-| forward from email | Reported set after Resend domain verification, not read from the row, see open items |
+| inbound email | hello@perthtilingspecialists.com.au, Cloudflare Email Routing to the rank-and-rent-email-ingest Worker. Read from the row 10 October 2026 |
+| forward from email | hello@perthtilingspecialists.com.au, read from the row 10 October 2026 |
 | storage regions | Supabase: ap-northeast-1, Tokyo, read from supabase projects list on 5 October 2026, and named on the privacy page. Cloudflare: nothing stored at rest; the email Worker has no storage bindings and passes mail on to Gmail and the Supabase ingest function. Twilio, Resend, GitHub Pages and Google are not pinned to a region; the privacy page says they may store data outside Australia |
 | retention rule | prune-storage runs monthly and deletes voicemail audio and email attachments older than 12 months. The leads and call_events rows are deliberately kept, because they are the invoicing evidence |
 
@@ -116,7 +116,7 @@ the tiler pays. Decided by Brad, 5 October 2026, `build/05-log.md` Decisions.
 |---|---|
 | mp3 recorded | Y |
 | greeting_audio_url set | Y. Read 5 October 2026 |
-| greeting_text set | Y, but it differs from the text above. Read 5 October 2026: "Hi, thanks for calling Perth Tiling Specialists. Leave your name, suburb and job details after the tone. We will pass enquiries to a tiler who can quote the job." See open items |
+| greeting_text set | Y. Read 10 October 2026: "Hi, thanks for calling Perth Tiling Specialists. Leave your name, suburb and job details after the tone. We will pass enquiries to a tiler who can quote the job." Brad confirms the MP3 says the same, 10 October 2026. The migration 018 wording above ("We pass") is not what is live |
 | greeting heard on a real call | Y. Brad, 5 October 2026, with a call_events ringing row at 13:27 AWST. No completed or recording row followed. See open items |
 
 ## Search Console
@@ -126,4 +126,4 @@ the tiler pays. Decided by Brad, 5 October 2026, `build/05-log.md` Decisions.
 | property verified | Y |
 | method | DNS TXT. google-site-verification=eKQSjST5WVjBXDk5oIFiogqITVKCGZ-VOppnax_Eic4, confirmed present 18 September 2026 |
 | date | Not determined. The property was described as newly verified on 17 September 2026, and Google had already crawled About on 15 September |
-| gsc_site_url set on the site row | N. Reported empty on 17 September 2026. See open items |
+| gsc_site_url set on the site row | Y. sc-domain:perthtilingspecialists.com.au, read 10 October 2026. Service account access reported by Brad |
