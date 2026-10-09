@@ -1,6 +1,6 @@
 # Bathroom tiling: /bathroom-tiling-perth
 
-Status: APPROVED | v3, Brad, 8 October 2026. v2 approved by Brad the same day; v3 is the Splashbacks move he decided, below
+Status: DRAFT v4 | 10 October 2026, awaiting Brad's approval. v3 APPROVED by Brad, 8 October 2026
 
 ## Head
 
@@ -54,6 +54,24 @@ Additions only, plus one sentence appended. The blocks are in `config.js`
 
 **Splashbacks section removed**, moved verbatim to the floor page. Decided by
 Brad, 8 October 2026; see `floor-tiling-perth.md`.
+
+## Draft v4, 10 October 2026
+
+Additions only, from Canberra's regrouting page (Brad, 10 October 2026), under
+the Regrouting section. The same rules as the floor page: structure and
+general trade knowledge kept, every ACT specific, standard, manufacturer name
+and price dropped. Regrouting stays a section, not a page: the SERP is owned by
+shower repair and regrouting specialists (`01-market.md`).
+
+- **Seven new H3s:** Which job do you actually need; Why grout fails; Partial or
+  full regrout; Cement or epoxy; Sealing is not regrouting; What a proper
+  regrout involves; Corners should be silicone, not grout.
+- **Four new FAQs** (seven in all): regrouting over existing grout, grout that
+  cracks in the same corner, changing grout colour, sealing new grout.
+- **Left out on purpose:** the acid cleaner warning cites a manufacturer
+  bulletin in Canberra. Here it says only to check the grout manufacturer's
+  cleaning advice. Epoxy against cement pricing and sealing rates per square
+  metre are not repeated: the cost guide owns every price.
 
 ## Changes from plan
 

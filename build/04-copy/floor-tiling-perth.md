@@ -1,6 +1,6 @@
 # Floor tiling: /floor-tiling-perth
 
-Status: APPROVED | v3, Brad, 8 October 2026. v2 approved by Brad the same day; v3 is the Splashbacks move he decided, below
+Status: DRAFT v4 | 10 October 2026, awaiting Brad's approval. v3 APPROVED by Brad, 8 October 2026
 
 ## Head
 
@@ -53,6 +53,30 @@ or laundry job, `tile splashback perth` is 10 searches a month, and the home
 page TODO already placed kitchens and laundries on this page. The Wall tiling
 paragraph loses its trailing "along with splashbacks". The home page's
 Kitchens and laundries line now links here.
+
+## Draft v4, 10 October 2026
+
+Additions only, from the Canberra comparison (Brad, 10 October 2026). Canberra
+was used for structure and general trade knowledge. Every ACT specific, every
+standard clause number, every manufacturer name and every price was dropped
+(R2, R9, R12), and nothing was added that needs a Perth source.
+
+- **New H2 "Porcelain, ceramic or natural stone"**, before Tile format. Porcelain
+  is the safe default for floors, ceramic suits walls, stone needs sealing. Have
+  every quote priced on the same tile.
+- **New H2 "Grout colour and joint width"**, before Wall tiling. Joint width
+  suits the tile, a grout joint is not a movement joint, colour is a
+  maintenance decision. No standard is named: Canberra's movement joint
+  spacing (a clause number and two dimensions) was dropped because it was
+  never verified for this site.
+- **New H2 "Feature walls"**, after Wall tiling. Priced on the difficulty of
+  the tile, not the area. Links the bathroom page for the wet version.
+- **New H2 "What goes wrong"**, before Older Perth floors. Lipping, no movement
+  joints, setting out from the wrong point, transitions left to the end.
+- **Six new FAQs** (nine in all): porcelain against ceramic, floor tiles on
+  walls and wall tiles on floors, timber floors, levelling, tile size, grout
+  colour. Canberra's cost FAQ was not carried across, because the cost guide
+  owns every price (R12).
 
 ## Changes from plan
 

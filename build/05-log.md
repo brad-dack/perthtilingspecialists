@@ -41,6 +41,7 @@ nobody was tracking.
 | 10 Oct 2026 | none | Keep the template default brand theme: green, bold, diagonal | Brad | the open item to pick a theme | Accepted as is |
 | 10 Oct 2026 | T20 | Evidence set to CLEAR: claim rows 8 and 10 dropped (not on any page), rows 9 and 11 sourced | Code | Evidence OPEN since 15 Sep 2026 | Brad asked for the preflight problems fixed. Each row checked against config.js, the served HTML or the primary source on 10 Oct 2026 |
 | 10 Oct 2026 | T20 | Cost guide site figures re-collected and updated across the cost guide; its $126 hourly rate is no longer used as the outlier example | Brad | the 12 Sep figures for that publisher | The publisher revised both Perth pages in October 2026. The other publishers were not re-checked; review date stays 12 Sep 2027 |
+| 10 Oct 2026 | T21 | Canberra comparison: sections and FAQs adapted onto the floor, bathroom and home pages (floor v4, bathroom v4, home v2). No new pages. Tile repair and tile removal stay sections | Code, awaiting Brad's approval | the plan to add a tile repair page first, proposed the same day | The tile repairs perth and tile removal perth SERPs are owned by specialists. Canberra's narrow pages did well in a market with less specialist competition. See 01-market.md, Canberra comparison |
 
 ## Open items
 
@@ -89,6 +90,8 @@ been run.
 | The cost guide site the cost guide quotes at "$37 to $94, averaged at $58" now publishes $42 to $94 with $63 typical (its page dated 1 Oct 2026, seen in the 10 Oct SERP read). The cost guide lead, labour table and FAQ still carry the 12 Sep figures | none | Code, then Brad | 10 Oct 2026 | Re-collect that publisher's figures and update every place they appear, or keep the 12 Sep figures with their collection date shown | 10 Oct 2026 | Re-collected 10 Oct 2026 from both of the publisher's Perth pages (verified October 2026) and updated everywhere it is quoted. Cost guide draft v5 |
 | Cost guide draft v4 (regulator named) is baked but not approved | T22 | Me | 10 Oct 2026 | Status set to APPROVED in build/04-copy/tiling-cost-perth.md | 10 Oct 2026 | Approved by Brad in session, 10 Oct 2026. Status set to APPROVED |
 | Cost guide draft v5 (re-collected figures) is baked but not approved | T22 | Me | 10 Oct 2026 | Status set to APPROVED in build/04-copy/tiling-cost-perth.md, then push | 10 Oct 2026 | Approved by Brad in session, 10 Oct 2026. Status set to APPROVED and pushed |
+| Three copy drafts from 10 Oct 2026 (floor v4, bathroom v4, home v2) are baked into the HTML but not approved. Not pushed | T22 | Me | 10 Oct 2026 | Each file's Status set to APPROVED, then push | |  |
+| Brad to decide: a tile repair page, a tile removal page, both, or neither | none | Brad | 10 Oct 2026 | A decision row. Evidence against building: both SERPs are specialist territory (01-market.md). A page would need an H1 approved in its copy file, a plan row, and a nav change (README divergence) because a sixth header item does not fit at 1024px | |  |
 
 ## QA
 

@@ -153,6 +153,24 @@ window.SITE_CONFIG = {
            accident. If it ever grows, it belongs as a section on floor tiling,
            not a page. */
 
+        /* Added 10 Oct 2026 (home draft v2), adapted from Canberra's home page as structure and
+           general trade knowledge, rewritten for Perth. Every ACT specific,
+           standard clause number, manufacturer name and price was dropped
+           (R2, R9, R12). */
+        { type: "h2", text: "How a tiling job actually runs" },
+        { type: "p", text: "A tiling job runs in a set order, and most of the stages are where one quote differs from another. Knowing them tells you what a tiler is actually pricing." },
+        { type: "ol", items: [
+          "**Assessment and quote.** What is there now, what is going in, and the condition of what is underneath. On a repair this should include working out the cause, not pricing a guess.",
+          "**Removal and disposal.** The old tiles and adhesive come out and go away. Tiles are heavy, and that is part of the job.",
+          "**Substrate preparation.** Levelling, patching and repairs. It is the most variable stage on a renovation, because what is underneath is not known until the old surface is off. Large format tiles need a flatter floor than small ones, so tile choice can add a levelling stage.",
+          "**Waterproofing.** In wet areas the membrane goes on, is detailed at the junctions and the floor waste, and then has to cure before anything is tiled over it.",
+          "**Setting out.** Where the first tile goes decides where every cut lands. A straight layout is the simplest, and diagonal and herringbone layouts mean more cuts and more waste.",
+          "**Laying.** The part everyone pictures, and often not the longest.",
+          "**Grout and silicone.** Grout in the joints and flexible silicone where walls meet the floor and each other. They are different materials doing different jobs.",
+          "**Curing and sealing.** The grout cures before the area is used or sealed."
+        ] },
+        { type: "p", text: "The detail is on the [floor tiling](floor-tiling-perth.html) and [bathroom tiling](bathroom-tiling-perth.html) pages, and what the stages add to a price is on the [cost guide](tiling-cost-perth.html)." },
+
         { type: "h2", text: "Where we cover" },
         { type: "p", text: "The Perth metropolitan area, north and south of the river, and out to the eastern suburbs. If you are outside the metro area, tell us where you are and we will say straight away whether we can find someone rather than leaving you waiting." },
         /* TODO (Brad): deliberately no suburb list and no area pages. Area
@@ -448,11 +466,29 @@ window.SITE_CONFIG = {
         { type: "p", text: "**Older Perth homes.** In homes built before 1990, old vinyl floor tiles and linoleum backing can contain asbestos, as set out under Older Perth floors below. Breaking up the old floor is exactly the step that would disturb it, so if there is any doubt, it gets tested before removal starts." },
         { type: "p", text: "Not sure whether yours can be tiled over? [Tell us about the floor](#quote) and we will pass it to a Perth tiler who can look at it before quoting." },
 
+        /* Added 10 Oct 2026 (floor draft v4), adapted from Canberra's floor and wall tiling page as structure and
+           general trade knowledge, rewritten for Perth. Every ACT specific,
+           standard clause number, manufacturer name and price was dropped
+           (R2, R9, R12). */
+        { type: "h2", text: "Porcelain, ceramic or natural stone" },
+        { type: "p", text: "For most floors, porcelain is the safe default, because it absorbs the least water and wears the best. Ceramic suits walls and light traffic, and natural stone suits anyone happy to seal it and keep resealing it." },
+        { type: "p", text: "**Porcelain.** Dense and hard wearing, which is why it is the usual choice for living areas, hallways and entries. It is also harder to cut and drill, and that shows up in the labour on a detailed room." },
+        { type: "p", text: "**Glazed ceramic.** A softer, more absorbent body under a glaze. It is easier to cut, often cheaper, and sold widely as wall tile. Many ceramic wall tiles are not made for foot traffic at all, so check the manufacturer lists a tile as suitable for floors before it goes on one." },
+        { type: "p", text: "**Natural stone.** Marble, limestone, travertine, slate and granite all behave differently, but most are porous and need sealing, then resealing from time to time. Marble and limestone can also be marked by acidic household cleaners. Stone is usually heavier and less uniform than porcelain, which adds time to the laying." },
+        { type: "p", text: "Whatever you choose, have every quote priced on the same tile. Porcelain is slower to cut than ceramic and stone is slower again, so three quotes on three materials will not compare." },
+
         { type: "h2", text: "Tile format, layout and setting out" },
         { type: "p", text: "**Format.** Large format tiles need a flatter substrate than small ones, because any dip in the floor shows up as lippage at the edges. Getting a floor flat enough for a 600 by 600 or larger tile is often the real work in the job." },
         { type: "p", text: "**Layout.** A straight lay is the baseline. Diagonal, herringbone and brick bond patterns take longer, produce more cuts and more wastage, and demand a more accurate set out. The pattern is a labour decision as much as an aesthetic one." },
         { type: "p", text: "**Setting out.** Where the first full tile goes decides where the cut tiles end up. Done well, the cuts fall where nobody looks. Done badly, you get a sliver of tile along the most visible wall in the room. It is worth asking how the floor will be set out before it starts." },
         { type: "p", text: "**Wastage.** Order more tile than the measured area. Cuts, breakages and pattern lays all consume more than you would expect, and matching a tile from a different production batch later is unreliable because the colour can shift between batches." },
+
+        { type: "h2", text: "Grout colour and joint width" },
+        { type: "p", text: "Two decisions made in about a minute at the tile shop, which you then live with for years." },
+        { type: "p", text: "**Joint width has to suit the tile.** A tile with a precisely cut edge allows a narrow joint. A tile with a rounded or uneven edge needs a wider one to absorb the variation between tiles, and forcing a narrow joint onto it makes every small difference in size visible. Grout is made for particular joint widths, so the grout and the joint are chosen together." },
+        { type: "p", text: "**Movement is a separate question.** A grout joint is not a movement joint. A tiled floor needs flexible movement joints at its edges, and a large floor needs them across the room as well. Without them the movement has to go somewhere, and it turns up years later as tiles lifting along a wall or rising in the middle of the floor. Ask where they are going." },
+        { type: "p", text: "**Colour is a maintenance decision.** A wide contrasting joint makes the grid part of the design, and it also draws the eye to every variation in tile size and every imperfect cut. A tight matching joint reads as one surface. Light cement based grout on a floor shows traffic and staining soonest, because cement grout is porous. Mid tones are more forgiving than either extreme." },
+        { type: "p", text: "Cement grout benefits from sealing and epoxy grout does not. The difference, and what regrouting involves, is covered on the [bathroom tiling](bathroom-tiling-perth.html) page." },
 
         { type: "h2", text: "Wall tiling" },
         { type: "p", text: "Outside wet areas, wall tiling is the same trade and much of the same thinking. The substrate has to be sound and flat, the set out decides where the cuts land, and the detail work around windows, edges and power points is where the time goes." },
@@ -464,6 +500,11 @@ window.SITE_CONFIG = {
            page. tile splashback perth is 10 a month, so no page. */
         { type: "h2", text: "Splashbacks" },
         { type: "p", text: "Kitchen and laundry splashbacks are the same trade and a much smaller job. They are usually priced hourly rather than by the square metre, and the labour is in the setting out and the cuts around power points rather than the area." },
+
+        { type: "h2", text: "Feature walls" },
+        { type: "p", text: "A feature wall is a different job from ordinary wall tiling, and it is worth calling it that when you ask for a quote. It is usually small, high in detail, and priced on the difficulty of the tile rather than the area." },
+        { type: "p", text: "Ordinary wall tiling covers an area. A feature wall is a single visible surface the room is arranged around: a fireplace surround, the wall behind a bed or a bath, an entry wall. The tile chosen for it is often the hardest one to lay, such as a finger mosaic, a stacked or herringbone subway tile, split face stone, or a large slab where the join has to be placed deliberately." },
+        { type: "p", text: "That means the price per square metre on a feature wall is not the rate for the rest of the room. Setting out matters more, because every joint is at eye level and there is nothing to hide a bad cut behind, and external corners need a mitre or a trim. The same wall inside a shower is a [bathroom tiling](bathroom-tiling-perth.html) job, because it sits on a waterproofing membrane." },
 
         { type: "h2", text: "Cracked, loose and drummy tiles" },
         { type: "p", text: "A tiled floor usually tells you it has a problem before it fails completely." },
@@ -478,6 +519,13 @@ window.SITE_CONFIG = {
            percentages, no bond strength figures, nothing that would need a
            source. Two tiles, one bonded, one with a void. */
         { type: "image", src: "images/drummy-tile-cross-section.svg", alt: "Cross-section diagram comparing a fully bonded floor tile with a drummy tile that has a hollow void beneath it.", width: 1200, height: 800 },
+
+        { type: "h2", text: "What goes wrong" },
+        { type: "p", text: "Four failures turn up again and again, and all four are decided before the first tile is laid." },
+        { type: "p", text: "**Lipping.** Large format tile laid on a floor that was not levelled for it. It is visible along every joint, permanent, and a trip hazard where it is worst." },
+        { type: "p", text: "**No movement joints.** The failure arrives years later as tiles debonding along a wall or lifting in the middle of the floor, and relaying without addressing it repeats it." },
+        { type: "p", text: "**Setting out from the wrong point.** A sliver of cut tile along the most visible line in the room. It costs nothing to get right at the start and cannot be fixed afterwards." },
+        { type: "p", text: "**Transitions left to the end.** Where tile meets timber, carpet or the next room there is a height difference and an exposed edge. How that is finished, with a trim, a threshold strip or a flush detail built into the levelling, belongs in the quote, not on the last day." },
 
         { type: "h2", text: "Older Perth floors" },
         /* VERIFIED 15 Sep 2026 (claim register row 10). Two corrections to the
@@ -516,7 +564,13 @@ window.SITE_CONFIG = {
         { type: "faqs", items: [
           { q: "Can new tiles be laid over old floor tiles?", a: "Sometimes. Every existing tile has to be fully bonded and the floor flat, and the extra height has to work at doors and thresholds. A drummy tile under the new floor carries its problem straight through, so the old floor needs tapping across before anyone decides." },
           { q: "How long does it take to tile a floor?", a: "It depends far more on what happens before the tiles go down than on the laying. Taking up an old floor, grinding back adhesive and levelling the substrate can take longer than the tiling, and the grout cannot go in until the adhesive has set. Ask how long the room will be out of use, from removal to the first time you can walk on it." },
-          { q: "Can a tiler replace just a few cracked tiles?", a: "Yes, if the problem is contained and there is a tile to match. A single cracked tile is often impact damage, but cracks that run across several tiles or keep coming back usually mean something is moving underneath. If you kept spares from the original job, say so when you enquire." }
+          { q: "Can a tiler replace just a few cracked tiles?", a: "Yes, if the problem is contained and there is a tile to match. A single cracked tile is often impact damage, but cracks that run across several tiles or keep coming back usually mean something is moving underneath. If you kept spares from the original job, say so when you enquire." },
+          { q: "What is the difference between porcelain and ceramic tiles?", a: "Water absorption. Porcelain is the denser of the two, which makes it harder wearing and better suited to floors, wet areas and outdoor use. Ceramic has a softer, more absorbent body under a glaze, is easier to cut, and is often sold as wall tile." },
+          { q: "Can floor tiles go on walls, and wall tiles on floors?", a: "Floor tiles usually can go on walls, because a floor rated tile is tougher than a wall needs, but large or heavy tiles need an adhesive and a wall that can hold them. Wall tiles often cannot go on floors, because many glazed ceramic wall tiles are not made for foot traffic. Check the manufacturer rates the tile for floors before you buy." },
+          { q: "Can you tile onto a timber floor?", a: "Usually, but the floor has to be stiff enough that the tiled surface is not being asked to absorb the flex. How the floor is framed, what is over it and whether it needs extra sheeting are the questions, and they are worth settling before the tile is ordered." },
+          { q: "Does the floor need levelling before tiling?", a: "It depends how flat the floor is and how flat the tile needs it to be. Large format tile is far less forgiving than small tile, so the same floor can need levelling for one tile and not for another. Nobody knows how much until the old covering is off, so ask whether the quote includes it or provides for it." },
+          { q: "What size tile should I use?", a: "Larger tiles read calmer and have less grout to clean, but they need a flatter floor and cost more to lay. Smaller tiles are more forgiving of an uneven floor and give you more joint to maintain. The deciding factor is usually how flat the floor is to start with." },
+          { q: "Does grout colour really matter?", a: "For maintenance, yes. Cement based grout is porous, so light grout on a floor shows traffic and staining soonest. Contrasting grout also draws the eye to every variation in tile size and cut. Mid tones are the forgiving choice, and epoxy holds its colour better than cement based grout without sealing." }
         ] },
 
         { type: "h2", text: "Get your floor tiling job quoted" },
@@ -684,6 +738,55 @@ window.SITE_CONFIG = {
            caption. */
         { type: "image", src: "images/regrouting-close-up.jpg", alt: "Close-up of a tiled wall showing a discoloured grout line beside a freshly grouted one.", width: 1200, height: 800, widths: [400, 560, 720, 960], sizes: "min(720px, calc(100vw - 40px))" },
 
+        /* Added 10 Oct 2026 (bathroom draft v4), adapted from Canberra's regrouting page as structure and
+           general trade knowledge, rewritten for Perth. Every ACT specific,
+           standard clause number, manufacturer name and price was dropped
+           (R2, R9, R12). */
+        { type: "h3", text: "Which job do you actually need" },
+        { type: "p", text: "Most people reach regrouting having already tried something that did not work. These are the cases:" },
+        { type: "ul", items: [
+          "**The grout is discoloured but intact.** This is a cleaning job, not a regrouting job. Cement grout is porous and picks up soap residue and mineral deposits, and replacing sound grout to fix a stain is spending replacement money on a cleaning problem.",
+          "**The grout is cracked, crumbling or missing in places.** This is regrouting, and the rest of this section is about it.",
+          "**The grout is fine but the corners have cracked.** Very common, and usually a sign the corners were grouted when they should have been siliconed. See below.",
+          "**Damp is showing outside the bathroom.** Stop. Regrouting will not fix it, and doing it first wastes money and time. See the signs of a failed shower below."
+        ] },
+
+        { type: "h3", text: "Why grout fails" },
+        { type: "ul", items: [
+          "**Normal wear.** Cement grout is a wear surface and it erodes, particularly on shower floors.",
+          "**Movement.** Buildings move. Tiles are rigid, so the movement concentrates in the grout joints and hairline cracks follow.",
+          "**The wrong grout for the joint.** Grout is made for particular joint widths, and the wrong one shrinks and cracks.",
+          "**Acidic cleaners.** Cement is attacked by acid, so an acidic bathroom cleaner used regularly over years can etch the grout it is meant to be looking after. Check the grout manufacturer's cleaning advice, and if in doubt use a neutral cleaner.",
+          "**Poor original installation.** Joints not filled to full depth, or grouting done before the adhesive had cured. Failures from this show up early, and usually across the whole surface rather than in patches."
+        ] },
+
+        { type: "h3", text: "Partial or full regrout" },
+        { type: "p", text: "A partial regrout makes sense when the failure is confined to one area, such as a shower floor while the walls are sound. The catch is colour: new grout will not match aged grout, even from the same product and colour code, so a patched section stays visible. Anyone quoting a partial regrout should tell you that before they start." },
+        { type: "p", text: "A full regrout gives a uniform result, and it is the only sensible option when the failure is widespread or when you are changing the grout colour." },
+
+        { type: "h3", text: "Cement or epoxy" },
+        { type: "p", text: "Cement based grout is the standard. It is cheaper, easier to work with, comes in a wide colour range and is straightforward to repair later. It is porous, so it stains, and it needs sealing to resist that." },
+        { type: "p", text: "Epoxy grout is non porous, so it resists staining and chemical attack without sealing and holds its colour far better over time. It costs more in both material and labour, because it has a short working time and has to be cleaned off the tile face before it sets. Done badly it leaves a haze on the tiles that is hard to remove. It is worth considering on a shower floor or a splashback, and whether it is worth it across a whole floor is a budget decision." },
+
+        { type: "h3", text: "Sealing is not regrouting" },
+        { type: "p", text: "The two get quoted in the same conversation and they do different things. Sealing is a penetrating sealer applied to sound cement grout so that it absorbs less water, soap and staining. It is maintenance rather than repair, and it wears, so it is repeated from time to time." },
+        { type: "p", text: "Regrouting replaces the grout itself, and it is what you do when the grout has physically failed. Sealing failing grout does not stop the failure, it just makes it look wetter for a while. Epoxy needs neither, because it is non porous. A colour coating sold to restore grout colour is cosmetic: it works on grout that is sound but stained and does nothing for grout that is cracking or letting water through." },
+
+        { type: "h3", text: "What a proper regrout involves" },
+        { type: "p", text: "Worth knowing, because the shortcut version is common and it fails within a year or two." },
+        { type: "ol", items: [
+          "**Removal.** The old grout is raked out mechanically, to a depth that gives the new grout something to hold on to. Skimming new grout over the top of the old is the common shortcut, and it fails because the layer is too thin to bond or last.",
+          "**Cleaning out.** The joints are vacuumed so the new grout bonds to the tile edges and not to dust.",
+          "**Grouting.** New grout is worked into the joints to full depth, then cleaned off the tile face before it sets.",
+          "**Curing.** The grout cures before the surface is wetted or sealed. The manufacturer's data sheet gives the times for the product being used, and they get longer in cooler weather.",
+          "**Sealing.** Cement grout benefits from it. Epoxy does not need it."
+        ] },
+        { type: "p", text: "Ask how the old grout is being removed. If the answer is that it is not, the new grout is going over the top of it." },
+
+        { type: "h3", text: "Corners should be silicone, not grout" },
+        { type: "p", text: "Internal corners, and the junction where the wall meets the floor, are movement joints, and they need a flexible sealant, not a rigid one. Grout in those junctions cracks, and the cracking keeps coming back however many times it is regrouted." },
+        { type: "p", text: "If your grout is failing only in the corners while the flat joints are sound, this is almost certainly why, and the fix is to cut it out and silicone it rather than regrout the whole surface. That is a much smaller job, and worth knowing before you accept a quote for the larger one." },
+
         /* Added 8 Oct 2026 (draft v2), for "leaking shower perth" as a section,
            which is what 01-market.md's thesis allows (the SERP itself belongs
            to shower repair specialists). Home already routes "leaking showers"
@@ -738,7 +841,11 @@ window.SITE_CONFIG = {
         { type: "faqs", items: [
           { q: "Can you tile over existing bathroom tiles?", a: "Not as a fix for anything wet. A new layer of tiles does nothing for the membrane underneath, and if that membrane has failed it hides the evidence. On the floor it also raises the level, which eats into the stepdown at the shower. On dry walls away from the shower, tiling over sound, well bonded tiles is sometimes possible, but every existing tile has to be checked first." },
           { q: "Can a shower be retiled without redoing the whole bathroom?", a: "It can be. The shower can be stripped back, rewaterproofed and retiled on its own, provided the new membrane can be joined properly at the edge of the shower and you can live with how the new tiles meet the old. Whether that works in your bathroom depends on how it was built, which is a question for the tiler on site." },
-          { q: "Can I use different tiles in the shower and on the rest of the floor?", a: "Yes. Shower floors often use a smaller tile or a mosaic because it sits into the fall to the waste more easily, while the rest of the floor takes a larger format. Ask about slip resistance for the shower floor specifically, and how the change of tile will be finished where the two meet." }
+          { q: "Can I use different tiles in the shower and on the rest of the floor?", a: "Yes. Shower floors often use a smaller tile or a mosaic because it sits into the fall to the waste more easily, while the rest of the floor takes a larger format. Ask about slip resistance for the shower floor specifically, and how the change of tile will be finished where the two meet." },
+          { q: "Can you regrout over existing grout?", a: "Not properly. Skimming new grout over the old is a common shortcut and it fails, because the new layer is too thin to bond or last. The old grout comes out first. Products exist to refresh grout that is sound but stained without a full rake out, but they are cosmetic and no use on grout that is cracking or letting water through." },
+          { q: "Why does my grout keep cracking in the same corner?", a: "Because the corner is a movement joint and grout is rigid. Internal corners and the wall to floor junction need a flexible sealant, not grout, and the cracking will keep returning however often it is regrouted. Cutting it out and siliconing it is a much smaller job than regrouting the whole surface." },
+          { q: "Can I change the colour of my grout?", a: "Yes, but it means a full regrout rather than a patch, because new grout will not match old. A colour coating can sometimes restore sound but stained grout, which is cosmetic only and does nothing for grout that is failing." },
+          { q: "Does new grout need sealing?", a: "Cement based grout benefits from sealing once it has cured, and the sealing is repeated from time to time. Epoxy grout is non porous and does not need it." }
         ] },
 
         { type: "h2", text: "Get your bathroom tiling quoted" },

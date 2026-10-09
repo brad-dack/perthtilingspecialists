@@ -75,6 +75,8 @@ both pages shipped without their SERP ever being read. Open items.
 | tiling cost perth | none | no | yes | discount.com.au, whatsthedamage.com.au, marblewest.com.au | not pulled, DataForSEO credentials not set on 10 Oct 2026 | Perth tile suppliers and cost guide sites, then hipages and Perth builders. Several are the publishers the cost guide cites | yes: no ads and no local pack, but the AI Overview takes clicks. Read 10 Oct 2026 in a browser on google.com.au from Perth |
 | tile regrouting perth | 1, The Grout Guy | not recorded | not recorded | no general tilers on page 1 | not recorded | specialists | no, section only |
 | leaking shower perth | not recorded | not recorded | not recorded | dedicated shower repair and sealing specialists | 131 to 319 | specialists | no |
+| tile repairs perth | none | yes | no | perthtilerepairs.com.au, tileandgroutpro.com.au, allsealedwa.com.au | not pulled, DataForSEO credentials not set on 10 Oct 2026 | specialists: dedicated repair, tile matching, shower repair, and tile cleaning and sealing firms. No general tiler on page 1 | no, section only. Read 10 Oct 2026 in a browser on google.com.au from Perth |
+| tile removal perth | none | yes | no | affordabletileremovals.com.au, perthtileremoval.com.au, guntiling.com.au | not pulled, DataForSEO credentials not set on 10 Oct 2026 | specialists: dedicated tile removal and stripping firms, a handyman and a demolition company. Gun Tiling is the one general tiler, at third | no, section only. Read 10 Oct 2026 in a browser on google.com.au from Perth |
 | waterproofing perth | not recorded | not recorded | not recorded | waterproofing and leak detection firms | not recorded | another trade | no |
 | pool tiling perth | not recorded | not recorded | not recorded | pool renovators | not recorded | another trade | no |
 
@@ -112,6 +114,24 @@ is 10 searches a month in the recovered pull, and the home page carries a
 standing note that kitchens and laundries belong as a section, not a page. A
 page was proposed and dropped by Brad on 8 October 2026; the section moved
 from the bathroom page to the floor page instead.
+
+### Canberra comparison, 10 October 2026
+
+Canberra Tile Layers has 17 job pages of 1,100 to 3,300 words, against this
+site's three content pages. Its Search Console export for the 28 days to 8
+October 2026 shows two clicks in total, both on narrow job pages (tile removal
+and bathroom strip out), and its best positions on narrow pages (floor and
+wall tiling 7.1, bathroom repairs 9.2, bathroom strip out 16, regrouting about
+20, tile removal 20) against 35 to 80 for its head terms. The reading was that
+narrow job pages get found first when no links point at the site.
+
+**That does not transfer to Perth where specialists own the results.** The
+tile repairs perth and tile removal perth SERPs, read on 10 October 2026, are
+both owned by dedicated specialist firms with one general tiler between them,
+which is the same pattern that reversed the first thesis (Commercial thesis,
+below). Canberra's market has less specialist competition. Decision: both stay
+sections, and the Canberra material was added to the existing pages (floor v4,
+bathroom v4, home v2) rather than as new pages.
 
 ## Commercial thesis
 

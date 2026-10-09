@@ -1,6 +1,6 @@
 # Home: /
 
-Status: APPROVED | 15 September 2026, commit b12f05c
+Status: DRAFT v2 | 10 October 2026, awaiting Brad's approval. v1 APPROVED 15 September 2026, commit b12f05c
 
 ## Head
 
@@ -27,6 +27,13 @@ we can get quoted, FAQs about tiling jobs, and the enquiry form at `#quote`.
 One link appended to the Kitchens and laundries line in What we can get
 quoted: "More on [splashbacks](floor-tiling-perth.html)." Part of Brad's
 Splashbacks decision, 8 October 2026. No other change.
+
+## Draft v2, 10 October 2026
+
+One new H2 added, "How a tiling job actually runs", before Where we cover:
+eight stages from assessment to curing, adapted from Canberra's home page. No
+cost figures and no standards, per the cannibalisation map. It links the floor
+page, the bathroom page and the cost guide.
 
 ## Changes from plan
 
