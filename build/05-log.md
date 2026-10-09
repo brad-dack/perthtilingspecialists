@@ -37,6 +37,7 @@ nobody was tracking.
 | 8 Oct 2026 | T21 | Cost guide lead answers the per m2 tiler cost first; bathroom renovation spread moves to the next paragraph. New floor-cost FAQ. Draft v3 | Code, awaiting Brad's approval | the approved v2 lead | Search Console: 242 of the page's 291 impressions were national tiler and floor cost queries the old lead did not answer. No figure added |
 | 8 Oct 2026 | T21 | Floor page gains "Removing old tiles or tiling over them" and a three-question FAQ. Bathroom page gains "Signs your shower waterproofing has failed" and a three-question FAQ. Draft v2 of each | Code, awaiting Brad's approval | the approved v1 of each | Competitor teardown, 8 Oct 2026 (01-market.md). Both pages had no FAQPage schema. Leaking shower stays a section, as the T05 thesis requires |
 | 8 Oct 2026 | T17 | No splashback page. The Splashbacks section moves verbatim from the bathroom page to the floor page, and home links it | Brad | the splashback page proposed the same day | tile splashback perth is 10 a month, a sixth nav item needs an engine change, and the home TODO already placed kitchens and laundries on the floor page |
+| 10 Oct 2026 | T27 | Engine change to js/main.js: GA4 reports only from the live hostname, and a generate_lead event fires on an accepted form submission | Brad | the template's unguarded GA4 load and its untracked form | The GA4 read of 10 Oct 2026 (Index log) showed preview traffic counted as visitors and no way to count a form lead. Logged in README under Divergence |
 
 ## Open items
 
@@ -79,6 +80,9 @@ been run.
 | Pre-index QA was never run as a set. Four rows below are proved after the fact; the rest were never done | T29 | Code and Me | 18 Sep 2026 | A full QA pass with evidence | |  |
 | Three copy drafts from 8 Oct 2026 (floor v2, bathroom v2, cost guide v3) are baked into the HTML but not approved. Not pushed | T22 | Me | 8 Oct 2026 | Each file's Status set to APPROVED, then push | 8 Oct 2026 | Brad approved all three in session on 8 Oct 2026; Status lines set to APPROVED and G5 clean in node bake.js --check |
 | Splashback page proposed 8 Oct 2026 and held. tile splashback perth is 10 a month; a sixth nav item needs an engine change to the 1024px header; the home page TODO says kitchens and laundries belong as a section | none | Brad | 8 Oct 2026 | A decision row: build it (then T03 SERP read, plan rows, H1 sign-off, engine change) or drop it | 8 Oct 2026 | Dropped. See Decisions, 8 Oct 2026, T17 |
+| click_to_call and generate_lead are not marked as key events in GA4, so Key events reads 0 | none | Me | 10 Oct 2026 | Both marked as key events in GA4 Admin, Events | |  |
+| Brad's own visits are counted in GA4. No internal traffic filter is defined | none | Me | 10 Oct 2026 | An internal traffic rule for Brad's IP, and the data filter set to Active | |  |
+| generate_lead has never been seen on the live site. It was proved on localhost with gtag and fetch stubbed | none | Me, then Code | 10 Oct 2026 | One real test submission on the live site, then the event in GA4 Realtime or the next Events export | |  |
 
 ## QA
 
@@ -102,7 +106,7 @@ below record what can be proved now, not what was done at the time.
 | call routes and logs | not done | | |
 | greeting_audio_url | partial | Reported set. Never heard on a real call, and the wording does not carry the whole notice | 17 Sep 2026 |
 | greeting_text | partial | The column is NOT NULL so a value exists. The stored wording was never read | 18 Sep 2026 |
-| ga4 realtime | not done | A pageview and a click_to_call event have never been confirmed | |
+| ga4 realtime | partial | Not checked in Realtime. The Events export for 12 Sep to 9 Oct 2026 records 77 page_view and 1 click_to_call (Brad's test call, 5 Oct), so both are reaching the property. generate_lead added 10 Oct 2026 and not yet seen live | 10 Oct 2026 |
 | single indexable hostname | pass | brad-dack.github.io/perthtilingspecialists/ returns 301 to the apex; www returns 301 to the apex | 18 Sep 2026 |
 | operator files not served | pass | After the 18 Sep deploy: PLAYBOOK.md, CODE-SESSION-START.md, build/05-log.md, build/02-constants.md, README.md and bake.js all return 404, while the six pages return 200 | 18 Sep 2026 |
 
@@ -207,8 +211,31 @@ Reading:
 - The cost guide's lead answered bathroom renovation cost while its traffic
   asked tiler and floor cost. Changed in draft v3, see Decisions.
 
+### GA4 read, 10 October 2026
+
+Five GA4 exports, 12 September to 9 October 2026 against the 28 days before
+launch, which are all zero.
+
+- **No search visitors.** 0 organic clicks. All 46 sessions are Direct. The
+  Search Console data linked into GA4 shows 480 impressions, in line with the
+  8 October snapshot above.
+- **Most users are not people.** 37 users: 10 in Perth, the rest in data
+  centre cities (Ashburn, Boardman, San Jose, Flint Hill, Singapore and
+  others), which is crawler and speed-test traffic.
+- **The timing is launch and testing.** 15 new users on 13 September, close to
+  nothing after day 10, then 5 on 8 October, the day of a local preview session
+  and the checks after that day's push.
+- **The test events are there.** 5 form_start from 4 users and 1
+  click_to_call match Brad's test form (16 Sep) and test call (5 Oct).
+- **One landing on /floor-tiling-perth.html.** The canonical is the
+  extensionless route, so it is harmless.
+- **Measurement gaps found.** No event fired on a sent form, key events were
+  not configured, and preview and owner traffic were counted. The first and
+  third are fixed in js/main.js (Decisions, 10 Oct 2026). Key events and the
+  internal traffic filter are open items for Brad.
+
 ## Backport
 
 | divergence | template commit | or reason it stays here |
 |---|---|---|
-| Perth Tiling Specialists (13 September 2026) | none yet | Not backported. Fourteen engine changes are logged in README.md: extensionless routes, block-rendered Home, About and Privacy, the five-item nav, form blocks with the notice above each form, the job picker from contact.jobTypes, the textarea field type, the 1024px nav breakpoint, the noscript nav CSS, and the removal of "free quote" from engine text. Extensionless routes, block-rendered pages, jobTypes and the em dash cleanup are shared with Canberra and are the strongest template candidates. Tracked as an open item against T30 |
+| Perth Tiling Specialists (13 September 2026) | none yet | Not backported. Sixteen engine changes are logged in README.md, including the two GA4 changes of 10 October 2026, which every template site needs: extensionless routes, block-rendered Home, About and Privacy, the five-item nav, form blocks with the notice above each form, the job picker from contact.jobTypes, the textarea field type, the 1024px nav breakpoint, the noscript nav CSS, and the removal of "free quote" from engine text. Extensionless routes, block-rendered pages, jobTypes and the em dash cleanup are shared with Canberra and are the strongest template candidates. Tracked as an open item against T30 |

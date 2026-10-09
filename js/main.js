@@ -61,6 +61,13 @@
   function injectGA4() {
     var id = cfg.ga4Id;
     if (!id || id.indexOf("XXXX") !== -1 || !/^G-[A-Z0-9]+$/.test(id)) return;
+    /* Only the live hostname reports. A local preview (localhost, a LAN IP,
+       a file:// open) would otherwise count as a real visit: on Perth Tiling
+       Specialists five of the 37 users in the first month were previews. */
+    var liveHost;
+    try { liveHost = new URL(cfg.domain).hostname; } catch (e) { return; }
+    var here = window.location.hostname;
+    if (here !== liveHost && here !== "www." + liveHost) return;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag("js", new Date());
@@ -321,6 +328,16 @@
         body: JSON.stringify(payload)
       }).then(function (res) {
         if (res.ok) {
+          /* GA4's recommended lead event, sent only once the ingest function
+             has accepted the enquiry. Job type only: nothing the visitor typed
+             goes to Google. Without it GA4 cannot count a single lead. */
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "generate_lead", {
+              lead_source: "web_form",
+              service: serviceVal.value,
+              page_location: window.location.href
+            });
+          }
           form.innerHTML = '<p class="form-status success">' + esc(cfg.contact.successMessage) + "</p>";
         } else {
           btn.disabled = false;
