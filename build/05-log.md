@@ -86,7 +86,7 @@ been run.
 | Brad's own visits are counted in GA4. No internal traffic filter is defined | none | Me | 10 Oct 2026 | An internal traffic rule for Brad's IP, and the data filter set to Active. Progress: Brad reports the filter set, 10 Oct 2026. Not checkable from Code | |  |
 | generate_lead has never been seen on the live site. It was proved on localhost with gtag and fetch stubbed | none | Me, then Code | 10 Oct 2026 | One real test submission on the live site, then the event in GA4 Realtime or the next Events export. Progress: Live main.js carries the event (deployed 2c63326, 10 Oct 2026). Brad's test submission landed as a form lead at 07:31:58 AWST, 10 Oct 2026, spam_status clean. The GA4 side is not checkable from Code; closes on the next Events export | |  |
 | The cost guide site the cost guide quotes at "$37 to $94, averaged at $58" now publishes $42 to $94 with $63 typical (its page dated 1 Oct 2026, seen in the 10 Oct SERP read). The cost guide lead, labour table and FAQ still carry the 12 Sep figures | none | Code, then Brad | 10 Oct 2026 | Re-collect that publisher's figures and update every place they appear, or keep the 12 Sep figures with their collection date shown | |  |
-| Cost guide draft v4 (regulator named) is baked but not approved | T22 | Me | 10 Oct 2026 | Status set to APPROVED in build/04-copy/tiling-cost-perth.md | |  |
+| Cost guide draft v4 (regulator named) is baked but not approved | T22 | Me | 10 Oct 2026 | Status set to APPROVED in build/04-copy/tiling-cost-perth.md | 10 Oct 2026 | Approved by Brad in session, 10 Oct 2026. Status set to APPROVED |
 
 ## QA
 

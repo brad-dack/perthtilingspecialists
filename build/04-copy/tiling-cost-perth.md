@@ -1,6 +1,6 @@
 # Cost guide: /tiling-cost-perth
 
-Status: DRAFT v4 | 10 October 2026, awaiting Brad's approval. v3 APPROVED by Brad, 8 October 2026
+Status: APPROVED | v4, Brad, 10 October 2026. v3 approved by Brad, 8 October 2026
 
 ## Head
 
