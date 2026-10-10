@@ -1,6 +1,6 @@
 # Home: /
 
-Status: DRAFT v2 | 10 October 2026, awaiting Brad's approval. v1 APPROVED 15 September 2026, commit b12f05c
+Status: APPROVED | v2, Brad, 10 October 2026
 
 ## Head
 
