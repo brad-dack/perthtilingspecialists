@@ -251,7 +251,6 @@ window.SITE_CONFIG = {
            If any of it is not, cut it rather than softening it. Do not add
            anything about years, volumes, or numbers of clients. */
         { type: "p", text: "Perth Tiling Specialists is run by Brad. I am not a tiler. I have never laid a tile and do not claim to. For how a specific job actually gets done, the tiler doing the work is the one to ask." },
-        { type: "p", text: "What I do is research. The [cost guide](tiling-cost-perth.html) on this site puts published Perth figures from builders, suppliers, a peak body, tradie marketplaces and cost guide sites side by side, and explains why they disagree. The [bathroom tiling](bathroom-tiling-perth.html) page sets out what the waterproofing requirements actually say, and the [floor tiling](floor-tiling-perth.html) page explains when a cracked or drummy tile can be repaired and when the floor has a bigger problem. My main business is regulatory compliance advice, which is largely the work of establishing what a rule actually says before anyone acts on it." },
 
         { type: "h2", text: "What this business does" },
         { type: "p", text: "We take enquiries from Perth homeowners about tiling and tile repairs, and pass each one to a Perth tiler who works in that area and does that kind of work." },

@@ -1,6 +1,6 @@
 # About: /about
 
-Status: APPROVED | 15 September 2026, commit b12f05c
+Status: APPROVED | v2, Brad, 10 October 2026. v1 approved 15 September 2026, commit b12f05c
 
 ## Head
 
@@ -21,6 +21,13 @@ what we do not, what happens after you enquire, your details, how the service
 is paid for, where we cover, contact, and the enquiry form at `#quote`.
 
 Contact is a section on this page, not a page of its own.
+
+## Edit, 10 October 2026
+
+Brad removed the second paragraph under "Who runs this" ("What I do is
+research..."), which described his research work, his main business in
+regulatory compliance advice, and linked the cost guide, bathroom and floor
+pages. Removed at his instruction. "Who runs this" is now one paragraph.
 
 ## Changes from plan
 

@@ -42,6 +42,7 @@ nobody was tracking.
 | 10 Oct 2026 | T20 | Evidence set to CLEAR: claim rows 8 and 10 dropped (not on any page), rows 9 and 11 sourced | Code | Evidence OPEN since 15 Sep 2026 | Brad asked for the preflight problems fixed. Each row checked against config.js, the served HTML or the primary source on 10 Oct 2026 |
 | 10 Oct 2026 | T20 | Cost guide site figures re-collected and updated across the cost guide; its $126 hourly rate is no longer used as the outlier example | Brad | the 12 Sep figures for that publisher | The publisher revised both Perth pages in October 2026. The other publishers were not re-checked; review date stays 12 Sep 2027 |
 | 10 Oct 2026 | T21 | Canberra comparison: sections and FAQs adapted onto the floor, bathroom and home pages (floor v4, bathroom v4, home v2). No new pages. Tile repair and tile removal stay sections | Code, awaiting Brad's approval | the plan to add a tile repair page first, proposed the same day | The tile repairs perth and tile removal perth SERPs are owned by specialists. Canberra's narrow pages did well in a market with less specialist competition. See 01-market.md, Canberra comparison |
+| 10 Oct 2026 | T21 | About: the "What I do is research" paragraph is removed | Brad | the approved About paragraph | Brad's instruction. It also carried the About page's only body links to the cost, bathroom and floor pages, which stay linked from the nav and footer |
 
 ## Open items
 
