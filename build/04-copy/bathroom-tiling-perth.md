@@ -1,13 +1,13 @@
 # Bathroom tiling: /bathroom-tiling-perth
 
-Status: APPROVED | v4, Brad, 10 October 2026
+Status: APPROVED | v5, Brad, 16 October 2026 ("do them all"). v4 approved by Brad on 10 October 2026
 
 ## Head
 
 | field | value |
 |---|---|
 | file | bathroom-tiling-perth.html |
-| title | Bathroom Tiling Perth \| Bathroom Tiler and Regrouting |
+| title | Bathroom Tiler Perth \| Bathroom Tiling and Waterproofing |
 | meta | Bathroom tiling in Perth, from full retiles to regrouting. See what a bathroom tiling job involves and get your job quoted by a Perth bathroom tiler. |
 | h1 | Bathroom Tiling in Perth |
 
@@ -54,6 +54,13 @@ Additions only, plus one sentence appended. The blocks are in `config.js`
 
 **Splashbacks section removed**, moved verbatim to the floor page. Decided by
 Brad, 8 October 2026; see `floor-tiling-perth.md`.
+
+## Draft v5, 16 October 2026
+
+Title only: "Bathroom Tiler Perth | Bathroom Tiling and Waterproofing" (56). It
+leads with the plan's primary keyword and names waterproofing, which the page
+owns. "Regrouting" leaves the title: no regrouting query appeared in the
+Search Console, 15 September to 12 October 2026, Australia. The body still covers it.
 
 ## Draft v4, 10 October 2026
 

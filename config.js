@@ -103,7 +103,7 @@ window.SITE_CONFIG = {
        figures, no regulatory claims, no standards citations (cannibalisation
        map). Re-check against that map at every revision. */
     home: {
-      metaTitle: "Tiler Perth | Tiling Quotes | Perth Tiling Specialists",
+      metaTitle: "Tiler Perth | Perth Tiling Specialists | Tiling Quotes",
       metaDescription: "Looking for a tiler in Perth? Tell us about your floor, wall or bathroom tiling job and we will pass it to a Perth tiler who can quote it.",
       headline: "Find a Tiler in Perth for Floors, Walls and Bathrooms",
       subheadline: "Tell us about your job and we will pass it to a Perth tiler who can quote it. New floors, wall tiling, bathroom retiles, regrouting and tile repairs.",
@@ -590,7 +590,7 @@ window.SITE_CONFIG = {
       page: "bathroom-tiling-perth.html",
       name: "Bathroom Tiling",
       shortDescription: "",
-      metaTitle: "Bathroom Tiling Perth | Bathroom Tiler and Regrouting",
+      metaTitle: "Bathroom Tiler Perth | Bathroom Tiling and Waterproofing",
       metaDescription: "Bathroom tiling in Perth, from full retiles to regrouting. See what a bathroom tiling job involves and get your job quoted by a Perth bathroom tiler.",
       headline: "Bathroom Tiling in Perth",
       ctaText: "Get your bathroom tiling quoted",
@@ -874,8 +874,8 @@ window.SITE_CONFIG = {
       page: "tiling-cost-perth.html",
       name: "Cost Guide",
       shortDescription: "",
-      metaTitle: "Tiling Cost Perth | Price per m2 and What Drives It",
-      metaDescription: "What does tiling cost in Perth? We collected published Perth prices for tiling per m2, bathroom retiles and regrouting, and explain why they disagree.",
+      metaTitle: "Tiling Cost Perth | Tiler Prices per m2, Floors, Bathrooms",
+      metaDescription: "Published Perth figures: $42 to $94 per m2 for a standard floor, $75 to $120 for bathroom work. What is extra, and why two quotes differ.",
       headline: "Tiling Costs in Perth: What Drives the Price",
       ctaText: "Get a quote for your job",
       ctaHeading: "Working out a budget for a Perth tiling job",
@@ -910,8 +910,12 @@ window.SITE_CONFIG = {
         { type: "p", text: "That is not because anyone is lying. It is because a builder, a tile supplier, a peak body, a tradie marketplace and a cost guide site all answer the same question from different positions, and use the same words for different jobs." },
         { type: "p", text: "This guide gives you the published numbers, tells you what kind of business published each one, and explains why they differ. Then it covers the costs that turn up after work starts, and the questions that make quotes comparable. None of these figures are our prices, and none of them were quoted for your job." },
 
-        { type: "h2", text: "The headline numbers" },
-        { type: "h3", text: "Tiling labour, per square metre" },
+        /* Headings renamed 16 Oct 2026 to the wording of the page's two largest
+           Search Console clusters, 15 Sep to 12 Oct 2026: tiler cost (about 170
+           impressions) and floor cost (about 150). Was "The headline numbers"
+           and "Tiling labour, per square metre". */
+        { type: "h2", text: "How much does a tiler cost in Perth?" },
+        { type: "h3", text: "Cost to tile a floor, per square metre" },
         /* [VERIFY] resolved: all nine rows match figures file Section 2
            (Perth supplier, Perth supplier bathroom, cost guide site, Perth tile
            supplier, Perth builder, Perth tiler, tradie marketplace reclassified
@@ -985,6 +989,15 @@ window.SITE_CONFIG = {
         ] },
         { type: "p", text: "Two Perth specialists advertise from $250 and from $550 for what sounds like the same job. A national guide puts the average at around $1,500. The word doing the work in the Perth figures is \"from\". A starting price is a way of getting a phone call, not a quote. What the job actually costs depends on the size of the shower, the grout type, how much of the old grout has to come out, and whether the membrane behind it is still intact. If it is not, regrouting is the wrong repair and the tiles are coming off. That is a diagnosis, and it happens on site." },
         { type: "p", text: "Regrouting sits inside a bathroom tiling job. The job itself is described on our [bathroom tiling](bathroom-tiling-perth.html) page." },
+
+        /* Added 16 Oct 2026: "how much to tile a bathroom" and its variants had
+           about 37 impressions at 77 to 94, 15 Sep to 12 Oct 2026, and the
+           answer sat in an h3 under the renovation table. No new figure: each
+           one is a table row on this page (labour table, preparation table,
+           Tiling on its own). */
+        { type: "h2", text: "How much does it cost to tile a bathroom?" },
+        { type: "p", text: "Three Perth sources of three different types land on roughly $3,000 to $6,500 for tiling a standard bathroom, and a cost guide site puts it at $2,950 to $7,900, typically $5,250, excluding waterproofing. Per square metre, a Perth supplier puts bathroom tiling labour at $75 to $120, above the $55 to $75 the same supplier gives for a standard floor." },
+        { type: "p", text: "A retile costs more than tiling a new room because the old tiles come up first, at $30 to $60 per m2 in a national guide, and the waterproofing is redone, quoted either per m2 or per project. The sources for each figure are in the tables on this page. What the job involves, and how to get it quoted by a [bathroom tiler in Perth](bathroom-tiling-perth.html), is on our bathroom page." },
 
         { type: "h2", text: "Bathroom renovation in Perth, side by side" },
         { type: "p", text: "Tiling is one trade inside a bathroom renovation, so the total is the number most people search for first. Here is what Perth and WA sources published in 2026." },

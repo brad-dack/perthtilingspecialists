@@ -1,14 +1,14 @@
 # Cost guide: /tiling-cost-perth
 
-Status: APPROVED | v5, Brad, 10 October 2026. v4 approved by Brad the same day
+Status: APPROVED | v6, Brad, 16 October 2026 ("do them all"). v5 and v4 approved by Brad on 10 October 2026
 
 ## Head
 
 | field | value |
 |---|---|
 | file | tiling-cost-perth.html |
-| title | Tiling Cost Perth \| Price per m2 and What Drives It |
-| meta | What does tiling cost in Perth? We collected published Perth prices for tiling per m2, bathroom retiles and regrouting, and explain why they disagree. |
+| title | Tiling Cost Perth \| Tiler Prices per m2, Floors, Bathrooms |
+| meta | Published Perth figures: $42 to $94 per m2 for a standard floor, $75 to $120 for bathroom work. What is extra, and why two quotes differ. |
 | h1 | Tiling Costs in Perth: What Drives the Price |
 
 ## Blocks
@@ -42,6 +42,25 @@ The `lead` block changed. No figure was added or changed. The blocks are in
 - **Two sentences appended** with internal links: Removal and disposal now
   links the floor page; For repairs, expect a diagnosis now links the bathroom
   page.
+
+## Draft v6, 16 October 2026
+
+From the Search Console, 15 September to 12 October 2026, Australia. No figure was added or changed.
+
+- **Title** "Tiling Cost Perth | Tiler Prices per m2, Floors, Bathrooms" (58)
+  and **meta** "Published Perth figures: $42 to $94 per m2 for a standard floor,
+  $75 to $120 for bathroom work. What is extra, and why two quotes differ."
+  (137). Both figures are the lead's.
+- **Headings renamed** to the wording of the two largest query clusters:
+  "The headline numbers" becomes "How much does a tiler cost in Perth?", and
+  "Tiling labour, per square metre" becomes "Cost to tile a floor, per square
+  metre".
+- **New h2** "How much does it cost to tile a bathroom?", two paragraphs,
+  before "Bathroom renovation in Perth, side by side". About 37 impressions
+  at 77 to 94 asked this, and the answer sat in the h3 "Tiling on its own
+  tells a different story" under the renovation table. Every figure is a
+  table row on this page. It links to the bathroom page with the anchor
+  "bathroom tiler in Perth".
 
 ## Draft v5, 10 October 2026
 

@@ -40,16 +40,20 @@ spaces.
 
 | file | title | chars | meta | chars | h1 |
 |---|---|---|---|---|---|
-| index.html | Tiler Perth \| Tiling Quotes \| Perth Tiling Specialists | 54 | Looking for a tiler in Perth? Tell us about your floor, wall or bathroom tiling job and we will pass it to a Perth tiler who can quote it. | 138 | Find a Tiler in Perth for Floors, Walls and Bathrooms |
+| index.html | Tiler Perth \| Perth Tiling Specialists \| Tiling Quotes | 54 | Looking for a tiler in Perth? Tell us about your floor, wall or bathroom tiling job and we will pass it to a Perth tiler who can quote it. | 138 | Find a Tiler in Perth for Floors, Walls and Bathrooms |
 | floor-tiling-perth.html | Floor Tiling Perth \| Tile Laying and Tile Repairs | 49 | Floor tiling in Perth: new floors, wall tiling and cracked or drummy tile repairs. Learn what the job involves and get a quote from a Perth tiler. | 146 | Floor Tiling in Perth: Laying, Replacing and Repairing Tiles |
-| bathroom-tiling-perth.html | Bathroom Tiling Perth \| Bathroom Tiler and Regrouting | 53 | Bathroom tiling in Perth, from full retiles to regrouting. See what a bathroom tiling job involves and get your job quoted by a Perth bathroom tiler. | 149 | Bathroom Tiling in Perth |
-| tiling-cost-perth.html | Tiling Cost Perth \| Price per m2 and What Drives It | 51 | What does tiling cost in Perth? We collected published Perth prices for tiling per m2, bathroom retiles and regrouting, and explain why they disagree. | 150 | Tiling Costs in Perth: What Drives the Price |
+| bathroom-tiling-perth.html | Bathroom Tiler Perth \| Bathroom Tiling and Waterproofing | 56 | Bathroom tiling in Perth, from full retiles to regrouting. See what a bathroom tiling job involves and get your job quoted by a Perth bathroom tiler. | 149 | Bathroom Tiling in Perth |
+| tiling-cost-perth.html | Tiling Cost Perth \| Tiler Prices per m2, Floors, Bathrooms | 58 | Published Perth figures: $42 to $94 per m2 for a standard floor, $75 to $120 for bathroom work. What is extra, and why two quotes differ. | 137 | Tiling Costs in Perth: What Drives the Price |
 | about.html | About Perth Tiling Specialists \| How This Site Works | 52 | What Perth Tiling Specialists is, the area we cover, what happens when you enquire, how the service is paid for, and how to get in touch. | 137 | About Perth Tiling Specialists |
 | privacy.html | Privacy Policy \| Perth Tiling Specialists | 41 | What Perth Tiling Specialists collects when you make an enquiry or call, who your details go to, how long they are kept, and how to have them removed. | 150 | Privacy Policy |
 
 Two of these were not in the approved plan: the cost guide meta, which was
 rewritten during drafting, and the privacy title and meta, which the plan never
 specified. Brad approved both as live on 5 October 2026.
+
+The home, bathroom and cost guide titles and the cost guide meta changed on
+16 October 2026 on Brad's instruction, from the Search Console read of 15
+September to 12 October 2026. See build/05-log.md, Decisions.
 
 ## Nav
 
