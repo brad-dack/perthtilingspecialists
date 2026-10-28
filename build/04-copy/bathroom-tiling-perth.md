@@ -1,6 +1,6 @@
 # Bathroom tiling: /bathroom-tiling-perth
 
-Status: APPROVED | v5, Brad, 16 October 2026 ("do them all"). v4 approved by Brad on 10 October 2026
+Status: APPROVED | v6, Brad, 28 October 2026 ("do all 10"). v5 approved by Brad on 16 October 2026, v4 on 10 October 2026
 
 ## Head
 
@@ -54,6 +54,15 @@ Additions only, plus one sentence appended. The blocks are in `config.js`
 
 **Splashbacks section removed**, moved verbatim to the floor page. Decided by
 Brad, 8 October 2026; see `floor-tiling-perth.md`.
+
+## Draft v6, 28 October 2026
+
+One anchor varied, closing the link graph TODO: the plumbing paragraph's cost
+guide link now reads "That is covered alongside [what it costs to tile a
+bathroom](tiling-cost-perth.html) in the cost guide." The regrouting
+paragraph keeps "bathroom tiling and regrouting costs", because its sentence
+is about regrouting. For "how much to tile a bathroom" and its variants
+(about 45 impressions), Search Console 28 September to 25 October 2026.
 
 ## Draft v5, 16 October 2026
 

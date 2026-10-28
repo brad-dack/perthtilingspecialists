@@ -106,7 +106,7 @@ window.SITE_CONFIG = {
       metaTitle: "Tiler Perth | Perth Tiling Specialists | Tiling Quotes",
       metaDescription: "Looking for a tiler in Perth? Tell us about your floor, wall or bathroom tiling job and we will pass it to a Perth tiler who can quote it.",
       headline: "Find a Tiler in Perth for Floors, Walls and Bathrooms",
-      subheadline: "Tell us about your job and we will pass it to a Perth tiler who can quote it. New floors, wall tiling, bathroom retiles, regrouting and tile repairs.",
+      subheadline: "Perth Tiling Specialists passes your job to a Perth tiler who can quote it. New floors, wall tiling, bathroom retiles, regrouting and tile repairs.",
       ctaText: "Get a tiling quote",
       /* Photo-style, synthetic (Gemini, cropped to 1200x800). No faces, no
          branded vans, no uniforms. */
@@ -505,7 +505,7 @@ window.SITE_CONFIG = {
         { type: "p", text: "Ordinary wall tiling covers an area. A feature wall is a single visible surface the room is arranged around: a fireplace surround, the wall behind a bed or a bath, an entry wall. The tile chosen for it is often the hardest one to lay, such as a finger mosaic, a stacked or herringbone subway tile, split face stone, or a large slab where the join has to be placed deliberately." },
         { type: "p", text: "That means the price per square metre on a feature wall is not the rate for the rest of the room. Setting out matters more, because every joint is at eye level and there is nothing to hide a bad cut behind, and external corners need a mitre or a trim. The same wall inside a shower is a [bathroom tiling](bathroom-tiling-perth.html) job, because it sits on a waterproofing membrane." },
 
-        { type: "h2", text: "Cracked, loose and drummy tiles" },
+        { type: "h2", text: "Replacing cracked, loose and drummy tiles" },
         { type: "p", text: "A tiled floor usually tells you it has a problem before it fails completely." },
         { type: "p", text: "**Cracked tiles.** A single cracked tile is often impact damage and nothing more. Cracks that run in a line across several tiles, or that keep reappearing after a repair, usually mean something is moving underneath. Replacing the tile without addressing that will produce the same crack again." },
         { type: "p", text: "**Loose or lifting tiles.** Tiles that rock, or that have lifted at an edge or a corner, have lost their bond with the substrate." },
@@ -708,7 +708,7 @@ window.SITE_CONFIG = {
            permit-holder." The draft's "clearing a blocked pipe" was broader
            than the exemption; narrowed to the plunger wording. */
         { type: "credit", text: "Building and Energy, Plumbing work in your home." },
-        { type: "p", text: "Moving plumbing is also the single largest thing you can do to a bathroom budget. That is covered on the [bathroom tiling and regrouting costs](tiling-cost-perth.html) page." },
+        { type: "p", text: "Moving plumbing is also the single largest thing you can do to a bathroom budget. That is covered alongside [what it costs to tile a bathroom](tiling-cost-perth.html) in the cost guide." },
 
         { type: "h2", text: "Choosing tiles for a wet area" },
         { type: "p", text: "Three things matter more than the look." },
@@ -728,9 +728,10 @@ window.SITE_CONFIG = {
         { type: "p", text: "It is not a repair for a wet area problem. If water is getting past the grout and into the wall or the floor, the grout is a symptom. Grout is not a waterproofing layer. The membrane behind the tiles is, and no amount of new grout will fix a membrane that has failed." },
         { type: "p", text: "Signs the job may be more than regrouting: tiles that sound hollow when tapped, tiles that move, swelling at the base of a wall, or a smell that does not go away." },
         { type: "p", text: "If a shower is leaking, that needs a specialist assessment before anyone quotes a repair." },
-        /* TODO (Brad): the link graph says to vary the second cost guide anchor
-           on this page. The draft uses "bathroom tiling and regrouting costs"
-           both times. Left as drafted rather than reworded. */
+        /* The link graph says to vary the second cost guide anchor on this
+           page. Done 28 Oct 2026 (bathroom v6): the plumbing link above now
+           reads "what it costs to tile a bathroom"; this one stays, because
+           its sentence is about regrouting. */
         { type: "p", text: "Costs for regrouting and where they vary are on the [bathroom tiling and regrouting costs](tiling-cost-perth.html) page. Tiles that are cracked, loose or drummy are a different job, covered under [cracked or drummy tiles](floor-tiling-perth.html)." },
         /* Regrouting close-up, old grout line against fresh. Photo-style,
            synthetic (Gemini, cropped to 1200x800), illustrative only, so no
@@ -878,8 +879,6 @@ window.SITE_CONFIG = {
       metaDescription: "Published Perth figures: $42 to $94 per m2 for a standard floor, $75 to $120 for bathroom work. What is extra, and why two quotes differ.",
       headline: "Tiling Costs in Perth: What Drives the Price",
       ctaText: "Get a quote for your job",
-      ctaHeading: "Working out a budget for a Perth tiling job",
-      ctaBody: "Tell us the room, roughly the area, and what is there now. We will pass it to a Perth tiler who can quote it, and the tiler sets their own price.",
       /* Reformatted 15 Sep 2026 on Brad's instruction to follow Canberra's
          cost guide (canberratilelayers.com.au/tiling-cost-guide-canberra):
          the v2 draft's numbered section headings, "Section 3 below" cross
@@ -915,7 +914,14 @@ window.SITE_CONFIG = {
            impressions) and floor cost (about 150). Was "The headline numbers"
            and "Tiling labour, per square metre". */
         { type: "h2", text: "How much does a tiler cost in Perth?" },
+        /* Answer-first paragraphs added 28 Oct 2026 (cost guide v7), from the
+           Search Console read of 28 Sep to 25 Oct 2026. The hourly one replaces
+           the "Hourly rates agree far better" paragraph that sat under the
+           table; the floor one restates the lead and the FAQ. No figure was
+           added. */
+        { type: "p", text: "Hourly, two Perth sources put a tiler at $50 to $90 and around $60, and a cost guide site at $52 to $105, typically $74. By the square metre, standard floor labour is published at $42 to $94 or $55 to $75, as the table below shows." },
         { type: "h3", text: "Cost to tile a floor, per square metre" },
+        { type: "p", text: "For a standard floor, published Perth labour runs $42 to $94 per square metre (a cost guide site) or $55 to $75 (a Perth supplier), and the same supplier's general tile range adds $20 to $65 per square metre." },
         /* [VERIFY] resolved: all nine rows match figures file Section 2
            (Perth supplier, Perth supplier bathroom, cost guide site, Perth tile
            supplier, Perth builder, Perth tiler, tradie marketplace reclassified
@@ -935,11 +941,6 @@ window.SITE_CONFIG = {
            to $75 and $75 to $120 (Perth supplier), Section 2. "Roughly a third"
            checks: 37 is 33% below 55. */
         { type: "p", text: "Two things stand out. A cost guide site puts standard floor tiling labour in Perth at $42 to $94 per square metre, typically $63. A Perth supplier puts the same work at $55 to $75, and bathroom work at $75 to $120. The bottom of the first range sits roughly a quarter below the bottom of the second. Both were published this year and both say Perth." },
-        /* [VERIFY] resolved: $126 cost guide site; $50 to $90 Perth supplier,
-           around $60 Perth tile supplier, Section 2. (A Perth tiler also gives
-           $50 to $90, so "two Perth sources" understates rather than
-           overstates.) */
-        { type: "p", text: "Hourly rates agree far better. The same cost guide site puts them at $52 to $105, typically $74, and two Perth sources put them at $50 to $90 and around $60." },
 
         { type: "h3", text: "Tiles themselves" },
         /* [VERIFY] resolved: all four rows, figures file Section 3. */
@@ -1210,7 +1211,14 @@ window.SITE_CONFIG = {
           { q: "What does it cost to regrout a shower in Perth?", a: "Two Perth specialists advertise from $250 and from $550, and a national guide puts the average at around $1,500. A \"from\" price is a starting point, not a quote. If the membrane behind the grout has failed, regrouting is the wrong repair. See [bathroom tiling](bathroom-tiling-perth.html)." },
           { q: "Does moving the plumbing add much to a bathroom?", a: "Yes, particularly on a slab. Moving a shower, vanity or floor waste on a concrete slab means cutting the slab first, and a Perth supplier puts that at $2,000 to $6,000 per plumbing point, before any tiling starts." },
           { q: "How much deposit can a tiler ask for in WA?", a: "Where the Home Building Contracts Act 1991 (WA) applies, which is fixed-price home building contracts between $7,500 and $500,000, the deposit is capped at 6.5 per cent of the contract price. The Act names tiling as home building work, and the contract must be in writing and signed by both parties." }
-        ] }
+        ] },
+
+        /* Form added 28 Oct 2026 (v7): the page carried most of the site's
+           impressions and sent enquiries to /about#quote. The heading and
+           paragraph were the CTA band's ctaHeading/ctaBody. */
+        { type: "h2", text: "Working out a budget for a Perth tiling job" },
+        { type: "p", text: "Tell us the room, roughly the area, and what is there now. We will pass it to a Perth tiler who can quote it, and the tiler sets their own price." },
+        { type: "form" }
       ]
     }
   ],

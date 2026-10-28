@@ -1,6 +1,6 @@
 # Home: /
 
-Status: APPROVED | v3, Brad, 16 October 2026 ("do them all"). v2 approved by Brad on 10 October 2026
+Status: APPROVED | v4, Brad, 28 October 2026 ("do all 10"). v3 approved by Brad on 16 October 2026, v2 on 10 October 2026
 
 ## Head
 
@@ -27,6 +27,16 @@ we can get quoted, FAQs about tiling jobs, and the enquiry form at `#quote`.
 One link appended to the Kitchens and laundries line in What we can get
 quoted: "More on [splashbacks](floor-tiling-perth.html)." Part of Brad's
 Splashbacks decision, 8 October 2026. No other change.
+
+## Draft v4, 28 October 2026
+
+Subheadline only: "Perth Tiling Specialists passes your job to a Perth tiler
+who can quote it. New floors, wall tiling, bathroom retiles, regrouting and
+tile repairs." The brand name was in the title, logo and footer but not in the
+page's own copy. In the Search Console, 28 September to 25 October 2026,
+"tiling specialists" sat at 12.1 on /, and "tiling specialists perth" split
+between / (57.4) and /about (46.1). No H2 uses the phrase, because "tiling
+specialists" as a heading reads as a claim to do the work.
 
 ## Draft v3, 16 October 2026
 

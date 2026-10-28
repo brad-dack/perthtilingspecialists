@@ -1,6 +1,6 @@
 # Floor tiling: /floor-tiling-perth
 
-Status: APPROVED | v4, Brad, 10 October 2026
+Status: APPROVED | v5, Brad, 28 October 2026 ("do all 10"). v4 approved by Brad on 10 October 2026
 
 ## Head
 
@@ -53,6 +53,13 @@ or laundry job, `tile splashback perth` is 10 searches a month, and the home
 page TODO already placed kitchens and laundries on this page. The Wall tiling
 paragraph loses its trailing "along with splashbacks". The home page's
 Kitchens and laundries line now links here.
+
+## Draft v5, 28 October 2026
+
+One h2 renamed: "Cracked, loose and drummy tiles" becomes "Replacing cracked,
+loose and drummy tiles". For "tile replacement perth" (60.0) and "floor tiles
+replacement" (83.3), Search Console 28 September to 25 October 2026. No link
+points at the heading, and the home page's link text is unchanged.
 
 ## Draft v4, 10 October 2026
 

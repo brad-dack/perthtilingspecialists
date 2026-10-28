@@ -1,6 +1,6 @@
 # Cost guide: /tiling-cost-perth
 
-Status: APPROVED | v6, Brad, 16 October 2026 ("do them all"). v5 and v4 approved by Brad on 10 October 2026
+Status: APPROVED | v7, Brad, 28 October 2026 ("do all 10"). v6 approved by Brad on 16 October 2026, v5 and v4 on 10 October 2026
 
 ## Head
 
@@ -42,6 +42,30 @@ The `lead` block changed. No figure was added or changed. The blocks are in
 - **Two sentences appended** with internal links: Removal and disposal now
   links the floor page; For repairs, expect a diagnosis now links the bathroom
   page.
+
+## Draft v7, 28 October 2026
+
+From the SEO audit of 28 October 2026 (Search Console 28 September to 25 October 2026, Australia). No figure was added or changed.
+
+- **Form added.** The page carried about 390 of the site's roughly 640
+  impressions and was the only service page without a form; its button went
+  to /about#quote. The CTA band's heading and body ("Working out a budget for
+  a Perth tiling job") are now an h2 and paragraph at the end of the blocks,
+  followed by the form. The band falls back to the default "Ready to get
+  started?" and its button now goes to #quote.
+- **Answer under "How much does a tiler cost in Perth?"**: "Hourly, two Perth
+  sources put a tiler at $50 to $90 and around $60, and a cost guide site at
+  $52 to $105, typically $74. By the square metre, standard floor labour is
+  published at $42 to $94 or $55 to $75, as the table below shows." It
+  replaces the "Hourly rates agree far better" paragraph under the table.
+  For "tiler cost", "how much does a tiler cost" and "how much do tilers
+  charge" (134 impressions at 43 to 79).
+- **Answer under "Cost to tile a floor, per square metre"**: "For a standard
+  floor, published Perth labour runs $42 to $94 per square metre (a cost
+  guide site) or $55 to $75 (a Perth supplier), and the same supplier's
+  general tile range adds $20 to $65 per square metre." For "cost to tile
+  floor", "tiling a floor cost", "price for tiling per m2" and "cost to lay
+  tile" (about 171 impressions at 45 to 77).
 
 ## Draft v6, 16 October 2026
 
