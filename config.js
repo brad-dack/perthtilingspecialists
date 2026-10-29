@@ -921,7 +921,7 @@ window.SITE_CONFIG = {
            added. */
         { type: "p", text: "Hourly, two Perth sources put a tiler at $50 to $90 and around $60, and a cost guide site at $52 to $105, typically $74. By the square metre, standard floor labour is published at $42 to $94 or $55 to $75, as the table below shows." },
         { type: "h3", text: "Cost to tile a floor, per square metre" },
-        { type: "p", text: "For a standard floor, published Perth labour runs $42 to $94 per square metre (a cost guide site) or $55 to $75 (a Perth supplier), and the same supplier's general tile range adds $20 to $65 per square metre." },
+        { type: "p", text: "For a standard floor, published Perth labour runs $42 to $94 per square metre (a cost guide site) or $55 to $75 (a Perth supplier), and the same supplier's general tile range adds $20 to $65 per square metre. Nationally, a guide puts a standard floor at $40 to $180 per square metre." },
         /* [VERIFY] resolved: all nine rows match figures file Section 2
            (Perth supplier, Perth supplier bathroom, cost guide site, Perth tile
            supplier, Perth builder, Perth tiler, tradie marketplace reclassified
@@ -937,9 +937,10 @@ window.SITE_CONFIG = {
           ["National guide", "$40 to $180", "$10 to $30 above floor", "", ""],
           ["Calculator site", "$82 to $148 supply and install. Bathroom $120 to $220", "", "", ""]
         ] },
-        /* [VERIFY] resolved: $37 to $94 avg $58 (cost guide site) against $55
-           to $75 and $75 to $120 (Perth supplier), Section 2. "Roughly a third"
-           checks: 37 is 33% below 55. */
+        /* [VERIFY] resolved: $42 to $94 typically $63 (cost guide site,
+           figures file Section 8, 10 Oct 2026) against $55 to $75 and $75 to
+           $120 (Perth supplier), Section 2. "Roughly a quarter" checks: 42 is
+           24% below 55. */
         { type: "p", text: "Two things stand out. A cost guide site puts standard floor tiling labour in Perth at $42 to $94 per square metre, typically $63. A Perth supplier puts the same work at $55 to $75, and bathroom work at $75 to $120. The bottom of the first range sits roughly a quarter below the bottom of the second. Both were published this year and both say Perth." },
 
         { type: "h3", text: "Tiles themselves" },
@@ -953,14 +954,16 @@ window.SITE_CONFIG = {
         { type: "p", text: "Tile choice is the part of the quote you control most directly, and the gap between the bottom and the top of that table is larger than most people expect." },
 
         { type: "h3", text: "Preparation, removal and repairs" },
-        /* [VERIFY] resolved: all nine rows, figures file Section 3. "Replacing
+        /* [VERIFY] resolved: nine rows, figures file Section 3. "Replacing
            individual tiles" is the file's "Tile replacement, $25 to $50 per m2,
-           Perth builder". */
+           Perth builder". The cost guide site's "Tile removal" row (added 29
+           Oct 2026) is figures file Section 8, 10 Oct 2026. */
         { type: "table", headers: ["Item", "Published figure", "Published by"], rows: [
           ["Self-levelling compound", "$25 to $40 per m2", "National guide"],
           ["Waterproofing, per m2", "$37 to $84 per m2", "Cost guide site"],
           ["Waterproofing, per m2", "$40 to $70 per m2 plus certificate", "National guide"],
           ["Waterproofing, per project", "adds $500 to $1,500", "Perth builder"],
+          ["Tile removal", "$21 to $58 per m2, typically $37", "Cost guide site"],
           ["Tile removal and demolition", "$30 to $60 per m2", "National guide"],
           ["Replacing individual tiles", "$25 to $50 per m2", "Perth builder"],
           ["Minor tile repair call-out", "$150 to $250", "Perth builder"],
@@ -970,6 +973,14 @@ window.SITE_CONFIG = {
         /* [VERIFY] resolved: Section 3 and its note on the two waterproofing
            figures (different units, not a range). */
         { type: "p", text: "Waterproofing is quoted two different ways. A cost guide site prices it per square metre at $37 to $84 in Perth, close to the national $40 to $70. A Perth builder prices it per project at $500 to $1,500. Those are not a range, they are two different units, and a quote that gives you one is not comparable to a quote that gives you the other. Ask which you are being given." },
+
+        /* Added 29 Oct 2026 (cost guide v8), from the SEO audit of 29 Oct
+           2026: tile removal, demolition and removal price queries had no
+           heading on the site. $21 to $58, typically $37, is the cost guide
+           site's Perth tiling page, figures file Section 8 (10 Oct 2026). The
+           national guide and asbestos figures restate rows on this page. */
+        { type: "h3", text: "How much does tile removal cost in Perth?" },
+        { type: "p", text: "A cost guide site puts tile removal in Perth at $21 to $58 per square metre, typically $37, and a national guide puts it at $30 to $60. Tip fees sit on top, and skip pricing follows weight. In a home built before 1990, an old vinyl floor or the sheeting behind wall tiles can contain asbestos, and if anything is suspected it gets tested before it is broken up. A Perth renovation company puts licensed asbestos removal at $2,000 to $8,000 per room. Whether the old floor has to come up at all is covered on our [floor tiling](floor-tiling-perth.html) page." },
 
         { type: "h3", text: "Whole jobs" },
         /* [VERIFY] resolved: $7,500 to $18,500 Perth supplier (Section 3);
@@ -998,7 +1009,14 @@ window.SITE_CONFIG = {
            Tiling on its own). */
         { type: "h2", text: "How much does it cost to tile a bathroom?" },
         { type: "p", text: "Three Perth sources of three different types land on roughly $3,000 to $6,500 for tiling a standard bathroom, and a cost guide site puts it at $2,950 to $7,900, typically $5,250, excluding waterproofing. Per square metre, a Perth supplier puts bathroom tiling labour at $75 to $120, above the $55 to $75 the same supplier gives for a standard floor." },
+        /* h3 added 29 Oct 2026 (cost guide v8): retile bathroom queries sat at
+           74 to 79 with the answer mid-section, and "how much does it cost to
+           retile a shower" is a People also ask question. No shower-only
+           figure exists in the figures file, so the shower paragraph says so
+           rather than giving one. */
+        { type: "h3", text: "How much does it cost to retile a bathroom or a shower?" },
         { type: "p", text: "A retile costs more than tiling a new room because the old tiles come up first, at $30 to $60 per m2 in a national guide, and the waterproofing is redone, quoted either per m2 or per project. The sources for each figure are in the tables on this page. What the job involves, and how to get it quoted by a [bathroom tiler in Perth](bathroom-tiling-perth.html), is on our bathroom page." },
+        { type: "p", text: "No source we collected publishes a price for retiling a shower on its own. The shower is stripped back, rewaterproofed and retiled, and each of those parts is priced in the tables above. Whether a shower can be done without the rest of the room is covered under [bathroom tiling](bathroom-tiling-perth.html)." },
 
         { type: "h2", text: "Bathroom renovation in Perth, side by side" },
         { type: "p", text: "Tiling is one trade inside a bathroom renovation, so the total is the number most people search for first. Here is what Perth and WA sources published in 2026." },
@@ -1210,6 +1228,7 @@ window.SITE_CONFIG = {
           { q: "What does it cost to tile a bathroom, as opposed to renovating one?", a: "Three Perth sources of different types land on roughly $3,000 to $6,500 for tiling a standard bathroom. Published renovation figures for the same room run from $15,667 to $36,750, because they include plumbing, fixtures and other trades, and most of them do not say which." },
           { q: "What does it cost to regrout a shower in Perth?", a: "Two Perth specialists advertise from $250 and from $550, and a national guide puts the average at around $1,500. A \"from\" price is a starting point, not a quote. If the membrane behind the grout has failed, regrouting is the wrong repair. See [bathroom tiling](bathroom-tiling-perth.html)." },
           { q: "Does moving the plumbing add much to a bathroom?", a: "Yes, particularly on a slab. Moving a shower, vanity or floor waste on a concrete slab means cutting the slab first, and a Perth supplier puts that at $2,000 to $6,000 per plumbing point, before any tiling starts." },
+          { q: "How much extra tile should I buy?", a: "Allow 10 to 15 per cent over the measured area, and more for diagonal or herringbone layouts, which produce more cuts. Keep the spares: a later repair depends on a matching tile, and colour can shift between batches." },
           { q: "How much deposit can a tiler ask for in WA?", a: "Where the Home Building Contracts Act 1991 (WA) applies, which is fixed-price home building contracts between $7,500 and $500,000, the deposit is capped at 6.5 per cent of the contract price. The Act names tiling as home building work, and the contract must be in writing and signed by both parties." }
         ] },
 

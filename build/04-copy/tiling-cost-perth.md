@@ -1,6 +1,6 @@
 # Cost guide: /tiling-cost-perth
 
-Status: APPROVED | v7, Brad, 28 October 2026 ("do all 10"). v6 approved by Brad on 16 October 2026, v5 and v4 on 10 October 2026
+Status: APPROVED | v8, Brad, 29 October 2026 ("Do 3, 4, 6, 7, 8"). v7 approved by Brad on 28 October 2026, v6 by Brad on 16 October 2026, v5 and v4 on 10 October 2026
 
 ## Head
 
@@ -42,6 +42,31 @@ The `lead` block changed. No figure was added or changed. The blocks are in
 - **Two sentences appended** with internal links: Removal and disposal now
   links the floor page; For repairs, expect a diagnosis now links the bathroom
   page.
+
+## Draft v8, 29 October 2026
+
+From the SEO audit of 29 October 2026 (Search Console 29 September to 26
+October 2026, Australia, People also ask and local keyword ideas). One figure
+is new to the page: the cost guide site's tile removal rate, $21 to $58 per m2,
+typically $37, from figures file Section 8 (collected 10 October 2026). Every
+other figure restates a row already on the page.
+
+- **New h3 "How much does tile removal cost in Perth?"** after the
+  preparation table, with a matching "Tile removal" row in that table. Tile
+  removal, demolition and removal price queries (about 90 a month in Perth,
+  difficulty 0, estimates) had no heading on the site. Restates the national
+  guide removal range and the asbestos paragraph's licensed removal figure,
+  and links the floor page.
+- **New h3 "How much does it cost to retile a bathroom or a shower?"** over
+  the existing retile paragraph, plus one paragraph saying no collected source
+  prices a shower retile on its own and pointing at the tables. Links the
+  bathroom page.
+- **National guide sentence** added to the answer under "Cost to tile a floor,
+  per square metre": $40 to $180, the labour table's National guide row.
+- **New FAQ "How much extra tile should I buy?"**: the 10 to 15 per cent
+  wastage row and the home page's spare tiles answer.
+- **Not done:** a day rate. No Perth day rate is in the figures file, and one
+  will not be derived from the hourly rates.
 
 ## Draft v7, 28 October 2026
 
